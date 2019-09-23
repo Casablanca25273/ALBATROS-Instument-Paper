@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ALBATROS_Paper.aux
+The style file: apalike.bst
+Database file #1: ALBATROS_Paper.bib
+Warning--empty journal in 2013PhRvD..87d3002L
+Warning--empty journal in 2014ApJ...782...66P
+You've used 5 entries,
+            1935 wiz_defined-function locations,
+            502 strings with 6304 characters,
+and the built_in function-call counts, 4997 in all, are:
+= -- 423
+> -- 495
+< -- 2
++ -- 192
+- -- 192
+* -- 482
+:= -- 861
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 121
+chr.to.int$ -- 5
+cite$ -- 7
+duplicate$ -- 135
+empty$ -- 152
+format.name$ -- 197
+if$ -- 945
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 5
+newline$ -- 28
+num.names$ -- 15
+pop$ -- 123
+preamble$ -- 1
+purify$ -- 121
+quote$ -- 0
+skip$ -- 145
+stack$ -- 0
+substring$ -- 148
+swap$ -- 69
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 30
+warning$ -- 2
+while$ -- 14
+width$ -- 0
+write$ -- 64
+(There were 2 warnings)
