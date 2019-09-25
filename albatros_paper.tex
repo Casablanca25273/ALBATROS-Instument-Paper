@@ -1,107 +1,107 @@
-\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Trim Size : 11in x 8.5in
+%% Text Area : 9.6in (include Runningheads) x 7in
+%% ws-jai.tex, 26 April 2012
+%% Tex file to use with ws-jai.cls written in Latex2E.
+%% The content, structure, format and layout of this style file is the
+%% property of World Scientific Publishing Co. Pte. Ltd.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+
+%\documentclass[draft]{ws-jai}
+\documentclass{ws-jai}
+\usepackage[flushleft]{threeparttable}
 \usepackage{siunitx}
 \usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage[bottom]{footmisc}
-%\usepackage{palatino}
-%\usepackage{wrapfig}
-\usepackage{graphicx}
-\usepackage{url}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-%\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-%\usepackage[small,compact]{titlesec}
-\usepackage{setspace}
-\usepackage{hyperref,cleveref}
-\usepackage{cite}
-\usepackage{color}
-%\usepackage{tikz}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{siunitx}
-%\usepackage{natbib}
-\usepackage[authoryear]{natbib}
 \usepackage{gensymb}
-%\usepackage{lipsum}
-\topmargin 0.0cm
-\oddsidemargin 0.2cm
-\textwidth 16cm 
-\textheight 21cm
-\footskip 1.0cm
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
 
-\newenvironment{sciabstract}{%
-\begin{quote} }
-{\end{quote}}
 
-\title{Title} 
+\begin{document}
 
-\author
-{Author 1,$^{1\ast}$ Author 2,$^{1}$ Author 3$^{2}$\\
-\\
-\normalsize{$^{1}$Department, University and Address 1}\\
-\normalsize{$^{2}$Department, University and Address 2}\\
+\catchline{}{}{}{}{} % Publisher's Area please ignore
+
+\markboth{Author's Name}{Paper Title}
+
+\title{Instructions for Typesetting Manuscript\\
+Using \LaTeX\footnote{For the title, try not to use more than
+three lines. Typeset the title in 11 pt Times Roman,
+boldface, with the first letter of important words capitalized.}}
+
+\author{First Author$^{2}$, Second Author$^{3}$, Third Author$^{3}$ and Fourth Author$^{4}$}
+
+\address{
+$^{2}$Department, University Name, City, State ZIP/Zone, Country, fauthor@university.com\\
+$^{3}$Group, Company, Address, City, State ZIP/Zone, Country\\
+$^{4}$Group, Company, Address, City, State ZIP/Zone, Country, fauthor@company.com
 }
 
-\begin{document} 
+\maketitle
 
-% Double-space the manuscript.
+\corres{$^{2}$Corresponding author.}
 
-\baselineskip24pt
+\begin{history}
+\received{(to be inserted by publisher)};
+\revised{(to be inserted by publisher)};
+\accepted{(to be inserted by publisher)};
+\end{history}
 
-% Make the title.
+\begin{abstract}
+The low frequency radio astronomy has the highest potential in discovering the history of the Universe, this includes observations of the first stars and the mapping of dark ages. The Array of Long Baseline Antennas for Taking Radio Observations from the Sub-Antarctic (ALBATROS) is a new interferometric array. It consists of autonomous antenna stations that will map the low-frequency sky from Marion Island. One autonomous station was deployed in Marion Island in April 2019. The operating frequency range is \SIrange{1.2}{81}{\MHz} with baselines of $\approx \SI{20}{\km}$. A two element inteferometer, the ALBATROS - Exploratory Gizmo on the Ground (ALBATROS-EGG) was deployed in Marion Island in April 2018. So far, the inteferometer is functional and is detecting different sources. \\
+\end{abstract}
 
-\maketitle 
+\keywords{Keyword 1; keyword 2; keyword 3.}
 
-\begin{sciabstract}
-    The low frequency radio astronomy has the highest potential in discovering the history of the Universe, this includes observations of the first stars and the mapping of dark ages. The Array of Long Baseline Antennas for Taking Radio Observations from the Sub-Antarctic (ALBATROS) is a new interferometric array. It consists of autonomous antenna stations that will map the low-frequency sky from Marion Island. One autonomous station was deployed in Marion Island in April 2019. The operating frequency range is 1.2–81 MHz with baselines of $\approx$20 km. A two element inteferometer, the ALBATROS - Exploratory Gizmo on the Ground (ALBATROS-EGG) was deployed in Marion Island in April 2018. So far, the inteferometer is functional and is detecting different sources. \\
-\end{sciabstract}
+\section{Introduction}
+\noindent The \SI{21}{\cm} wavelength of hydrogen gas is being observed by several experiments which are modelled for the purpose of Hydrogen mapping in our Universe. This hydrogen line is a significant mechanism as it helps in the probing of the dark ages to the epoch of reionization (EoR) \cite{2013PhRvD..87d3002L,2014ApJ...782...66P}.\\
 
+Comprehensive reviews of experimental efforts exist elsewhere but none of them have made measurements at the lowest frequencies of $\lessapprox$ \SI{30}{\MHz}. This is due to the challenges namely, the ionospheric effects, radio frequency intereference (RFI), Galactic emission and instrumental systematics which is non transparent below \SI{10}{\MHz} \cite{2019JAI.....850004P}. Two of these experiments represent the lowest frequencies measured to date (Reber’s antenna, RAE-2), and the other two represent the highest resolutions achieved in this frequency range (DRAO, OVRO-LWA).\\
 
-\section*{Introduction}
-The 21 cm wavelength of hydrogen gas is being observed by several experiments which are modelled for the purpose of Hydrogen mapping in our Universe. This hydrogen line is a significant mechanism as it helps in the probing of the dark ages to the epoch of reionization (EoR)  \citep{2013PhRvD..87d3002L,2014ApJ...782...66P}.
-
-Comprehensive reviews of experimental efforts exist elsewhere but none of them have made measurements at the lowest frequencies of $\lessapprox$ 30 MHz. This is due to the challenges namely, the ionospheric effects, radio frequency intereference (RFI), Galactic emission and instrumental systematics \citep{2018arXiv180609531P}. Two of these experiments represent the lowest frequencies measured to date (Reber’s antenna, RAE-B), and the other two represent the highest resolutions achieved in this frequency range (DRAO, OVRO-LWA).\\
-
-Measurements of the radio sky at $\approx$ 100 MHz and below have the capability of unlocking the new observational window in the history of the universe. At the lowest frequencies (tens of MHz), subsequent observations may permit us to probe the cosmic "dark ages," one day, which is an epoch that is obscure to date \citep{2019arXiv190710853C}. The state of the art among ground-based measurements dates from the 1960s, when Grote Reber caught brief glimpses of the $\approx$ 2 MHz sky at low resolution. This paper will describe a new project that aims to map the low-frequency sky from Marion island using an array of autonomous antenna stations. The final array will consist of  $\approx$ 10 antennas operating at 1.2-81 MHz with baselines up to 20 km. A two-element pathfinder was deployed in April 2018, the first autonomous station was deployed in April 2019 and there'll be discussion of the preliminary observations and upcoming hardware development plans.
-
-
-
+Grote Reber came up with the state of art by constructing a telescope which operated at very low frequencies between 0.52 MHz and 2.1 MHz, which had 192 dipoles. At \SI{2.1}{\MHz} it had a resolution of as low as $\approx$ 5 \degree. The key map of the sky was created by this experiment at \SI{2.1}{\MHz}. He also mentioned that his measurements were influenced by galactic emission and the ionosphere \cite{article, 1988A&A...195..372W}. The Radio Astronomoy Explorer-2 (RAE-2) have very low operating frequency ranges between \SIrange{0.025}{13}{\MHz}, it main science goal was to do radio astronomy evaluation of our Galaxy (the Milkyway), the Sun and all the planets including Earth. The resolution of this experiment is $\approx$ 10 \degree at \SI{4.7}{\MHz} \cite{1975A&A....40..365A}. Both of these experiments made very low resolution measurements.\\
 
 
-
-\section*{Overview of the Instrument}
-	\citep{2019arXiv190804296K}
-
-\section*{Pathfinder Installations and Preliminary Observations}
+The experiments which made the high resolution measurements are the  Dominion Radio Astrophysical Observatory (DRAO) \SI{22}{\MHz} telescope and the OVRO-LWA \SI{36}{\MHz} experiment. The DRAO telescope operated at \SI{22}{\MHz} and its resolution ranges between $\approx$ \SIrange{1.1}{1.7}{\degree}. Its main science goal was to measure the emission from discrete sources and to observe our Galaxy's emission from its environment \cite{1999A&AS..137....7R}. The OVRO-LWA operates at frequency ranges of 36.528 MHz and 73.152 MHz. At these frequencies it has an angular resolution of \SI{15}{\arcminute} \cite{2018AJ....156...32E}. ALBATROS aims at attempting to do high resolution measurements at a frequency of $<$20 MHz which do not yet exist.\\
+	
+Measurements of the radio sky at $\approx$ 100 MHz and below have the capability of unlocking the new observational window in the history of the universe. At the lowest frequencies (tens of MHz), subsequent observations may permit us to probe the cosmic "dark ages," one day, which is an epoch that is obscure to date \cite{2019arXiv190710853C, 2019arXiv190804296K}. This paper will describe a new project that aims to map the low-frequency sky from Marion island using an array of autonomous antenna stations. The final array will consist of  $\approx$ 10 antennas operating at 1.2-81 MHz with baselines up to 20 km. A two-element pathfinder was deployed in April 2018, the first autonomous station was deployed in April 2019 and there'll be discussion of the preliminary observations and upcoming hardware development plans.
 
 
-\section*{Future Work}
+\section{Overview of the Instrument}
+
+
+\cite{2019arXiv190804296K}
+
+\section{Pathfinder Installations and Preliminary Observations}
+	
+	
+	
+	
+\section{Future Work}
+	
+\section*{Acknowledgments}
+	
+\begin{thebibliography}{9}
+
+\bibitem[Liu {et al.}(2013)]{2013PhRvD..87d3002L} Liu, A., Pritchard, J.~R., Tegmark, M., {\it et al.} [2013], {\bf 87}, 043002
+
+\bibitem[Pober {et al.}(2014)]{2014ApJ...782...66P} Pober, J.~C., Liu, A., Dillon, J.~S., {\it et al.} [2014], {\bf 782}, 66
+
+\bibitem[Philip {et al.}(2019)]{2019JAI.....850004P} Philip, L., Abdurashidova, Z., Chiang, H.~C., {\it et al.} [2019], Journal of Astronomical Instrumentation, {\bf 8}, 19500
+
+\bibitem[Chen {et al.}(2019)]{2019arXiv190710853C} Chen, X., Burns, J., Koopmans, L., {\it et al.} [2019], arXiv e-prints, arXiv:1907.10853
+
+\bibitem[Koopmans {et al.}(2019)]{2019arXiv190804296K} Koopmans, L., Barkana, R., Bentum, M., {\it et al.} [2019], arXiv e-prints, arXiv:1908.04296
+
+\bibitem[Weiler {et al.}(1988)]{1988A&A...195..372W} Weiler, K.~W., Johnston, K.~J., Simon, R.~S., {\it et al.} [1988], {\it aap\/}, {\bf 195}, 372
+
+\bibitem[George {et al.}(2018)] {article} George, M., Orchiston, W., Wielebinsk, R., {\it et al.} [2018], Journal of Astronomical History and Heritage, {\bf 21}, 37
+
+\bibitem[Alexander et al.(1975)]{1975A&A....40..365A} Alexander, J.~K., Kaiser, M.~L., Novaco, J.~C., et al.\ 1975, {\it aap\/}, {\bf 40}, 365
+
+\bibitem[Roger et al.(1999)]{1999A&AS..137....7R} Roger, R.~S., Costain, C.~H., Landecker, T.~L., et al.\ 1999, {\it aaps\/}, {\bf 137}, 7
+
+\bibitem[Eastwood et al.(2018)]{2018AJ....156...32E} Eastwood, M.~W., Anderson, M.~M., Monroe, R.~M., et al.\ 2018, {\it aj\/}, {\bf 156}, 32
 
 
 
-\newpage		
-\bibliography{ALBATROS_Paper}		
-\bibliographystyle{apalike}
-
+\end{thebibliography}
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
