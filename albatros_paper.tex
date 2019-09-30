@@ -15,6 +15,12 @@
 \usepackage{amsmath}
 \usepackage{gensymb}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[bottom]{footmisc}
+\usepackage{url}
+
 
 
 \begin{document}
@@ -47,7 +53,7 @@ $^{4}$Group, Company, Address, City, State ZIP/Zone, Country, fauthor@company.co
 \end{history}
 
 \begin{abstract}
-The low frequency radio astronomy has the highest potential in discovering the history of the Universe, this includes observations of the first stars and the mapping of dark ages. The Array of Long Baseline Antennas for Taking Radio Observations from the Sub-Antarctic (ALBATROS) is a new interferometric array. It consists of autonomous antenna stations that will map the low-frequency sky from Marion Island. One autonomous station was deployed in Marion Island in April 2019. The operating frequency range is \SIrange{1.2}{81}{\MHz} with baselines of $\approx \SI{20}{\km}$. A two element inteferometer, the ALBATROS - Exploratory Gizmo on the Ground (ALBATROS-EGG) was deployed in Marion Island in April 2018. So far, the inteferometer is functional and is detecting different sources. \\
+The low frequency radio astronomy has the highest potential in discovering the history of the Universe, this includes observations of the first stars and the mapping of dark ages. The Array of Long Baseline Antennas for Taking Radio Observations from the Sub-Antarctic (ALBATROS) is a new interferometric array. It consists of autonomous antenna stations that will map the low-frequency sky from Marion Island. One autonomous station was deployed in Marion Island in April 2019. The operating frequency range is \SIrange{1.2}{81}{\MHz} with baselines of $\approx \SI{20}{\km}$. A two element inteferometer, the ALBATROS - Exploratory Gizmo on the Ground (ALBATROS-EGG) was deployed in Marion Island in April 2018. \\
 \end{abstract}
 
 \keywords{Keyword 1; keyword 2; keyword 3.}
@@ -67,17 +73,122 @@ Measurements of the radio sky at $\approx$ 100 MHz and below have the capability
 
 \section{Overview of the Instrument}
 
+%The ALBATROS-EGG schematic is shown in \autoref{Fig:ALBATROS-EGG Schematic}. The system uses the dual polarisation dipole like antennas which are omidirectionally patterned. The front end electonics (FEE) are configured in a printed circuit board (PCB) which makes it easy for them to be mounted on the supporting structure of the antennas. The gain of the FEE is $\approx$35 dB and its noise figure (NF) ranges between $\approx$2.7 dB and 2.9 dB. From the FEE PCB, a coaxial cable sends the signal thnrough to the bias tee which extracts both the RF and the DC without any degradation. \newline The high pass and the low pass filter rejects the low frequency signals and high frequency signals respectively. The signal is then amplified by a $\approx$20 dB amplifier which then send the amplified signals to the Smart Network ADC Processor (SNAP) board which does the readouts and does a series of processing step. The raspberry pi interacts with the SNAP board for data storage. 
+%
+%
+%\begin{figure}[!ht]
+%	\begin{center}
+%		\includegraphics[width=0.9\linewidth]{Figures/ALBATROS-EGG-Schematic.PNG}
+%		\caption{ALBATROS - EGG pathfinder schematic which consists of the dual polarisation antennas, the 35 dB gain FEE, the 100 m coaxial cable which connects the FEE to the back end Faraday cage which comprises of the bias tee, HPF, LPF, amplifier, snap board and regulated voltage outputs which are powered by 12 VDC batteries.}
+%		\label{Fig:ALBATROS-EGG Schematic}
+%	\end{center}
+%\end{figure}
+%
+%
+%
+The ALBATROS-EGG is a two element inteferometer which is making exploratory measurements at a frequency range of \SI{1.2}{MHz}- \SI{81}{MHz} separated by a baseline of \SI{110}{m}. It was deployed in Marion Island in April 2018 as shown in \autoref{Fig:ALBATROS-EGG}. This experiment (ALBATROS-EGG) uses the Long Wavelength Array (LWA) hardware.\\
 
-\cite{2019arXiv190804296K}
+The final project (ALBATROS) will consist of autonomous antenna stations that will map the low frequency sky. Since these experiments are exploratory, they are taking steps towards achieving the future objective of probing the Dark Ages.The ALBATROS stations (huts) will be separated by baselines of \SI{\approx {20}}{km} as shown in \autoref{Fig:Marion}. The two-element interferomentric pathfinder is not yet operating autonomously, it uses the direct cross correlation technique whereas the yet to be ALBATROS will write the lowest 10 - 20 MHz baseband to disk then gets correlated afterwards. One ALBATROS fully autonomous station was deployed in Marion Island in April 2019 as shown in \autoref{Fig:autonomous}. \\
+
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.7\linewidth]{Figures/ALBATROS-EGG.PNG}
+			\caption{The ALBATROS-EGG pathfinder on Marion Island. The pathfinder comprises two dual-polarization antennas separated by roughly 110 m on an east-west baseline. Long coaxial cables connect the antennas to	an orange shipping container that houses the readout electronics and serves as our "command module".}
+			\label{Fig:ALBATROS-EGG}
+		\end{center}
+	\end{figure}
+
+
+The single antenna analog signal chain is shown in \autoref{Fig:Signal Chain}. The components of the system are discussed in detail as per the block diagram illustrated in \autoref{Fig:Signal Chain}. This analog signal chain is a an illustration of how the first autonomous station is configured. There might be changes to the block diagram at a later stage should there be a need to revise it for the stations.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=1.0\linewidth]{Figures/Signal-Chain.png}
+		\caption{Analog signal chain block diagram for the newly deployed autonomous station the ALBATROS}
+		\label{Fig:Signal Chain}
+	\end{center}
+\end{figure}
+
+\subsection{Antenna}	
+The system uses the dual polarisation dipole like antennas which are omidirectionally patterned. The dipole like antennas are of high preference for this project because they are relatively simple and they are omnidirectionally patterned \cite{Memo28}.
+
+\subsection{Front End Electronics (FEE)}
+All the front end components were incorporated for in a double sided printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the block diagram is shown in \autoref{Fig:Balun Schematic}. The Monolithic Microwave Integrated Circuits (MMICs) is the used design for the PCB. One side of the PCB is populated with components and the other side is a solid copper ground plane aperiodically stitched to the grounded copper on the side populated with components. The receiver system is made up of the active balun, filter and the gain stage that connects to the \SI{100}{m} coaxial cable which is connected to the back end \cite{2012PASP..124.1090H}.\\ 
+The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is introduced to the dipole by the active balun. The signal is then fed through an amplifier which amplifies it by +24 dB of gain. The balanced signal is then converted to unbalanced through a 180 \degree hybrid coupler. The band pass filter (BPF) receives the single ended signal in order for it to reject all the frequencies which are not within the range of interest. The signal gets fed to a second amplifier which again amplies it by +24 dB of gain and the output impedance of the FEE is matched to a \SI{50}{\ohm} coaxial cable. The bias tee is responsible for providing power to the FEE and extracts the RF signal by the use of the coaxial cable. This unit has an overall gain of $\approx$ 35 dB and an overall noise figure of $\approx$ 2.7 dB to $\approx$ 2.9 dB \cite{Memo35}.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{Figures/balun.jpg}
+		\caption{Unenclosed FEE mounted on the ALBATROS-EGG antenna supporting structure.} 
+		\label{Fig:Balun}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{Figures/Balun_Block.png}
+		\caption{One Polarisation Block Diagram of the FEE \cite{2012PASP..124.1090H}}
+		\label{Fig:Balun Schematic}
+	\end{center}
+\end{figure}
+
+\subsection{Back End Electronics}	
+The back end electronics consists of the bias tee, high pass filter (HPF), low pass filter (LPF) and the Smart Network ADC Processor (SNAP) board. \\
+
+\textbf{Bias Tee} - The bias tee is a network made up of 3 ports \footnote{https://www.pasternack.com/bias-tees-category.aspx}. It is used to extract the RF signal from a \SI{100}{m} LMR400 coaxial cable which has a nominal attenuation of \SI{\approx 0.4}{dB/\SI{100}{m}} - \SI{\approx 3.7}{dB/\SI{100}{m}} at \SI{1.2}{MHz} - \SI{81}{MHz} respectively \footnote{https://www.timesmicrowave.com/documents/resources/LMR-400.pdf}. The bias tee which is used is the Mini Circuits device ZFBT-4R2GW-FT+ which operates between \SI{0.14}{MHz} - \SI{4200}{MHz}. It has an insertion loss of 0.16 dB at centre frequency of  \SI{\approx 10}{MHz} as per the datasheet \footnote{https://www.minicircuits.com/pdfs/ZFBT-4R2GW-FT+.pdf}.\\
+
+\textbf{HPF} - The HPF rejects any signals with low frequencies and allow through signals with high frequencies \footnote{http://www.learningaboutelectronics.com/Articles/High-pass-filter.php}. The HPF used is the ZFHP-1R2+ Mini Circuits device which operates between  \SI{1.2}{MHz} - \SI{800}{MHz}. It has a nominal insertion loss of $\approx$ 0.2 dB at centre frequency of  \SI{\approx10}{MHz} as per the datasheet \footnote{https://www.minicircuits.com/pdfs/ZFHP-1R2+.pdf}.\\
+
+\textbf{LPF} - The LPF rejects all signals with high frequencies and allows all signals with low frequencies \footnote{http://www.learningaboutelectronics.com/Articles/Low-pass-filter.php}. The LPF used is the SLP-90+ Mini Circuits device which operates between \SI{1}{MHz} - \SI{400}{MHz}. It has a nominal insertion loss of $\approx$ 0.14 dB at the centre frequency of  \SI{\approx 10}{MHz} \footnote{https://www.minicircuits.com/pdfs/SLP-90+.pdf}.\\
+
+\textbf{Amplifier} - The amplifier at the backend amplifies the signal which is sent through to the snapboard by the gain of +20 dB. The amplifier used is the Mini Circuits device ZX60-V63+ which operates at a frequency range of \SI{0.05}{GHz} - \SI{6}{GHz}. It has a noise figure of $\approx$ 3.6 dB at its lowest operating frequency of \SI{\approx 50}{MHz} \footnote{https://www.minicircuits.com/pdfs/ZX60-V63+.pdf}.\\
+
+\textbf{SNAP Board} - The SNAP board used is specified by Xilinx Inc. \footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}. The  SNAP board samples the signals it receives by 250 Msampl/s using internal ADCs where the signal of the clock is from the Valon 5007 frerquency synthesizer module. This creates a frequency range between 0 - 125 MHz which contains 2048 channels. A SNAP board interacts with a raspberry pi and that is where the data is saved.\\
+
+\subsection{Solar Power Supply System}
+
+
 
 \section{Pathfinder Installations and Preliminary Observations}
 	
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=1\linewidth]{Figures/autonomous.jpg}
+			\caption{}
+			\label{Fig:autonomous}
+		\end{center}
+	\end{figure}
 	
 	
 	
 \section{Future Work}
+
+Marion Island huts which are potential stations for the ALBATROS have a ring-like pattern which is appropriate for imaging and produces a FWHM synthesized beam of 8' at 5 MHz as shown in \autoref{Fig:10}. This beam is a notable advancement over existing measurements to date.The ALBATROS main goal thus far will be to attempt to map high resolutions at low frequencies which is crucial before moving to measuring the dark ages.
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{Figures/site.PNG}
+		\caption{Marion Island huts which are potential stations for the ALBATROS. The ring-like pattern is appropriate for imaging and produces a FWHM synthesized beam of 8' at 5 MHz.}
+		\label{Fig:Marion}
+	\end{subfigure}%
+	~~~			
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{Figures/beam.png}
+		\caption{Omnidirectional, dome shaped beam pattern which promises an improved resolution over the existing experiments to date.}
+		\label{Fig:beam}
+	\end{subfigure}
+	\caption{Potential stations and a beam encouraging enough to implement ALBATROS experiment}
+	\label{Fig:10}
+\end{figure}
+
+
 	
 \section*{Acknowledgments}
+
 	
 \begin{thebibliography}{9}
 
@@ -87,7 +198,11 @@ Measurements of the radio sky at $\approx$ 100 MHz and below have the capability
 
 \bibitem[Eastwood et al.(2018)]{2018AJ....156...32E} Eastwood, M.~W., Anderson, M.~M., Monroe, R.~M., et al.\ 2018, {\it aj\/}, {\bf 156}, 32
 
+\bibitem[Ellingson and Kramer (2004)]{Memo28} Ellingson, S.~W., {Kramer}, W.~T. \ 2004, {\it Long Wavelength Array Memo (28)}
+
 \bibitem[George {et al.}(2018)] {article} George, M., Orchiston, W., Wielebinsk, R., {\it et al.} [2018], Journal of Astronomical History and Heritage, {\bf 21}, 37
+
+\bibitem[Hicks et al.(2012)]{2012PASP..124.1090H} Hicks, B.~C., Paravastu-Dalal, N., Stewart, K.~P., et al.\ 2012, {\it pasp\/}, {\bf 124}, 1090
 
 \bibitem[Koopmans {et al.}(2019)]{2019arXiv190804296K} Koopmans, L., Barkana, R., Bentum, M., {\it et al.} [2019], arXiv e-prints, arXiv:1908.04296
 
@@ -96,6 +211,8 @@ Measurements of the radio sky at $\approx$ 100 MHz and below have the capability
 \bibitem[Philip {et al.}(2019)]{2019JAI.....850004P} Philip, L., Abdurashidova, Z., Chiang, H.~C., {\it et al.} [2019], Journal of Astronomical Instrumentation, {\bf 8}, 19500
 
 \bibitem[Pober {et al.}(2014)]{2014ApJ...782...66P} Pober, J.~C., Liu, A., Dillon, J.~S., {\it et al.} [2014], {\bf 782}, 66
+
+\bibitem[Ray et al.(2006)]{Memo35} Ray, P.~S., Ellingson, S.~W., Fisher R., {\it et al.} [2006] {\it Long Wavelength Array Memo (35)}
 
 \bibitem[Roger et al.(1999)]{1999A&AS..137....7R} Roger, R.~S., Costain, C.~H., Landecker, T.~L., et al.\ 1999, {\it aaps\/}, {\bf 137}, 7
 
