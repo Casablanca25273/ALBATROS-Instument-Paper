@@ -113,8 +113,8 @@ The single antenna analog signal chain is shown in \autoref{Fig:Signal Chain}. T
 The system uses the dual polarisation dipole like antennas which are omidirectionally patterned. The dipole like antennas are of high preference for this project because they are relatively simple and they are omnidirectionally patterned \cite{Memo28}.
 
 \subsection{Front End Electronics (FEE)}
-All the front end components were incorporated for in a double sided printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the block diagram is shown in \autoref{Fig:Balun Schematic}. The Monolithic Microwave Integrated Circuits (MMICs) is the used design for the PCB. One side of the PCB is populated with components and the other side is a solid copper ground plane aperiodically stitched to the grounded copper on the side populated with components. The receiver system is made up of the active balun, filter and the gain stage that connects to the \SI{100}{m} coaxial cable which is connected to the back end \cite{2012PASP..124.1090H}.\\ 
-The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is introduced to the dipole by the active balun. The signal is then fed through an amplifier which amplifies it by +24 dB of gain. The balanced signal is then converted to unbalanced through a 180 \degree hybrid coupler. The band pass filter (BPF) receives the single ended signal in order for it to reject all the frequencies which are not within the range of interest. The signal gets fed to a second amplifier which again amplies it by +24 dB of gain and the output impedance of the FEE is matched to a \SI{50}{\ohm} coaxial cable. The bias tee is responsible for providing power to the FEE and extracts the RF signal by the use of the coaxial cable. This unit has an overall gain of $\approx$ 35 dB and an overall noise figure of $\approx$ 2.7 dB to $\approx$ 2.9 dB \cite{Memo35}.
+All the front end components were incorporated for in a double sided printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the block diagram is shown in \autoref{Fig:Balun Schematic}. The Monolithic Microwave Integrated Circuits (MMICs) is the used design for the PCB. One side of the PCB is populated with components and the other side is a solid copper ground plane aperiodically stitched to the grounded copper on the side populated with components. The receiver system is made up of the active balun, filter and the gain stage that connects to the \SI{100}{\metre} coaxial cable which is connected to the back end \cite{2012PASP..124.1090H}.\\ 
+The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is introduced to the dipole by the active balun. The signal is then fed through an amplifier which amplifies it by \SI{+24}{\decibel} of gain. The balanced signal is then converted to unbalanced through a 180 \degree hybrid coupler. The band pass filter (BPF) receives the single ended signal in order for it to reject all the frequencies which are not within the range of interest. The signal gets fed to a second amplifier which again amplies it by \SI{+24}{\decibel} of gain and the output impedance of the FEE is matched to a \SI{50}{\ohm} coaxial cable. The bias tee is responsible for providing power to the FEE and extracts the RF signal by the use of the coaxial cable. This unit has an overall gain of $\approx$ \SI{35}{\decibel} and an overall noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$ \SI{2.9}{\decibel} \cite{Memo35}.
 
 \begin{figure}[h]
 	\begin{center}
@@ -135,22 +135,34 @@ The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is introduced to the d
 \subsection{Back End Electronics}	
 The back end electronics consists of the bias tee, high pass filter (HPF), low pass filter (LPF) and the Smart Network ADC Processor (SNAP) board. \\
 
-\textbf{Bias Tee} - It is used to extract the RF signal from a \SI{100}{m} LMR400 coaxial cable which has a nominal attenuation of \SI{\approx 0.4}{dB/\SI{100}{m}} - \SI{\approx 3.7}{dB/\SI{100}{m}} at \SI{1.2}{MHz} - \SI{81}{MHz} respectively \footnote{https://www.timesmicrowave.com/documents/resources/LMR-400.pdf}. The bias tee which is used is the Mini Circuits device ZFBT-4R2GW-FT+ which operates between \SI{0.14}{MHz} - \SI{4200}{MHz}. It has an insertion loss of 0.16 dB at centre frequency of  \SI{\approx 10}{MHz} as per the datasheet \footnote{https://www.minicircuits.com/pdfs/ZFBT-4R2GW-FT+.pdf}.\\
+\textbf{Bias Tee} - It is used to extract the RF signal from a \SI{100}{\metre} LMR400 coaxial cable which has a nominal attenuation of \SI{\approx 0.4}{\decibel/\SI{100}{m}} - \SI{\approx 3.7}{dB/\SI{100}{\metre}} at \SI{1.2}{MHz} - \SI{81}{MHz} respectively \footnote{https://www.timesmicrowave.com/documents/resources/LMR-400.pdf}. The bias tee which is used is the Mini Circuits device ZFBT-4R2GW-FT+ which operates between \SI{0.14}{MHz} - \SI{4200}{MHz}. It has an insertion loss of \SI{0.16}{\decibel} at centre frequency of  \SI{\approx 10}{MHz} as per the datasheet \footnote{https://www.minicircuits.com/pdfs/ZFBT-4R2GW-FT+.pdf}.\\
 
-\textbf{HPF} - The HPF rejects any signals with low frequencies and allow through signals with high frequencies \footnote{http://www.learningaboutelectronics.com/Articles/High-pass-filter.php}. The HPF used is the ZFHP-1R2+ Mini Circuits device which operates between  \SI{1.2}{MHz} - \SI{800}{MHz}. It has a nominal insertion loss of $\approx$ 0.2 dB at centre frequency of  \SI{\approx10}{MHz} as per the datasheet \footnote{https://www.minicircuits.com/pdfs/ZFHP-1R2+.pdf}.\\
+\textbf{HPF} - The HPF rejects any signals with low frequencies and allow through signals with high frequencies \footnote{http://www.learningaboutelectronics.com/Articles/High-pass-filter.php}. The HPF used is the ZFHP-1R2+ Mini Circuits device which operates between  \SI{1.2}{MHz} - \SI{800}{MHz}. It has a nominal insertion loss of $\approx$ \SI{0.2}{\decibel} at centre frequency of  \SI{\approx10}{MHz} as per the datasheet \footnote{https://www.minicircuits.com/pdfs/ZFHP-1R2+.pdf}.\\
 
-\textbf{LPF} - The LPF rejects all signals with high frequencies and allows all signals with low frequencies \footnote{http://www.learningaboutelectronics.com/Articles/Low-pass-filter.php}. The LPF used is the SLP-90+ Mini Circuits device which operates between \SI{1}{MHz} - \SI{400}{MHz}. It has a nominal insertion loss of $\approx$ 0.14 dB at the centre frequency of  \SI{\approx 10}{MHz} \footnote{https://www.minicircuits.com/pdfs/SLP-90+.pdf}.\\
+\textbf{LPF} - The LPF rejects all signals with high frequencies and allows all signals with low frequencies \footnote{http://www.learningaboutelectronics.com/Articles/Low-pass-filter.php}. The LPF used is the SLP-90+ Mini Circuits device which operates between \SI{1}{MHz} - \SI{400}{MHz}. It has a nominal insertion loss of $\approx$ \SI{0.14}{\decibel} at the centre frequency of  \SI{\approx 10}{MHz} \footnote{https://www.minicircuits.com/pdfs/SLP-90+.pdf}.\\
 
-\textbf{Amplifier} - The amplifier at the backend amplifies the signal which is sent through to the snapboard by the gain of +20 dB. The amplifier used is the Mini Circuits device ZX60-V63+ which operates at a frequency range of \SI{0.05}{GHz} - \SI{6}{GHz}. It has a noise figure of $\approx$ 3.6 dB at its lowest operating frequency of \SI{\approx 50}{MHz} \footnote{https://www.minicircuits.com/pdfs/ZX60-V63+.pdf}.\\
+\textbf{Amplifier} - The amplifier at the backend amplifies the signal which is sent through to the snapboard by the gain of \SI{+20}{\decibel}. The amplifier used is the Mini Circuits device ZX60-V63+ which operates at a frequency range of \SI{0.05}{GHz} - \SI{6}{GHz}. It has a noise figure of $\approx$ \SI{3.6}{\decibel} at its lowest operating frequency of \SI{\approx 50}{MHz} \footnote{https://www.minicircuits.com/pdfs/ZX60-V63+.pdf}.\\
 
-\textbf{SNAP Board} - The SNAP board used is specified by Xilinx Inc. \footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}. The  SNAP board samples the signals it receives by 250 Msampl/s using internal ADCs where the signal of the clock is from the Valon 5007 frerquency synthesizer module. This creates a frequency range between 0 - 125 MHz which contains 2048 channels. A SNAP board interacts with a raspberry pi and that is where the data is saved.\\
+\textbf{SNAP Board} - The SNAP board used is specified by Xilinx Inc. \footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}. The  SNAP board samples the signals it receives by 250 Msampl/s using internal ADCs where the signal of the clock is from the Valon 5007 frerquency synthesizer module. This creates a frequency range between \SI{0}{MHz} - \SI{125}{MHz} which contains 2048 channels. A SNAP board interacts with a raspberry pi and that is where the data is saved.\\
 
 \subsection{Solar Power Supply System}
+The power system of the ALBATROS-EGG uses generators to charge the batteries manually every once in a number of days. From the observation that has been made, the batteries take $\approx$ 2 days to discharge to a point where the system shuts down. Because of the weather conditions in Marion Island, an individual can sometimes be unable to go to the site to charge the batteries, which means that if the weather does not allow, the system can be shut down for a long period. Thus, a solar power system solution was introduced to the ALBATROS so that the system can continously run without having to be recharged manually and often.\\
 
+The ALBATROS system is powered using \SI{24}{\volt} power which is stored and provided by two series-connected \SI{12}{\volt} deep-cycle lead-acid storage batteries. This power comes from the solar panel array consisting of nine flexible solar panels, each with a standard test condition capacity of \SI{110}{\watt}. The solar panel type is SunPower SPE-E-Flex-110. The panels are grouped in three parallel connected strings of three panels. Each group of three is mounted on its own structure. The panels include diodes to bypass shaded or defective cells, and also to prevent backwards current flow in the event an entire string of three panels is not illuminated while the others are producing power. \\
 
+The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet every second, to an Arduino based data logger, which controls a switch that determines when the rest of the system runs. It also converts the solar panel voltage to \SI{24}{\volt} to control the battery charging. The observed parameters are then stored to the raspberry pi.
 
 \section{Pathfinder Installations and Preliminary Observations}
-	
+\subsection{Marion Island}
+ Marion Island is a research location managed by the South African National Antarctic Programme (SANAP) and is located at \ang{46;54;45}S, \ang{37;44;37}E on the sub-antarctic of the Southern Indian Ocean. It is $\approx$\SI{2000}{\kilo\metre} from the nearest continental landmass which is also an approximate maximum distance for meteor scattering. The island has an area of \SI{290}{\kilo\metre\squared} and is only accessible once in April of every year by means of the S. A. Agulhas vessel owned by the Department of Environmental Affairs.  
+ 
+ \subsection{Experiments}
+ 
+ The ALBATROS main goal thus far will be to attempt to map high resolutions at low frequencies which is crucial before moving in to the cosmology of measuring the dark ages.
+ 
+ 
+ 
+ 
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[width=1\linewidth]{Figures/autonomous.jpg}
@@ -158,9 +170,7 @@ The back end electronics consists of the bias tee, high pass filter (HPF), low p
 			\label{Fig:autonomous}
 		\end{center}
 	\end{figure}
-	
-	
-	
+		
 \section{Future Work}
 
 Marion Island huts which are potential stations for the ALBATROS have a ring-like pattern which is appropriate for imaging and produces a FWHM synthesized beam of 8' at 5 MHz as shown in \autoref{Fig:10}. This beam is a notable advancement over existing measurements to date.The ALBATROS main goal thus far will be to attempt to map high resolutions at low frequencies which is crucial before moving to measuring the dark ages.
