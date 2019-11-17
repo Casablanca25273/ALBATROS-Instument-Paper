@@ -70,25 +70,20 @@ The experiments which made the high resolution measurements are the  Dominion Ra
 	
 Measurements of the radio sky at $\approx$ 100 MHz and below have the capability of unlocking the new observational window in the history of the universe. At the lowest frequencies (tens of MHz), subsequent observations may permit us to probe the cosmic "dark ages," one day, which is an epoch that is obscure to date \cite{2019arXiv190710853C, 2019arXiv190804296K}. This paper will describe a new project that aims to map the low-frequency sky from Marion island using an array of autonomous antenna stations. The final array will consist of  $\approx$ 10 antennas operating at 1.2-81 MHz with baselines up to 20 km. A two-element pathfinder was deployed in April 2018, the first autonomous station was deployed in April 2019 and there'll be discussion of the preliminary observations and upcoming hardware development plans.
 
-
 \section{Overview of the Instrument}
 
-%The ALBATROS-EGG schematic is shown in \autoref{Fig:ALBATROS-EGG Schematic}. The system uses the dual polarisation dipole like antennas which are omidirectionally patterned. The front end electonics (FEE) are configured in a printed circuit board (PCB) which makes it easy for them to be mounted on the supporting structure of the antennas. The gain of the FEE is $\approx$35 dB and its noise figure (NF) ranges between $\approx$2.7 dB and 2.9 dB. From the FEE PCB, a coaxial cable sends the signal thnrough to the bias tee which extracts both the RF and the DC without any degradation. \newline The high pass and the low pass filter rejects the low frequency signals and high frequency signals respectively. The signal is then amplified by a $\approx$20 dB amplifier which then send the amplified signals to the Smart Network ADC Processor (SNAP) board which does the readouts and does a series of processing step. The raspberry pi interacts with the SNAP board for data storage. 
-%
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.9\linewidth]{Figures/ALBATROS-EGG-Schematic.PNG}
-%		\caption{ALBATROS - EGG pathfinder schematic which consists of the dual polarisation antennas, the 35 dB gain FEE, the 100 m coaxial cable which connects the FEE to the back end Faraday cage which comprises of the bias tee, HPF, LPF, amplifier, snap board and regulated voltage outputs which are powered by 12 VDC batteries.}
-%		\label{Fig:ALBATROS-EGG Schematic}
-%	\end{center}
-%\end{figure}
-%
-%
-%
-The ALBATROS-EGG is a two element inteferometer which is making exploratory measurements at a frequency range of \SI{1.2}{MHz}- \SI{81}{MHz} separated by a baseline of \SI{110}{m}. It was deployed in Marion Island in April 2018 as shown in \autoref{Fig:ALBATROS-EGG}. This experiment (ALBATROS-EGG) uses the Long Wavelength Array (LWA) hardware.\\
+The ALBATROS-EGG is a two element inteferometer which is making exploratory measurements at a frequency range of \SI{1.2}{MHz}- \SI{81}{MHz} separated by a baseline of \SI{110}{m} as shown in \autoref{Fig:ALBATROS-EGG}. It was deployed in Marion Island in April 2018. Its schematic is shown in \autoref{Fig:ALBATROS-EGG Schematic}. The system uses the dual polarisation dipole like antennas which are omidirectional patterned. The front end electonics (FEE) are configured in a printed circuit board (PCB) which makes it easy for them to be mounted on the supporting structure of the antennas. From the FEE PCB, a coaxial cable sends the signal through to the bias tee which extracts both the RF and the DC without any degradation. \\
 
-The final project (ALBATROS) will consist of autonomous antenna stations that will map the low frequency sky. Since these experiments are exploratory, they are taking steps towards achieving the future objective of probing the Dark Ages.The ALBATROS stations (huts) will be separated by baselines of \SI{\approx {20}}{km} as shown in \autoref{Fig:Marion}. The two-element interferomentric pathfinder is not yet operating autonomously, it uses the direct cross correlation technique whereas the yet to be ALBATROS will write the lowest 10 - 20 MHz baseband to disk then gets correlated afterwards. One ALBATROS fully autonomous station was deployed in Marion Island in April 2019 as shown in \autoref{Fig:autonomous}. \\
+The high pass and the low pass filter rejects the low frequency signals and high frequency signals respectively. The signal is then amplified by a $\approx$20 dB amplifier which then send the amplified signals to the Smart Network ADC Processor (SNAP) board which does the readouts and does a series of processing step. The raspberry pi interacts with the SNAP board for data storage.\\
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.55\linewidth]{Figures/ALBATROS-EGG-Schematic.PNG}
+		\caption{ALBATROS - EGG pathfinder schematic which consists of the dual polarisation antennas, the 35 dB gain FEE, the 100 m coaxial cable which connects the FEE to the back end Faraday cage which comprises of the bias tee, HPF, LPF, amplifier, snap board and regulated voltage outputs which are powered by 12 VDC batteries.}
+		\label{Fig:ALBATROS-EGG Schematic}
+	\end{center}
+\end{figure}
 
 	\begin{figure}[h]
 		\begin{center}
@@ -98,12 +93,13 @@ The final project (ALBATROS) will consist of autonomous antenna stations that wi
 		\end{center}
 	\end{figure}
 
+The final project (ALBATROS) will consist of autonomous antenna stations that will map the low frequency sky. Since these experiments are exploratory, they are taking steps towards achieving the future objective of probing the Dark Ages.The ALBATROS stations (huts) will be separated by baselines of \SI{\approx {20}}{km} as shown in \autoref{Fig:Marion}. The two-element interferomentric pathfinder is not yet operating autonomously, it uses the direct cross correlation technique whereas the yet to be ALBATROS will write the lowest 10 - 20 MHz baseband to disk then gets correlated afterwards. One ALBATROS fully autonomous station was deployed in Marion Island in April 2019 as shown in \autoref{Fig:autonomous}. \\
 
-The single antenna analog signal chain is shown in \autoref{Fig:Signal Chain}. The components of the system are discussed in detail as per the block diagram illustrated in \autoref{Fig:Signal Chain}. This analog signal chain is a an illustration of how the first autonomous station is configured. There might be changes to the block diagram at a later stage should there be a need to revise it for the stations.
+The single antenna analog signal chain is shown in \autoref{Fig:Signal Chain}. The components of the system are discussed in detail as per the block diagram illustrated in \autoref{Fig:Signal Chain}. This analog signal chain is an illustration of how the first autonomous station is configured. There might be changes to the block diagram at a later stage should there be a need to revise it for the stations.
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=1.0\linewidth]{Figures/Signal-Chain.png}
+		\includegraphics[width=0.7\linewidth]{Figures/Signal-Chain.png}
 		\caption{Analog signal chain block diagram for the newly deployed autonomous station the ALBATROS}
 		\label{Fig:Signal Chain}
 	\end{center}
@@ -157,19 +153,40 @@ The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet e
  Marion Island is a research location managed by the South African National Antarctic Programme (SANAP) and is located at \ang{46;54;45}S, \ang{37;44;37}E on the sub-antarctic of the Southern Indian Ocean. It is $\approx$\SI{2000}{\kilo\metre} from the nearest continental landmass which is also an approximate maximum distance for meteor scattering. The island has an area of \SI{290}{\kilo\metre\squared} and is only accessible once in April of every year by means of the S. A. Agulhas vessel owned by the Department of Environmental Affairs.  
  
  \subsection{Experiments}
+ The ALBATROS-EGG shown in \autoref{Fig:ALBATROS-EGG} was installed on the PRI\textsuperscript{z}M \cite{2019JAI.....850004P} site which is located at \ang{46;53;13}S, \ang{37;49;10.7}E and the first ALBATROS station shown in \autoref{Fig:autonomous} is located \ang{46;52.205;}S, \ang{37;50.612;}E.\\
  
- The ALBATROS main goal thus far will be to attempt to map high resolutions at low frequencies which is crucial before moving in to the cosmology of measuring the dark ages.
- 
- 
- 
- 
+
 	\begin{figure}[h]
 		\begin{center}
-			\includegraphics[width=1\linewidth]{Figures/autonomous.jpg}
+			\includegraphics[width=0.7\linewidth]{Figures/autonomous.jpg}
 			\caption{}
 			\label{Fig:autonomous}
 		\end{center}
 	\end{figure}
+
+ \subsection{Preliminary Observations}
+	
+\autoref{Fig:auto} and \autoref{Fig:fringes} shows the initial results from the two interferometric array. These results are an encouraging factor to proceed with the development of the autonomous stations.\autoref{Fig:auto} shows the raw ALBATROS-EGG autospectra which where the waterfall plot was taken from one polarization (pol0) over an interval of 3 days. The Galaxy rising/setting is clearly visible in the structure. There are also ripples in frequency because of uncalibrated data, and the ripples arise from reflections in the cables. There is a qualitative difference between daytime and nighttime data and this shows that the contamination from shortwave radio drops off significantly at night, when the ionosphere becomes quieter.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{Figures/Raw-ALBATROS-autospectra.PNG}
+		\caption{Raw ALBATROS-EGG Autospectra}
+		\label{Fig:auto}
+	\end{center}
+\end{figure}
+
+\autoref{Fig:fringes} shows the first fringes that were detected by the the ALBATROS-EGG. It is dinstictly visible from \autoref{Fig:fringes} that fringes show recurrent structure down to a frequency of as low as 10 MHz without data processing or data cuts.
+
+\begin{figure}[ht!]
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{Figures/First-fringes-of-ALBATROS-EGG.PNG}
+		\caption{First Fringes from ALBATROS-EGG}
+		\label{Fig:fringes}
+	\end{center}
+\end{figure}
+
+
 		
 \section{Future Work}
 
