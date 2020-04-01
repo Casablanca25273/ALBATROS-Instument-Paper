@@ -111,22 +111,60 @@ from engineering runs that were performed on Marion Island during
 
 \section{ALBATROS overview}
 
-{\bf Write text here about the overall final configuration.  Describe
-  the site, show synthesized beam, discuss high level system
-  requirements (power, data storage, etc).  Include deployment
-  schedule and introduce 2-element pathfinder in the following
-  section.}
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.5\linewidth]{Figures/site.PNG}
+    \caption{{\bf UPDATE THIS FIGURE} Marion Island huts which are
+      potential stations for the ALBATROS. The ring-like pattern is
+      appropriate for imaging and produces a FWHM synthesized beam of
+      8' at 5 MHz.}
+    \label{Fig:marion}
+  \end{center}
+\end{figure}
+
+% Write text here about the overall final configuration.  Describe the
+% site, show synthesized beam, discuss high level system requirements
+% (power, data storage, etc).  Include deployment schedule and introduce
+% 2-element pathfinder in the following section.
+
+The primary requirements that drive the design for a low-frequency
+imaging experiment are 1) desired resolution, 2) low RFI, and 3) quiet
+ionospheric conditions.  As a benchmark, an interferometer operating
+at 30~MHz requires order-of-magnitude baseline lengths of $\sim 1$~km
+to achieve a resolution of $\sim 1$\degree.  This length scales
+inversely with frequency, and therefore $\sim 10$-km lengths are
+required at few-MHz frequencies in order to improve upon the
+resolutions achieved to date.  {\bf More words here about RFI and
+  ionosphere.}
 
 The final array will consist of $\approx$ 10 antennas operating at
 1.2-81 MHz with baselines up to 20 km. A two-element pathfinder was
 deployed in April 2018, the first autonomous station was deployed in
 April 2019.
 
+Marion Island is a research location managed by the South African
+National Antarctic Programme (SANAP) and is located at
+\ang{46;54;45}S, \ang{37;44;37}E on the sub-antarctic of the Southern
+Indian Ocean. It is $\approx$\SI{2000}{\kilo\metre} from the nearest
+continental landmass which is also an approximate maximum distance
+for meteor scattering. The island has an area of
+\SI{290}{\kilo\metre\squared} and is only accessible once in April of
+every year by means of the S. A. Agulhas vessel owned by the
+Department of Environmental Affairs.
+
+Marion Island huts which are potential stations for the ALBATROS have
+a ring-like pattern which is appropriate for imaging and produces a
+FWHM synthesized beam of 8' at 5 MHz as shown in
+\autoref{Fig:10}. This beam is a notable advancement over existing
+measurements to date.The ALBATROS main goal thus far will be to
+attempt to map high resolutions at low frequencies which is crucial
+before moving to measuring the dark ages.
+
 \section{Two-element pathfinder}
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.7\linewidth]{Figures/ALBATROS-EGG.PNG}
+    \includegraphics[width=0.7\linewidth]{Figures/albatros_2elem/albatros_2elem.pdf}
     \caption{The two-element \albatros\ pathfinder on Marion Island.
       Two dual-polarization LWA antennas are separated by roughly
       110~m on an east--west baseline. Coaxial cables connect the
@@ -232,8 +270,6 @@ The ALBATROS system is powered using \SI{24}{\volt} power which is stored and pr
 The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet every second, to an Arduino based data logger, which controls a switch that determines when the rest of the system runs. It also converts the solar panel voltage to \SI{24}{\volt} to control the battery charging. The observed parameters are then stored to the raspberry pi.
 
 \section{Pathfinder Installations and Preliminary Observations}
-\subsection{Marion Island}
- Marion Island is a research location managed by the South African National Antarctic Programme (SANAP) and is located at \ang{46;54;45}S, \ang{37;44;37}E on the sub-antarctic of the Southern Indian Ocean. It is $\approx$\SI{2000}{\kilo\metre} from the nearest continental landmass which is also an approximate maximum distance for meteor scattering. The island has an area of \SI{290}{\kilo\metre\squared} and is only accessible once in April of every year by means of the S. A. Agulhas vessel owned by the Department of Environmental Affairs.  
  
  \subsection{Experiments}
  The ALBATROS-EGG shown in \autoref{Fig:ALBATROS-EGG} was installed on the PRI\textsuperscript{z}M \cite{2019JAI.....850004P} site which is located at \ang{46;53;13}S, \ang{37;49;10.7}E and the first ALBATROS station shown in \autoref{Fig:autonomous} is located \ang{46;52.205;}S, \ang{37;50.612;}E.\\
@@ -269,33 +305,7 @@ The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet e
 	\end{center}
 \end{figure}
 
-
-		
-\section{Future Work}
-
-Marion Island huts which are potential stations for the ALBATROS have a ring-like pattern which is appropriate for imaging and produces a FWHM synthesized beam of 8' at 5 MHz as shown in \autoref{Fig:10}. This beam is a notable advancement over existing measurements to date.The ALBATROS main goal thus far will be to attempt to map high resolutions at low frequencies which is crucial before moving to measuring the dark ages.
-
-
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[t]{0.5\textwidth}
-		\centering
-		\includegraphics[width=.9\linewidth]{Figures/site.PNG}
-		\caption{Marion Island huts which are potential stations for the ALBATROS. The ring-like pattern is appropriate for imaging and produces a FWHM synthesized beam of 8' at 5 MHz.}
-		\label{Fig:Marion}
-	\end{subfigure}%
-	~~~			
-	\begin{subfigure}[t]{0.5\textwidth}
-		\centering
-		\includegraphics[width=.9\linewidth]{Figures/beam.png}
-		\caption{Omnidirectional, dome shaped beam pattern which promises an improved resolution over the existing experiments to date.}
-		\label{Fig:beam}
-	\end{subfigure}
-	\caption{Potential stations and a beam encouraging enough to implement ALBATROS experiment}
-	\label{Fig:10}
-\end{figure}
-
-
+% \section{Future Work}
 	
 \section*{Acknowledgments}
 
