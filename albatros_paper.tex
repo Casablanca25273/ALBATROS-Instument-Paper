@@ -21,7 +21,8 @@
 \usepackage[bottom]{footmisc}
 \usepackage{url}
 
-
+% Define stuff here
+\def\albatros{ALBATROS}
 
 \begin{document}
 
@@ -67,54 +68,113 @@ The dark ages, which occurred after recombination and correspond to a
 period when the universe was filled with neutral hydrogen, are
 unexplored to date and represent one of the final observational
 frontiers in cosmology.  This epoch contains a potential wealth of
-cosmological information~\citep{loeb_zaldarriaga}, but the required
-redshifted frequencies of $\lesssim 30$~MHz are exceptionally
-difficult to observe.  The primary challenges include Galactic
-foreground emission, ionospheric interference, and terrestrial
-radio-frequency interference (RFI). \\
+cosmological information~\citep{loeb_zaldarriaga, 2019arXiv190710853C,
+  2019arXiv190804296K}, but the required redshifted frequencies of
+$\lesssim 30$~MHz are exceptionally difficult to observe.  The primary
+experimental challenges include Galactic foreground emission,
+ionospheric interference, and terrestrial radio-frequency interference
+(RFI).
 
-% At the very lowest frequencies, the state of the art among
-% ground-based measurements dates from the 1950s, when Reber and Ellis
-% caught brief glimpses of the $\sim 2$~MHz sky at low
-% resolution~\citep{reber}.  The lowest frequency to date for
-% high-resolution sky imaging has been achieved by the LWA, which
-% reported observations at 36.5~MHz using only 28 hours of
-% data~\citep{lwa}.  Preliminary observations from Marion Island
-% (\S\ref{s:dark_method}) suggest that despite the present-day RFI
-% environment, low-frequency observations may still be accessible from
-% carefully selected locations and with new technology developments.
+Very few experiments have measured the radio sky at $\lesssim 30$~MHz.
+Comprehensive reviews exist elsewhere ({\bf citation?}), and here, we
+highlight only a few specific examples.  At the very lowest
+frequencies, the state of the art among ground-based measurements
+dates from the 1950s, when Reber and Ellis caught brief glimpses of
+the $2.1$~MHz sky at $\sim 5$\degree\ resolution, using an array of
+192~dipoles~\citep{reber, article, 1988A&A...195..372W}.  A few
+space-based missions have also performed measurements at similarly low
+frequency ranges; for example, the Radio Astronomy Explorer-2 operated
+at \SIrange{0.025}{13}{\MHz} with $\sim 10$\degree\ resolution at
+\SI{4.7}{\MHz}~\citep{1975A&A....40..365A}.  Measurements with
+resolution finer than few-degree scales exist only at higher
+frequencies.  For example, the Dominion Radio Astrophysical
+Observatory surveyed the northern sky at \SI{22}{\MHz} with
+\SIrange{1.1}{1.7}{\degree} resolution~\citep{1999A&AS..137....7R},
+and most recently, the Owens Valley Long Wavelength Array mapped the
+sky with \SI{15}{\arcminute} resolution between 36.528~MHz and
+73.152~MHz~\citep{2018AJ....156...32E}.  Although this experimental
+list is not comprehensive, it does illustrate the dearth of
+information about the $\lesssim 30$~MHz sky and the lack of high
+resolution measurements at the lowest frequencies.
 
-Comprehensive reviews of experimental efforts exist elsewhere but none of them have made measurements at the lowest frequencies of $\lessapprox$ \SI{30}{\MHz}. This is due to the challenges namely, the ionospheric effects, radio frequency intereference (RFI), Galactic emission and instrumental systematics which is non transparent below \SI{10}{\MHz} \cite{2019JAI.....850004P}. Two of these experiments represent the lowest frequencies measured to date (Reber’s antenna, RAE-2), and the other two represent the highest resolutions achieved in this frequency range (DRAO, OVRO-LWA).\\
+Preliminary observations from Marion
+Island~\citep{2019JAI.....850004P} suggest that despite the
+present-day RFI environment, low-frequency observations may still be
+accessible from carefully selected locations and with new technology
+developments.  In this paper, we present the Array of Long Baseline
+Antennas for Taking Radio Observations from the Sub-Antarctic
+(\albatros), a new experimental effort that aims to map the
+low-frequency sky using an array of autonomous antenna stations.  We
+describe the overall instrument design and preliminary measurements
+from engineering runs that were performed on Marion Island during
+2018--2019.
 
-Grote Reber came up with the state of art by constructing a telescope which operated at very low frequencies between 0.52 MHz and 2.1 MHz, which had 192 dipoles. At \SI{2.1}{\MHz} it had a resolution of as low as $\approx$ 5 \degree. The key map of the sky was created by this experiment at \SI{2.1}{\MHz}. He also mentioned that his measurements were influenced by galactic emission and the ionosphere \cite{article, 1988A&A...195..372W}. The Radio Astronomoy Explorer-2 (RAE-2) have very low operating frequency ranges between \SIrange{0.025}{13}{\MHz}, it main science goal was to do radio astronomy evaluation of our Galaxy (the Milkyway), the Sun and all the planets including Earth. The resolution of this experiment is $\approx$ 10 \degree at \SI{4.7}{\MHz} \cite{1975A&A....40..365A}. Both of these experiments made very low resolution measurements.\\
+\section{ALBATROS overview}
 
+{\bf Write text here about the overall final configuration.  Describe
+  the site, show synthesized beam, discuss high level system
+  requirements (power, data storage, etc).  Include deployment
+  schedule and introduce 2-element pathfinder in the following
+  section.}
 
-The experiments which made the high resolution measurements are the  Dominion Radio Astrophysical Observatory (DRAO) \SI{22}{\MHz} telescope and the OVRO-LWA \SI{36}{\MHz} experiment. The DRAO telescope operated at \SI{22}{\MHz} and its resolution ranges between $\approx$ \SIrange{1.1}{1.7}{\degree}. Its main science goal was to measure the emission from discrete sources and to observe our Galaxy's emission from its environment \cite{1999A&AS..137....7R}. The OVRO-LWA operates at frequency ranges of 36.528 MHz and 73.152 MHz. At these frequencies it has an angular resolution of \SI{15}{\arcminute} \cite{2018AJ....156...32E}. ALBATROS aims at attempting to do high resolution measurements at a frequency of $<$20 MHz which do not yet exist.\\
-	
-Measurements of the radio sky at $\approx$ 100 MHz and below have the capability of unlocking the new observational window in the history of the universe. At the lowest frequencies (tens of MHz), subsequent observations may permit us to probe the cosmic "dark ages," one day, which is an epoch that is obscure to date \cite{2019arXiv190710853C, 2019arXiv190804296K}. This paper will describe a new project that aims to map the low-frequency sky from Marion island using an array of autonomous antenna stations. The final array will consist of  $\approx$ 10 antennas operating at 1.2-81 MHz with baselines up to 20 km. A two-element pathfinder was deployed in April 2018, the first autonomous station was deployed in April 2019 and there'll be discussion of the preliminary observations and upcoming hardware development plans.
+The final array will consist of $\approx$ 10 antennas operating at
+1.2-81 MHz with baselines up to 20 km. A two-element pathfinder was
+deployed in April 2018, the first autonomous station was deployed in
+April 2019.
 
-\section{Overview of the Instrument}
+\section{Two-element pathfinder}
 
-The ALBATROS-EGG is a two element inteferometer which is making exploratory measurements at a frequency range of \SI{1.2}{MHz}- \SI{81}{MHz} separated by a baseline of \SI{110}{m} as shown in \autoref{Fig:ALBATROS-EGG}. It was deployed in Marion Island in April 2018. Its schematic is shown in \autoref{Fig:ALBATROS-EGG Schematic}. The system uses the dual polarisation dipole like antennas which are omidirectional patterned. The front end electonics (FEE) are configured in a printed circuit board (PCB) which makes it easy for them to be mounted on the supporting structure of the antennas. From the FEE PCB, a coaxial cable sends the signal through to the bias tee which extracts both the RF and the DC without any degradation. \\
-
-The high pass and the low pass filter rejects the low frequency signals and high frequency signals respectively. The signal is then amplified by a $\approx$20 dB amplifier which then send the amplified signals to the Smart Network ADC Processor (SNAP) board which does the readouts and does a series of processing step. The raspberry pi interacts with the SNAP board for data storage.\\
-
-
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
-		\caption{ALBATROS - EGG pathfinder schematic which consists of the dual polarisation antennas, the 35 dB gain FEE, the 100 m coaxial cable which connects the FEE to the back end Faraday cage which comprises of the bias tee, HPF, LPF, amplifier, snap board and regulated voltage outputs which are powered by 12 VDC batteries.}
-		\label{Fig:ALBATROS-EGG Schematic}
-	\end{center}
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{Figures/ALBATROS-EGG.PNG}
+    \caption{The two-element \albatros\ pathfinder on Marion Island.
+      Two dual-polarization LWA antennas are separated by roughly
+      110~m on an east--west baseline. Coaxial cables connect the
+      antennas to an orange shipping container that houses the readout
+      electronics and serves as our ``command module.''}
+    \label{Fig:albatros2}
+  \end{center}
 \end{figure}
 
-	\begin{figure}[h]
-		\begin{center}
-			\includegraphics[width=0.7\linewidth]{Figures/ALBATROS-EGG.PNG}
-			\caption{The ALBATROS-EGG pathfinder on Marion Island. The pathfinder comprises two dual-polarization antennas separated by roughly 110 m on an east-west baseline. Long coaxial cables connect the antennas to	an orange shipping container that houses the readout electronics and serves as our "command module".}
-			\label{Fig:ALBATROS-EGG}
-		\end{center}
-	\end{figure}
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
+    \caption{Schematic for the two-element \albatros\ pathfinder.
+      Signals from two dual-polarzation LWA antennas are amplified by
+      front-end active baluns ({\bf citation for FEE}), and 100-m
+      coaxial cables connect the antennas to the back-end readout
+      electronics, which are housed in a Faraday cage denoted by the
+      dashed box.  Each of the four antenna outputs is passed to a
+      second-stage electronics chain consisting of a bias tee,
+      amplifier, and high- and low-pass filters.  The signals are
+      digitized at 250~Msamp/s by a SNAP board, and the on-board FPGA
+      is programmed with firmware to perform a full cross-correlation
+      of all four inputs.  A Raspberry Pi controls the SNAP board and
+      also saves the computed spectra to an SD card.  Power to the
+      system is provided by a bank of 12~V batteries and several
+      regulated voltage outputs.}
+    \label{Fig:albatros2_schem}
+  \end{center}
+\end{figure}
+
+The ALBATROS-EGG is a two element inteferometer which is making
+exploratory measurements at a frequency range of \SI{1.2}{MHz}-
+\SI{81}{MHz} separated by a baseline of \SI{110}{m} as shown in
+\autoref{Fig:albatros2}. It was deployed in Marion Island in April
+2018. Its schematic is shown in \autoref{Fig:albatros2_schem}. The
+system uses the dual polarisation dipole like antennas which are
+omidirectional patterned. The front end electonics (FEE) are
+configured in a printed circuit board (PCB) which makes it easy for
+them to be mounted on the supporting structure of the antennas. From
+the FEE PCB, a coaxial cable sends the signal through to the bias tee
+which extracts both the RF and the DC without any degradation.
+
+The high pass and the low pass filter rejects the low frequency
+signals and high frequency signals respectively. The signal is then
+amplified by a $\approx$20 dB amplifier which then send the amplified
+signals to the Smart Network ADC Processor (SNAP) board which does the
+readouts and does a series of processing step. The raspberry pi
+interacts with the SNAP board for data storage.
 
 The final project (ALBATROS) will consist of autonomous antenna stations that will map the low frequency sky. Since these experiments are exploratory, they are taking steps towards achieving the future objective of probing the Dark Ages.The ALBATROS stations (huts) will be separated by baselines of \SI{\approx {20}}{km} as shown in \autoref{Fig:Marion}. The two-element interferomentric pathfinder is not yet operating autonomously, it uses the direct cross correlation technique whereas the yet to be ALBATROS will write the lowest 10 - 20 MHz baseband to disk then gets correlated afterwards. One ALBATROS fully autonomous station was deployed in Marion Island in April 2019 as shown in \autoref{Fig:autonomous}. \\
 
