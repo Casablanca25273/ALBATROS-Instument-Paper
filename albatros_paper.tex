@@ -284,9 +284,19 @@ noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
 
 \subsection{Back-end electronics}
 \textcolor{red}{\bf Nivek, HCC?} \\
-The back end electronics consists of the bias tee, high pass filter
-(HPF), low pass filter (LPF) and the Smart Network ADC Processor
-(SNAP) board.  The signals are band limited to \SI{1.2}{MHz}-\SI{81}{MHz}.
+
+The back-end readout electronics are housed in a Faraday cage that is
+located $\sim 100$~m away from the antennas to reduce potential
+contamination from self-generated RFI.  Each of the four antenna
+signals is passed to a second-stage electronics chain consisting of a
+bias tee (Minicircuits ZFBT-4R2GW-FT+), amplifier (Minicircuits
+ZX60-V63+), and a pair of high- and low-pass filters (Minicircuits
+ZFHP-1R2+ and SLP-90+) that band limit the signal to
+1.2--\SI{81}{MHz}.  A Smart Network ADC Processor (SNAP) board
+digitizes the RF signals at 250~Msamp/s and calculates a full
+cross-correlation of the four inputs, producing four auto- and six
+cross-spectra as outputs.  \textcolor{red}{\bf finish merging text
+  below into the above paragraph}
 
 \textbf{Bias Tee} - It is used to extract the RF signal from a
 \SI{100}{\metre} LMR400 coaxial cable which has a nominal attenuation
@@ -346,7 +356,10 @@ Text goes here.
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.7\linewidth]{Figures/autonomous.jpg}
-    \caption{Single autonomous station pathfinder.  \textcolor{red}{\bf Add command module and electronics glamor shots.}}
+    \caption{Single autonomous station pathfinder installed at the
+      hydro shack site.  The system is powered by a bank of solar
+      panels that are visible in the background.  \textcolor{red}{\bf
+        Add command module and electronics glamor shots.}}
     \label{Fig:autonomous}
   \end{center}
 \end{figure}
@@ -357,7 +370,7 @@ Text goes here.
     \caption{Schematic for the single autonomous station pathfinder.
       Data and RF connections are outlined in black, and power
       connections are outlined in red.  A dual-polarization LWA
-      antenna, equipped with an active balun, is connected 50-m
+      antenna, equipped with an active balun, is connected via 50-m
       coaxial cables to the back-end readout electronics, which are
       housed in a Faraday cage denoted by the dashed box.  Each of the
       two antenna inputs is passed to a second-stage electronics chain
