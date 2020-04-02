@@ -226,7 +226,8 @@ autonomous operation.
       digitized at 250~Msamp/s by a SNAP board, and the on-board FPGA
       is programmed with firmware to perform a full cross-correlation
       of all four inputs.  A Raspberry Pi controls the SNAP board and
-      also saves the computed spectra to an SD card.  Power to the
+      also saves the computed spectra to an SD card.  The clock signal
+      is provided by a Valon frequency synthesizer.  Power to the
       system is provided by a bank of 12~V batteries and several
       regulated voltage outputs.}
     \label{Fig:albatros2_schem}
@@ -353,8 +354,23 @@ Text goes here.
 \begin{figure}
   \begin{center}
     \includegraphics[width=\linewidth]{Figures/albatros_single_schematic/albatros_single_schematic.pdf}
-    \caption{Schematic for single autonomous station pathfinder.
-      \textcolor{red}{\bf Finish updating this figure.  Tankiso, Nivek, HCC?}}
+    \caption{Schematic for the single autonomous station pathfinder.
+      Data and RF connections are outlined in black, and power
+      connections are outlined in red.  A dual-polarization LWA
+      antenna, equipped with an active balun, is connected 50-m
+      coaxial cables to the back-end readout electronics, which are
+      housed in a Faraday cage denoted by the dashed box.  Each of the
+      two antenna inputs is passed to a second-stage electronics chain
+      consisting of a bias tee, high- and low-pass filters, and
+      amplifier.  The signals are digitized at 250~Msamp/s by a SNAP
+      board, and the on-board FPGA is programmed with firmware that
+      computes averaged auto- and cross-spectra, as well as
+      channelized baseband.  A Raspberry Pi controls the SNAP board
+      and saves the data products to a combination of an SD card and
+      external hard drives.  Timing information is provided by a
+      GPS-discipined clock.  Power to the system is provided solar
+      panels that charges a 24-V battery bank, which is regulated down
+      to several other output levels.}
     \label{Fig:Signal Chain}
   \end{center}
 \end{figure}
@@ -401,6 +417,11 @@ a later stage should there be a need to revise it for the stations.
 % 		\label{Fig:Balun Schematic}
 % 	\end{center}
 % \end{figure}
+
+\subsection{Readout electronics}
+\textcolor{red}{\bf Nivek, Jon?} \\
+Text here about one-bit stuff, pushing baseband through the RPi3,
+clock requirements, data rates, etc.
 
 \subsection{Solar power system}
 \textcolor{red}{\bf Nivek, Tankiso, Eamon?} \\
