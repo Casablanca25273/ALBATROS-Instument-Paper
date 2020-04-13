@@ -436,6 +436,26 @@ a later stage should there be a need to revise it for the stations.
 Text here about one-bit stuff, pushing baseband through the RPi3,
 clock requirements, data rates, etc.
 
+\subsection{Correlation}
+While the basics of 1-bit correlation are well known in the limit where the signal level is much lower than the noise, ALBATROS may well be in the high-signal regime.  We present the basics of 1-bit correlation here, and show that even in the high-signal limit, 1-bit correlation remains viable.
+The fundamental output of a 1-bit correlator for real data is $x_{ij} \equiv \left < \tilde{E}_i \tilde{E}_j \right >$.  $ \tilde{E}_i$ is the quantized version of the underlying electric field $E_i$ where $ \tilde{E}_i=1$ for $E_i>0$ and $ \tilde{E}_i=-1$ for $E_i<0$.  Note that complex data can be handled as the combination of real components.  This output is non-linear in the underlying true signal and noise levels, since the output saturates at unity for perfectly correlated electric fields.  To get at the true sky signals, we will need to undo this nonlinearity (the so-called Van Vleck corrections).  For a 2-level correlator, the expected output can be related to the true signals as follows (Van Vleck \& Middleton, e.g. D'Addario):
+\begin{eqnarray}
+\label{eqn:1bit_output}
+\left < \sin(\frac{\pi}{2}x_{ij})\right > = \frac{V_{ij}}{\sqrt{V_{ij}+N_i}\sqrt{V_{ij}+N_j}}
+\end{eqnarray}
+where $V_{ij}$ is the true visibility, and $V_{ij}+N_{i,j}$ is the total noise power measured by antennas $i$ and $j$.  Inverting this relation to get the true signal requires knowing the noise powers, which is not possible from the 1-bit data themselves.  However, the SNAP board calculates these power levels on timescales of a few seconds, much faster than the power levels change, and so by combining the single-station power measurements with the cross-station cross correlation, we will be able to derive the true sky visibilities.  
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{Figures/corr_efficiency.png}
+    \caption{Correlator efficiency $\epsilon_{corr}$ for a 1-bit correlator as a function of signal-to-noise ratio (SNR).  To get the expected SNR from a 1-bit correlator, multiply the SNR derived from the radiometer equation by $\epsilon_{corr}$.  For low SNR, the efficiency is $2/\pi \sim 0.64$, and it drops monotonically as the SNR increases.  The drop is relatively gentle, only changing by a factor of $\sim 2$ for SNR=2.  For baseline separations of many wavelengths, the correlated component of the electric field is likely to be a small fraction of the total power, so ALBATROS is unlikely to lose more than a factor of $\sim 2$ by using 1-bit correlation.}
+    \label{Fig:1bit_efficiency}
+    \end{center}
+\end{figure}
+
+One might worry that at high signal levels, the saturation of the 1-bit cross correlation would lead to the noise exploding.  In practice the rolloff in sensitivity is relatively mild, especially in the case of long baselines.  It can be expressed in terms of the correlator efficiency $\epsilon_{corr}$, which is defined to be the ratio of the measured signal-to-noise ratio to the ideal (infinite precision) SNR.  As seen in Figure \ref{fig:1bit_efficiency}, $\epsilon_{corr}$ only drops by a factor of $\sim$2 as the signal power goes from 0 to a few times the noise power.  We stress that the signal level is question is the part that correlates between the two antennas.  In the case of long baselines (where long means the fringe spacing is small compared to the primary beam/antenna response pattern) that are not dominated by a single bright source, the signal power will always be smaller than the noise power, and so $\epsilon_{corr}$ is unlikely to drop below $\sim$0.5\footnote{A quick estimate can be made by analogy to the behavior of dishes in the UV plane in the flat sky approximation.  While all power in the UV plane (plus any system noise) goes into an individual antenna's electric field, the correlated part only has contribution from the area in the UV plane within the width of the UV-space primary beam of the UV-space coordinate.  If the sky can be described as a Gaussian random field, in the most pessimistic case this is roughly the aperture filling factor of the antenna pair.  In our case, where the antennas are approximately dipolar, the filling factor will be the square of the wavelength over the baseline length.  As long as the baselines are several wavelengths or longer, the correlated power will be small, and the correlator efficiency will be close to the ideal 1-bit value of $\frac{2}{\pi}$.  
+
+
 \subsection{Solar power system}
 \textcolor{red}{\bf Nivek, Tankiso, Eamon?} \\
 The power system of the ALBATROS-EGG uses generators to charge the batteries manually every once in a number of days. From the observation that has been made, the batteries take $\approx$ 2 days to discharge to a point where the system shuts down. Because of the weather conditions in Marion Island, an individual can sometimes be unable to go to the site to charge the batteries, which means that if the weather does not allow, the system can be shut down for a long period. Thus, a solar power system solution was introduced to the ALBATROS so that the system can continously run without having to be recharged manually and often.\\
