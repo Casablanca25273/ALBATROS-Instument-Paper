@@ -20,12 +20,20 @@
 \usepackage{subcaption}
 \usepackage[bottom]{footmisc}
 \usepackage{url}
+\usepackage{natbib}
+
 
 % Define stuff here
 \def\albatros{ALBATROS}
 \def\prizm{PRI$^{\rm Z}$M}
 \newcommand{\attention}[1]{\textcolor{red}{\bf {#1}}}
 
+\newcommand{\aap}{Astronomy and Astrophysics}
+\newcommand{\aj}{Astronomical Journal}
+\newcommand{\pasp}{Proceedings of the Astronomical Society of the Pacific}
+\newcommand{\prd}{Physical Review D}
+\newcommand{\apj}{Astrophysical Journal}
+\newcommand{\aaps}{Astronomy and Astrophysics Supplements}
 
 \begin{document}
 
@@ -528,39 +536,38 @@ The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet e
 	
 \section*{Acknowledgments}
 
+\bibliographystyle{apj}                                                                                                                                                                                                   
+\bibliography{albatros_paper}{}
+
+
 	
-\begin{thebibliography}{9}
+%\begin{thebibliography}{9}
+%
+%\bibitem[Alexander et al.(1975)]{1975A&A....40..365A} Alexander, J.~K., Kaiser, M.~L., Novaco, J.~C., et al.\ 1975, {\it aap\/}, {\bf 40}, 365
+%
+%\bibitem[Chen {et al.}(2019)]{2019arXiv190710853C} Chen, X., Burns, J., Koopmans, L., {\it et al.} [2019], arXiv e-prints, arXiv:1907.10853
 
-\bibitem[Alexander et al.(1975)]{1975A&A....40..365A} Alexander, J.~K., Kaiser, M.~L., Novaco, J.~C., et al.\ 1975, {\it aap\/}, {\bf 40}, 365
+%\bibitem[Eastwood et al.(2018)]{2018AJ....156...32E} Eastwood, M.~W., Anderson, M.~M., Monroe, R.~M., et al.\ 2018, {\it aj\/}, {\bf 156}, 32
 
-\bibitem[Chen {et al.}(2019)]{2019arXiv190710853C} Chen, X., Burns, J., Koopmans, L., {\it et al.} [2019], arXiv e-prints, arXiv:1907.10853
+%\bibitem[Ellingson and Kramer (2004)]{Memo28} Ellingson, S.~W., {Kramer}, W.~T. \ 2004, {\it Long Wavelength Array Memo (28)}
 
-\bibitem[Eastwood et al.(2018)]{2018AJ....156...32E} Eastwood, M.~W., Anderson, M.~M., Monroe, R.~M., et al.\ 2018, {\it aj\/}, {\bf 156}, 32
+%\bibitem[George {et al.}(2018)] {article} George, M., Orchiston, W., Wielebinsk, R., {\it et al.} [2018], Journal of Astronomical History and Heritage, {\bf 21}, 37
 
-\bibitem[Ellingson and Kramer (2004)]{Memo28} Ellingson, S.~W., {Kramer}, W.~T. \ 2004, {\it Long Wavelength Array Memo (28)}
+%\bibitem[Hicks et al.(2012)]{2012PASP..124.1090H} Hicks, B.~C., Paravastu-Dalal, N., Stewart, K.~P., et al.\ 2012, {\it pasp\/}, {\bf 124}, 1090
 
-\bibitem[George {et al.}(2018)] {article} George, M., Orchiston, W., Wielebinsk, R., {\it et al.} [2018], Journal of Astronomical History and Heritage, {\bf 21}, 37
+%\bibitem[Koopmans {et al.}(2019)]{2019arXiv190804296K} Koopmans, L., Barkana, R., Bentum, M., {\it et al.} [2019], arXiv e-prints, arXiv:1908.04296
 
-\bibitem[Hicks et al.(2012)]{2012PASP..124.1090H} Hicks, B.~C., Paravastu-Dalal, N., Stewart, K.~P., et al.\ 2012, {\it pasp\/}, {\bf 124}, 1090
+%\bibitem[Liu {et al.}(2013)]{2013PhRvD..87d3002L} Liu, A., Pritchard, J.~R., Tegmark, M., {\it et al.} [2013], {\bf 87}, 043002
 
-\bibitem[Koopmans {et al.}(2019)]{2019arXiv190804296K} Koopmans, L., Barkana, R., Bentum, M., {\it et al.} [2019], arXiv e-prints, arXiv:1908.04296
+%\bibitem[Philip {et al.}(2019)]{2019JAI.....850004P} Philip, L., Abdurashidova, Z., Chiang, H.~C., {\it et al.} [2019], Journal of Astronomical Instrumentation, {\bf 8}, 19500
 
-\bibitem[Liu {et al.}(2013)]{2013PhRvD..87d3002L} Liu, A., Pritchard, J.~R., Tegmark, M., {\it et al.} [2013], {\bf 87}, 043002
+%\bibitem[Pober {et al.}(2014)]{2014ApJ...782...66P} Pober, J.~C., Liu, A., Dillon, J.~S., {\it et al.} [2014], {\bf 782}, 66
 
-\bibitem[Philip {et al.}(2019)]{2019JAI.....850004P} Philip, L., Abdurashidova, Z., Chiang, H.~C., {\it et al.} [2019], Journal of Astronomical Instrumentation, {\bf 8}, 19500
+%\bibitem[Ray et al.(2006)]{Memo35} Ray, P.~S., Ellingson, S.~W., Fisher R., {\it et al.} [2006] {\it Long Wavelength Array Memo (35)}
 
-\bibitem[Pober {et al.}(2014)]{2014ApJ...782...66P} Pober, J.~C., Liu, A., Dillon, J.~S., {\it et al.} [2014], {\bf 782}, 66
+%\bibitem[Roger et al.(1999)]{1999A&AS..137....7R} Roger, R.~S., Costain, C.~H., Landecker, T.~L., et al.\ 1999, {\it aaps\/}, {\bf 137}, 7
 
-\bibitem[Ray et al.(2006)]{Memo35} Ray, P.~S., Ellingson, S.~W., Fisher R., {\it et al.} [2006] {\it Long Wavelength Array Memo (35)}
+%\bibitem[Weiler {et al.}(1988)]{1988A&A...195..372W} Weiler, K.~W., Johnston, K.~J., Simon, R.~S., {\it et al.} [1988], {\it aap\/}, {\bf 195}, 372
 
-\bibitem[Roger et al.(1999)]{1999A&AS..137....7R} Roger, R.~S., Costain, C.~H., Landecker, T.~L., et al.\ 1999, {\it aaps\/}, {\bf 137}, 7
-
-\bibitem[Weiler {et al.}(1988)]{1988A&A...195..372W} Weiler, K.~W., Johnston, K.~J., Simon, R.~S., {\it et al.} [1988], {\it aap\/}, {\bf 195}, 372
-
-
-
-
-
-
-\end{thebibliography}
+%\end{thebibliography}
 \end{document}
