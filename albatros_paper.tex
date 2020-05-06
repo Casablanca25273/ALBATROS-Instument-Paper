@@ -24,6 +24,8 @@
 % Define stuff here
 \def\albatros{ALBATROS}
 \def\prizm{PRI$^{\rm Z}$M}
+\newcommand{\attention}[1]{\textcolor{red}{\bf {#1}}}
+
 
 \begin{document}
 
@@ -53,7 +55,7 @@ $^{4}$Group, Company, Address, City, State ZIP/Zone, Country, fauthor@company.co
 \end{history}
 
 \begin{abstract}
-\textcolor{red}{\bf text to be overhauled later...} \\
+\attention {text to be overhauled later...} \\
 The low frequency radio astronomy has the highest potential in
 discovering the history of the Universe, this includes observations
 of the first stars and the mapping of dark ages. The Array of Long
@@ -69,7 +71,7 @@ two element pathfinder was deployed in Marion Island in April
 
 \keywords{cosmology: observations; dark ages; instrumentation: interferometers}
 
-\textcolor{red}{\bf Open task for any/all: fix references, make a proper bibtex file}
+\attention{Open task for any/all: fix references, make a proper bibtex file}
 
 \section{Introduction}
 
@@ -90,7 +92,7 @@ ionospheric interference, and terrestrial radio-frequency interference
 (RFI).
 
 Very few experiments have measured the radio sky at $\lesssim 30$~MHz.
-Comprehensive reviews exist elsewhere (\textcolor{red}{\bf find a good
+Comprehensive reviews exist elsewhere (\attention{find a good
   reference}), and here, we highlight only a few specific examples.
 At the very lowest frequencies, the state of the art among
 ground-based measurements dates from the 1950s, when Reber and Ellis
@@ -112,7 +114,7 @@ list is not comprehensive, it does illustrate the dearth of
 information about the $\lesssim 30$~MHz sky and the lack of high
 resolution measurements at the lowest frequencies.
 
-\textcolor{red}{\bf More text about the science case, including
+\attention{More text about the science case, including
   Galactic astrophysics (Jon? Jeff?)}
 
 Preliminary observations from Marion
@@ -137,7 +139,7 @@ from engineering runs that were performed on Marion Island during
       shack.  The black markers denote the eight coastal huts, which
       will be used for future \albatros\ antenna installations.  The
       white markers denote other available infrastructure points that
-      will not be used for antennas.  \textcolor{red}{\bf Add new
+      will not be used for antennas.  \attention{Add new
         synthesized beam figure (Jon)}}
     \label{Fig:marion}
   \end{center}
@@ -158,7 +160,7 @@ required at few-MHz frequencies in order to improve upon the
 resolutions achieved to date.  The experiment installation site must
 be remote to keep RFI to a minimum, and polar or near-polar latitiudes
 generally have lower ionospheric plasma frequency cutoffs.
-\textcolor{red}{\bf Add more ionosphere text here, plus IRI simulation
+\attention{Add more ionosphere text here, plus IRI simulation
   fig/numbers (Jon)}
 
 Marion Island is a research base that is located in the southern
@@ -167,7 +169,7 @@ the South African National Antarctic Programme.  The island lies
 roughly \SI{2000}{\kilo\metre} from the nearest continental landmasses
 and has an exceptionally quiet RFI
 environment~\citep{2019JAI.....850004P}.  As illustrated in
-\autoref{Fig:marion}, Marion has an area of 335~km$^2$ and can
+\autoref{Fig:marion}, \attention{this points to the map, not the beam pattern} Marion has an area of 335~km$^2$ and can
 therefore support antenna installations with $>10$-km baseline
 lengths.  The main Marion base is located on the northeast side of the
 island, and there are eight rest huts along the coast (Cape Davis,
@@ -206,7 +208,7 @@ autonomous operation.
       dual-polarization antennas are separated by roughly 110~m on an
       east--west baseline. Coaxial cables connect the antennas to a
       shipping container that houses the readout electronics and
-      serves as the ``command module.'' \textcolor{red}{\bf Add FEE
+      serves as the ``command module.'' \attention{Add FEE
         and backend sub-pics here? (HCC)}}
     \label{Fig:albatros2}
   \end{center}
@@ -217,7 +219,7 @@ autonomous operation.
     \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
     \caption{Schematic for the two-element \albatros\ pathfinder.
       Signals from two dual-polarzation LWA antennas are amplified by
-      front-end active baluns (\textcolor{red}{\bf citation for FEE}),
+      front-end active baluns (\attention{citation for FEE}),
       and 100-m coaxial cables connect the antennas to the back-end
       readout electronics, which are housed in a Faraday cage denoted
       by the dashed box.  Each of the four antenna outputs is passed
@@ -252,10 +254,10 @@ cardinal directions.  Welded wire mesh screens, roughly 3~m on a side,
 are installed on the ground below the antennas.
 % do we want/need to say anything about the omnidirectional primary beam?
 
-\textcolor{red}{\bf ALL TEXT BELOW HERE NEEDS WORK}
+\attention{ALL TEXT BELOW HERE NEEDS WORK}
 
 \subsection{Front-end active balun}
-\textcolor{red}{\bf Tankiso, Eamon, Jeff?} \\
+\attention{Tankiso, Eamon, Jeff?} \\
 
 The LWA active-balun front-end electronics (FEE) circuit uses  a MiniCircuits GALI-74+ MMIC to amplify each dipole leg against ground, presenting each leg with a 50$\ohm$ impedance and providing a nominal gain of 25dB. The two GALI-74+ outputs are differenced using a passive {180\degree} hybrid coupler. The coupler output is filtered by a $\sim$150MHz lowpass, and receives an additional 12dB of gain from a MiniCircuits GALI-6+ MMIC. This last amplifier drives the output signal onto a $\sim$100m 50$\ohm$ coaxial cable. Thus, neglecting mismatch loss between the dipoles (electrically small in the frequency range of interest) and the 100{\ohm} input impedance, as well as the hybrid insertion loss ($<$1dB), the front-end electronics provide a gain of $\sim$37dB \cite{2012PASP..124.1090H}. 
 
@@ -294,7 +296,7 @@ noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
 \fi
 
 \subsection{Back-end electronics}
-\textcolor{red}{\bf Nivek, HCC?} \\
+\attention{Nivek, HCC?} \\
 
 The back-end readout electronics are housed in a Faraday cage that is
 located $\sim$100m away from the antennas to mitigate possible
@@ -308,18 +310,18 @@ ZX60-V63+), and a pair of high- and low-pass filters (Minicircuits
 ZFHP-1R2+ and SLP-90+) that together  bandlimit the signal to
 1.2--\SI{81}{MHz}.  The amplifier has a nominal gain of 20dB, and the HPF and LPF contribute nominal insertion losses of 0.2dB and 0.14dB respectively.
 
-A Xilinx Kintex\footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html} based Smart Network ADC Processor (SNAP) board (\textcolor{red}{\bf citation for SNAP board?}), 
+A Xilinx Kintex\footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html} based Smart Network ADC Processor (SNAP) board (\attention{citation for SNAP board?}), 
 clocked by a Valon 5007 frequency synthesizer module,
 digitizes the RF signals at 250~Msamp/s. It calculates a full
 cross-correlation of the four inputs, producing four auto- and six
 cross-spectra as outputs, over 2048 channels spanning the frequency range 
 \SI{0}{MHz} - \SI{125}{MHz}. 
-(\textcolor{red}{\bf details about SNAP board frequency transform?})
-The SNAP board sends its output data via ethernet to a Raspberry Pi (\textcolor{red}{\bf version? citation?}), which saves it to a hard drive.
+(\attention{details about SNAP board frequency transform?})
+The SNAP board sends its output data via ethernet to a Raspberry Pi (\attention{version? citation?}), which saves it to a hard drive.
 
 \iffalse
 
-\textcolor{red}{\bf finish merging text
+\attention{finish merging text
   below into the above paragraph}
 
 
@@ -368,7 +370,7 @@ internal ADCs where the signal of the clock is from the Valon 5007
 frerquency synthesizer module. This creates a frequency range between
 \SI{0}{MHz} - \SI{125}{MHz} which contains 2048 channels. A SNAP board
 interacts with a raspberry pi and that is where the data is saved.
-\textcolor{red}{\bf include text about firmware}
+\attention{include text about firmware}
 
 \fi
 
@@ -377,7 +379,7 @@ interacts with a raspberry pi and that is where the data is saved.
 In order to supply power to the whole two-element pathfinder sysytem, a bank of four \SI{12}{V}, \SI{200}{\ampere\hour} batteries were wired in parallel. The Honda EU30is generator is used for charging the battery bank and the fuel is kept in one of the shipping containers at the \prizm\ site. If the batteries are fully charged, the system can fully operate for approximately four days. The power from the battery bank is connected to the Faraday cage where the power regulation is performed. A DC/DC converter stabilises the \SI{12}{V} from the battery bank and further supplies it to the auxiliary regulators that provide step down voltages to various components in the system.
 
 \subsection{Software and data acquisition}
-\textcolor{red}{\bf Nivek?} \\
+\attention{Nivek?} \\
 Text goes here.
 
 \section{Single autonomous station pathfinder}
@@ -387,7 +389,7 @@ Text goes here.
     \includegraphics[width=0.7\linewidth]{Figures/autonomous.jpg}
     \caption{Single autonomous station pathfinder installed at the
       hydro shack site.  The system is powered by a bank of solar
-      panels that are visible in the background.  \textcolor{red}{\bf
+      panels that are visible in the background.  \attention{
         Add command module and electronics glamor shots.}}
     \label{Fig:autonomous}
   \end{center}
@@ -417,7 +419,7 @@ Text goes here.
   \end{center}
 \end{figure}
 
-\textcolor{red}{\bf Nivek?} \\
+\attention{Nivek?} \\
 
 A single, autonomous station pathfinder was installed at the hydro
 shack (\ang{46;52.205;}S, \ang{37;50.612;}E) in April 2019. 
@@ -459,7 +461,7 @@ a later stage should there be a need to revise it for the stations.
 % \end{figure}
 
 \subsection{Readout electronics}
-\textcolor{red}{\bf Nivek, Jon?} \\
+\attention{Nivek, Jon?} \\
 Text here about one-bit stuff, pushing baseband through the RPi3,
 clock requirements, data rates, etc.
 
@@ -484,7 +486,7 @@ One might worry that at high signal levels, the saturation of the 1-bit cross co
 
 
 \subsection{Solar power system}
-\textcolor{red}{\bf Nivek, Tankiso, Eamon?} \\
+\attention{Nivek, Tankiso, Eamon?} \\
 The power system of the ALBATROS-EGG uses generators to charge the batteries manually every once in a number of days. From the observation that has been made, the batteries take $\approx$ 2 days to discharge to a point where the system shuts down. Because of the weather conditions in Marion Island, an individual can sometimes be unable to go to the site to charge the batteries, which means that if the weather does not allow, the system can be shut down for a long period. Thus, a solar power system solution was introduced to the ALBATROS so that the system can continously run without having to be recharged manually and often.\\
 
 The ALBATROS system is powered using \SI{24}{\volt} power which is stored and provided by two series-connected \SI{12}{\volt} deep-cycle lead-acid storage batteries. This power comes from the solar panel array consisting of nine flexible solar panels, each with a standard test condition capacity of \SI{110}{\watt}. The solar panel type is SunPower SPE-E-Flex-110. The panels are grouped in three parallel connected strings of three panels. Each group of three is mounted on its own structure. The panels include diodes to bypass shaded or defective cells, and also to prevent backwards current flow in the event an entire string of three panels is not illuminated while the others are producing power. \\
@@ -493,7 +495,7 @@ The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet e
 
 \section{Preliminary observations}
 
-\textcolor{red}{\bf NEED UPDATED AND NEW PLOTS, NEED VOLUNTEERS FOR THIS:
+\attention{NEED UPDATED AND NEW PLOTS, NEED VOLUNTEERS FOR THIS:
   \begin{itemize}
     \item{Improved waterfall plots from 2-element pathfinder}
     \item{Plot showing that the solar power works (sort of)}
