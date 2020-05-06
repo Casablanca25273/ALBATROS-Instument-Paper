@@ -256,6 +256,15 @@ are installed on the ground below the antennas.
 
 \subsection{Front-end active balun}
 \textcolor{red}{\bf Tankiso, Eamon, Jeff?} \\
+
+The LWA active-balun front-end electronics (FEE) circuit uses  a MiniCircuits GALI-74+ MMIC to amplify each dipole leg against ground, presenting each leg with a 50$\ohm$ impedance and providing a nominal gain of 25dB. The two GALI-74+ outputs are differenced using a passive {180\degree} hybrid coupler. The coupler output is filtered by a $\sim$150MHz lowpass, and receives an additional 12dB of gain from a MiniCircuits GALI-6+ MMIC. This last amplifier drives the output signal onto a $\sim$100m 50$\ohm$ coaxial cable. Thus, neglecting mismatch loss between the dipoles (electrically small in the frequency range of interest) and the 100{\ohm} input impedance, as well as the hybrid insertion loss ($<$1dB), the front-end electronics provide a gain of $\sim$37dB \cite{2012PASP..124.1090H}. 
+
+Each FEE circuit is powered by 16V, fed on the coax through a bias tee.
+
+% EE citing the noise figure of the GALI-74+ is particulary misleading because of the large mismatch loss, which directly scales up the noise figure in the HF band. 
+
+\iffalse
+
 All the front end components were incorporated for in a double sided
 printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the
 block diagram is shown in \autoref{Fig:Balun Schematic}. The
@@ -282,21 +291,37 @@ unit has an overall gain of $\approx$ \SI{35}{\decibel} and an overall
 noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
 \SI{2.9}{\decibel} \cite{Memo35}.
 
+\fi
+
 \subsection{Back-end electronics}
 \textcolor{red}{\bf Nivek, HCC?} \\
 
 The back-end readout electronics are housed in a Faraday cage that is
-located $\sim 100$~m away from the antennas to reduce potential
-contamination from self-generated RFI.  Each of the four antenna
-signals is passed to a second-stage electronics chain consisting of a
-bias tee (Minicircuits ZFBT-4R2GW-FT+), amplifier (Minicircuits
+located $\sim$100m away from the antennas to mitigate possible
+self-generated RFI.  Each of the four antenna
+signals is passed to a second-stage electronics chain consisting of 
+% EE bias tee is already described; it isn't really part of the signal chain since it doesn't do much of anything
+%a bias tee (Minicircuits ZFBT-4R2GW-FT+), 
+an
+amplifier (Minicircuits
 ZX60-V63+), and a pair of high- and low-pass filters (Minicircuits
-ZFHP-1R2+ and SLP-90+) that band limit the signal to
-1.2--\SI{81}{MHz}.  A Smart Network ADC Processor (SNAP) board
-digitizes the RF signals at 250~Msamp/s and calculates a full
+ZFHP-1R2+ and SLP-90+) that together  bandlimit the signal to
+1.2--\SI{81}{MHz}.  The amplifier has a nominal gain of 20dB, and the HPF and LPF contribute nominal insertion losses of 0.2dB and 0.14dB respectively.
+
+A Xilinx Kintex\footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html} based Smart Network ADC Processor (SNAP) board (\textcolor{red}{\bf citation for SNAP board?}), 
+clocked by a Valon 5007 frequency synthesizer module,
+digitizes the RF signals at 250~Msamp/s. It calculates a full
 cross-correlation of the four inputs, producing four auto- and six
-cross-spectra as outputs.  \textcolor{red}{\bf finish merging text
+cross-spectra as outputs, over 2048 channels spanning the frequency range 
+\SI{0}{MHz} - \SI{125}{MHz}. 
+(\textcolor{red}{\bf details about SNAP board frequency transform?})
+The SNAP board sends its output data via ethernet to a Raspberry Pi (\textcolor{red}{\bf version? citation?}), which saves it to a hard drive.
+
+\iffalse
+
+\textcolor{red}{\bf finish merging text
   below into the above paragraph}
+
 
 \textbf{Bias Tee} - It is used to extract the RF signal from a
 \SI{100}{\metre} LMR400 coaxial cable which has a nominal attenuation
@@ -335,13 +360,17 @@ its lowest operating frequency of \SI{\approx
   50}{MHz} \footnote{https://www.minicircuits.com/pdfs/ZX60-V63+.pdf}.
 
 \textbf{SNAP Board} - The SNAP board used is specified by Xilinx
-Inc. \footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}. The
+Inc. \footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}. 
+% EE it's unclear what this means. The reference is to the Kintex FPGA family, which says nothing about the SNAP board
+The
 SNAP board samples the signals it receives by 250 Msampl/s using
 internal ADCs where the signal of the clock is from the Valon 5007
 frerquency synthesizer module. This creates a frequency range between
 \SI{0}{MHz} - \SI{125}{MHz} which contains 2048 channels. A SNAP board
 interacts with a raspberry pi and that is where the data is saved.
 \textcolor{red}{\bf include text about firmware}
+
+\fi
 
 \subsection{Power}
 
