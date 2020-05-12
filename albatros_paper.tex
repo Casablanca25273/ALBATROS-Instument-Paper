@@ -222,24 +222,19 @@ autonomous operation.
   \end{center}
 \end{figure}
 
+% Two-element block diagram goes here
 \begin{figure}
-  \begin{center}
-    \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
-    \caption{Schematic for the two-element \albatros\ pathfinder.
+  \begin{center} \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
+    \caption{Two-element \albatros\ pathfinder block diagram.
       Signals from two dual-polarzation LWA antennas are amplified by
-      front-end active baluns (\attention{citation for FEE}),
-      and 100-m coaxial cables connect the antennas to the back-end
+      front-end active baluns (\attention{citation for FEE}).
+      Antennas are connected via 100m coax cables to the back-end 
       readout electronics, which are housed in a Faraday cage denoted
       by the dashed box.  Each of the four antenna outputs is passed
-      to a second-stage electronics chain consisting of a bias tee,
-      amplifier, and high- and low-pass filters.  The signals are
-      digitized at 250~Msamp/s by a SNAP board, and the on-board FPGA
-      is programmed with firmware to perform a full cross-correlation
-      of all four inputs.  A Raspberry Pi controls the SNAP board and
-      also saves the computed spectra to an SD card.  The clock signal
-      is provided by a Valon frequency synthesizer.  Power to the
-      system is provided by a bank of 12~V batteries and several
-      regulated voltage outputs.}
+      to a second-stage electronics chain consisting of filters and further amplfication.  The signals are
+      digitized at 250~Msamp/s by a SNAP board, which includes an on-board FPGA that computes auto and cross spectra
+      from and between the four inputs.  A Raspberry Pi controls the SNAP board and
+      saves the data.}
     \label{Fig:albatros2_schem}
   \end{center}
 \end{figure}
@@ -248,7 +243,7 @@ The first exploratory \albatros\ measurements were conducted with a
 two-element pathfinder that employed direct correlation (without
 autonomous operation).  \autoref{Fig:albatros2} illustrates this
 pathfinder, which was installed at the \prizm\ site (\ang{46;53;13}S,
-\ang{37;49;10.7}E) in April 2018.  The system schematic is illustrated
+\ang{37;49;10.7}E) in April 2018.  The system block diagram is shown
 in \autoref{Fig:albatros2_schem}, and each of the subsystems is
 described in detail below.
 
@@ -266,13 +261,24 @@ are installed on the ground below the antennas.
 
 \subsection{Front-end active balun}
 \attention{Tankiso, Eamon, Jeff?} \\
+\label{section:FEE}
 
-The LWA active-balun front-end electronics (FEE) circuit uses  a MiniCircuits GALI-74+ MMIC to amplify each dipole leg against ground, presenting each leg with a 50$\ohm$ impedance and providing a nominal gain of 25dB. The two GALI-74+ outputs are differenced using a passive {180\degree} hybrid coupler. The coupler output is filtered by a $\sim$150MHz lowpass, and receives an additional 12dB of gain from a MiniCircuits GALI-6+ MMIC. This last amplifier drives the output signal onto a $\sim$100m 50$\ohm$ coaxial cable. Thus, neglecting mismatch loss between the dipoles (electrically small in the frequency range of interest) and the 100{\ohm} input impedance, as well as the hybrid insertion loss ($<$1dB), the front-end electronics provide a gain of $\sim$37dB \cite{2012PASP..124.1090H}. 
+The LWA active-balun front-end electronics (FEE) circuit uses a MiniCircuits GALI-74+ MMIC 
+to amplify each dipole leg against ground, presenting each leg with a 50$\ohm$ impedance 
+and providing a nominal gain of 25dB. The two GALI-74+ outputs are differenced using a 
+passive {180\degree} hybrid coupler. The coupler output is filtered by a $\sim$150MHz lowpass, 
+and receives an additional 12dB of gain from a MiniCircuits GALI-6+ MMIC. This last amplifier 
+drives the output signal onto a 100m 50$\ohm$ coaxial cable. Thus, neglecting mismatch loss 
+between the dipoles (electrically small in the frequency range of interest) and the 100{\ohm} 
+input impedance, as well as the hybrid insertion loss ($<$1dB), the front-end electronics 
+provide a gain of $\sim$37dB \cite{2012PASP..124.1090H}. 
 
 Each FEE circuit is powered by 16V, fed on the coax through a bias tee.
 
 % EE citing the noise figure of the GALI-74+ is particulary misleading because of the large mismatch loss, which directly scales up the noise figure in the HF band. 
 
+
+% It seems to me that this is too much detail to go into in describing an already published design.
 \iffalse
 
 All the front end components were incorporated for in a double sided
@@ -306,8 +312,8 @@ noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
 \subsection{Back-end electronics}
 \attention{Nivek, HCC?} \\
 
-The back-end readout electronics are housed in a Faraday cage that is
-located $\sim$100m away from the antennas to mitigate possible
+The back-end readout electronics are housed in a Faraday cage
+located 100m away from the antennas to mitigate possible
 self-generated RFI.  Each of the four antenna
 signals is passed to a second-stage electronics chain consisting of 
 % EE bias tee is already described; it isn't really part of the signal chain since it doesn't do much of anything
@@ -325,67 +331,14 @@ cross-correlation of the four inputs, producing four auto- and six
 cross-spectra as outputs, over 2048 channels spanning the frequency range 
 \SI{0}{MHz} - \SI{125}{MHz}. 
 (\attention{details about SNAP board frequency transform?})
-The SNAP board sends its output data via ethernet to a Raspberry Pi (\attention{version? citation?}), which saves it to a hard drive.
-
-\iffalse
-
-\attention{finish merging text
-  below into the above paragraph}
-
-
-\textbf{Bias Tee} - It is used to extract the RF signal from a
-\SI{100}{\metre} LMR400 coaxial cable which has a nominal attenuation
-of \SI{\approx 0.4}{\decibel/\SI{100}{m}} - \SI{\approx
-  3.7}{dB/\SI{100}{\metre}} at \SI{1.2}{MHz} - \SI{81}{MHz}
-respectively \footnote{https://www.timesmicrowave.com/documents/resources/LMR-400.pdf}. The
-bias tee which is used is the Mini Circuits device ZFBT-4R2GW-FT+
-which operates between \SI{0.14}{MHz} - \SI{4200}{MHz}. It has an
-insertion loss of \SI{0.16}{\decibel} at centre frequency of
-\SI{\approx 10}{MHz} as per the
-datasheet \footnote{https://www.minicircuits.com/pdfs/ZFBT-4R2GW-FT+.pdf}.
-
-\textbf{HPF} - The HPF rejects any signals with low frequencies and
-allow through signals with high
-frequencies \footnote{http://www.learningaboutelectronics.com/Articles/High-pass-filter.php}. The
-HPF used is the ZFHP-1R2+ Mini Circuits device which operates between
-\SI{1.2}{MHz} - \SI{800}{MHz}. It has a nominal insertion loss of
-$\approx$ \SI{0.2}{\decibel} at centre frequency of
-\SI{\approx10}{MHz} as per the
-datasheet \footnote{https://www.minicircuits.com/pdfs/ZFHP-1R2+.pdf}.
-
-\textbf{LPF} - The LPF rejects all signals with high frequencies and
-allows all signals with low
-frequencies \footnote{http://www.learningaboutelectronics.com/Articles/Low-pass-filter.php}. The
-LPF used is the SLP-90+ Mini Circuits device which operates between
-\SI{1}{MHz} - \SI{400}{MHz}. It has a nominal insertion loss of
-$\approx$ \SI{0.14}{\decibel} at the centre frequency of \SI{\approx
-  10}{MHz} \footnote{https://www.minicircuits.com/pdfs/SLP-90+.pdf}.
-
-\textbf{Amplifier} - The amplifier at the backend amplifies the signal
-which is sent through to the snapboard by the gain of
-\SI{+20}{\decibel}. The amplifier used is the Mini Circuits device
-ZX60-V63+ which operates at a frequency range of \SI{0.05}{GHz} -
-\SI{6}{GHz}. It has a noise figure of $\approx$ \SI{3.6}{\decibel} at
-its lowest operating frequency of \SI{\approx
-  50}{MHz} \footnote{https://www.minicircuits.com/pdfs/ZX60-V63+.pdf}.
-
-\textbf{SNAP Board} - The SNAP board used is specified by Xilinx
-Inc. \footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}. 
-% EE it's unclear what this means. The reference is to the Kintex FPGA family, which says nothing about the SNAP board
-The
-SNAP board samples the signals it receives by 250 Msampl/s using
-internal ADCs where the signal of the clock is from the Valon 5007
-frerquency synthesizer module. This creates a frequency range between
-\SI{0}{MHz} - \SI{125}{MHz} which contains 2048 channels. A SNAP board
-interacts with a raspberry pi and that is where the data is saved.
-\attention{include text about firmware}
-
-\fi
+The SNAP board sends its output data via ethernet to a Raspberry Pi (\attention{version? citation?}), which saves baseband data to a set of hard drives, while storing the less voluminous correlation data on its SD card.
 
 \subsection{Power}
 
-In order to supply power to the whole two-element pathfinder sysytem, a bank of four \SI{12}{V}, \SI{200}{\ampere\hour} batteries were wired in parallel. The Honda EU30is generator is used for charging the battery bank and the fuel is kept in one of the shipping containers at the \prizm\ site. If the batteries are fully charged, the system can fully operate for approximately four days. The power from the battery bank is connected to the Faraday cage where the power regulation is performed. A DC/DC converter stabilises the \SI{12}{V} from the battery bank and further supplies it to the auxiliary regulators that provide step down voltages to various components in the system.
-
+A bank of four parallel \SI{12}{V}, \SI{200}{\ampere\hour} batteries serves to power to the two-element pathfinder sysytem. A Honda EU30is generator is run periodically to charge the battery bank, which can run the system for approximately four days on a full charge.  DC/DC converters power the SNAP board, the FEE, the amplifiers and the clock.
+% Cuts (redundant or too much detail)
+% and the fuel is kept in one of the shipping containers at the \prizm\ site
+% The power from the battery bank is connected to the Faraday cage where the power regulation is performed.
 \subsection{Software and data acquisition}
 \attention{Nivek?} \\
 Text goes here.
@@ -403,51 +356,33 @@ Text goes here.
   \end{center}
 \end{figure}
 
+
+% single element block diagram goes here
 \begin{figure}
   \begin{center}
     \includegraphics[width=\linewidth]{Figures/albatros_single_schematic/albatros_single_schematic.pdf}
-    \caption{Schematic for the single autonomous station pathfinder.
+    \caption{Single-antenna autonomous station block diagram. 
       Data and RF connections are outlined in black, and power
-      connections are outlined in red.  A dual-polarization LWA
-      antenna, equipped with an active balun, is connected via 50-m
-      coaxial cables to the back-end readout electronics, which are
-      housed in a Faraday cage denoted by the dashed box.  Each of the
-      two antenna inputs is passed to a second-stage electronics chain
-      consisting of a bias tee, high- and low-pass filters, and
-      amplifier.  The signals are digitized at 250~Msamp/s by a SNAP
-      board, and the on-board FPGA is programmed with firmware that
-      computes averaged auto- and cross-spectra, as well as
-      channelized baseband.  A Raspberry Pi controls the SNAP board
-      and saves the data products to a combination of an SD card and
-      external hard drives.  Timing information is provided by a
-      GPS-discipined clock.  Power to the system is provided solar
-      panels that charges a 24-V battery bank, which is regulated down
-      to several other output levels.}
+      connections in red.  
+      A dual-polarization LWA
+      antenna, equipped with an active balun (described above in \ref{section:FEE}), connects via 50m
+      coaxial cables to the back-end readout electronics, 
+      housed in a Faraday cage denoted by the dashed box. 
+      The antenna signals are passed
+      to a second-stage electronics chain consisting of filters and further amplfication.  The signals are
+      digitized at 250~Msamp/s by a SNAP board, which includes an on-board FPGA that computes spectra from both antennas.  
+      A Raspberry Pi controls the SNAP board, receives the spectrum of interest from the SNAP, and saves it as baseband data.}
     \label{Fig:Signal Chain}
   \end{center}
 \end{figure}
-
 \attention{Nivek?} \\
 
-A single, autonomous station pathfinder was installed at the hydro
-shack (\ang{46;52.205;}S, \ang{37;50.612;}E) in April 2019. 
 
-The final project (ALBATROS) will consist of autonomous antenna stations that will map the low frequency sky. Since these experiments are exploratory, they are taking steps towards achieving the future
-objective of probing the Dark Ages.The ALBATROS stations (huts) will
+The full ALBATROS configuration will comprise an array of 10 autonomous antenna stations, recording the lowest 10-20MHz baseband to disk, to be collected periodically and subsequently correlated offline. The ALBATROS stations (located at the eight coastal hut sites plus the hydro shack and \prizm\ site) will
 be separated by baselines of \SI{\approx {20}}{km} as shown in
-\autoref{Fig:Marion}. The two-element interferomentric pathfinder is
-not yet operating autonomously, it uses the direct cross correlation
-technique whereas the yet to be ALBATROS will write the lowest 10 - 20
-MHz baseband to disk then gets correlated afterwards. One ALBATROS
-fully autonomous station was deployed in Marion Island in April 2019
-as shown in \autoref{Fig:autonomous}.
+\autoref{Fig:Marion}. One fully autonomous ALBATROS
+station, shown in \autoref{Fig:autonomous}, was deployed in April 2019 at the hydro shack location (\ang{46;52.205;}S, \ang{37;50.612;}E) on Marion Island, as a first step in testing the technology needed to establish this array.
 
-The single antenna analog signal chain is shown in \autoref{Fig:Signal
-  Chain}. The components of the system are discussed in detail as per
-the block diagram illustrated in \autoref{Fig:Signal Chain}. This
-analog signal chain is an illustration of how the first autonomous
-station is configured. There might be changes to the block diagram at
-a later stage should there be a need to revise it for the stations.
 
 % HCC: we probably don't need these figures below, or we can
 % incorporate them as subfigs into other places
@@ -470,8 +405,21 @@ a later stage should there be a need to revise it for the stations.
 
 \subsection{Readout electronics}
 \attention{Nivek, Jon?} \\
-Text here about one-bit stuff, pushing baseband through the RPi3,
-clock requirements, data rates, etc.
+
+The single antenna signal chain is shown in \autoref{Fig:Signal Chain}. 
+% start of copied text
+The back-end readout electronics are housed in a Faraday cage
+located 50m away from the antennas. The analog signal chain consists 
+a pair of high- and low-pass filters (Minicircuits
+ZFHP-1R2+ and SLP-90+) that, as in the two-element configuration, together bandlimit the signal to
+1.2--\SI{81}{MHz}. The filters are followed by a MiniCircuits ZFL-500+ amplifier.  The HPF and LPF contribute nominal insertion losses of 0.2dB and 0.14dB respectively, and the amplifier has a nominal gain of 25dB.
+
+As with the dual-antenna configuration described above, a SNAP board digitizes the RF  at 250~Msamp/s. In this configuration, the SNAP board ADC is locked to a 10MHz reference produced by a Trimble Thunderbole E GPS disciplined clock module. The Raspberry Pi receives the spectrally decomposed baseband data \attention{which frequencies are we storing?} and stores it onto a set of hard drives. 
+(\attention{reference the same frequency transform as in the 2-element case})
+%end of copied text
+
+\attention{Text here about one-bit stuff, pushing baseband through the RPi3,
+clock requirements, data rates, etc.}
 
 \subsection{Correlation}
 While the basics of 1-bit correlation are well known in the limit where the signal level is much lower than the noise, ALBATROS may well be in the high-signal regime.  We present the basics of 1-bit correlation here, and show that even in the high-signal limit, 1-bit correlation remains viable.
@@ -490,7 +438,7 @@ where $V_{ij}$ is the true visibility, and $V_{ij}+N_{i,j}$ is the total noise p
     \end{center}
 \end{figure}
 
-One might worry that at high signal levels, the saturation of the 1-bit cross correlation would lead to the noise exploding.  In practice the rolloff in sensitivity is relatively mild, especially in the case of long baselines.  It can be expressed in terms of the correlator efficiency $\epsilon_{corr}$, which is defined to be the ratio of the measured signal-to-noise ratio to the ideal (infinite precision) SNR.  As seen in Figure \ref{fig:1bit_efficiency}, $\epsilon_{corr}$ only drops by a factor of $\sim$2 as the signal power goes from 0 to a few times the noise power.  We stress that the signal level is question is the part that correlates between the two antennas.  In the case of long baselines (where long means the fringe spacing is small compared to the primary beam/antenna response pattern) that are not dominated by a single bright source, the signal power will always be smaller than the noise power, and so $\epsilon_{corr}$ is unlikely to drop below $\sim$0.5\footnote{A quick estimate can be made by analogy to the behavior of dishes in the UV plane in the flat sky approximation.  While all power in the UV plane (plus any system noise) goes into an individual antenna's electric field, the correlated part only has contribution from the area in the UV plane within the width of the UV-space primary beam of the UV-space coordinate.  If the sky can be described as a Gaussian random field, in the most pessimistic case this is roughly the aperture filling factor of the antenna pair.  In our case, where the antennas are approximately dipolar, the filling factor will be the square of the wavelength over the baseline length.  As long as the baselines are several wavelengths or longer, the correlated power will be small, and the correlator efficiency will be close to the ideal 1-bit value of $\frac{2}{\pi}$.}.
+One might worry that at high signal levels, the saturation of the 1-bit cross correlation would lead to the noise exploding.  In practice the rolloff in sensitivity is relatively mild, especially in the case of long baselines.  It can be expressed in terms of the correlator efficiency $\epsilon_{corr}$, which is defined to be the ratio of the measured signal-to-noise ratio to the ideal (infinite precision) SNR.  As seen in Figure \ref{fig:1bit_efficiency}, $\epsilon_{corr}$ only drops by a factor of $\sim$2 as the signal power goes from 0 to a few times the noise power.  We stress that the signal level in question is the part that correlates between the two antennas.  In the case of long baselines (where long means the fringe spacing is small compared to the primary beam/antenna response pattern) that are not dominated by a single bright source, the signal power will always be smaller than the noise power, and so $\epsilon_{corr}$ is unlikely to drop below $\sim$0.5\footnote{A quick estimate can be made by analogy to the behavior of dishes in the UV plane in the flat sky approximation.  While all power in the UV plane (plus any system noise) goes into an individual antenna's electric field, the correlated part only has contribution from the area in the UV plane within the width of the UV-space primary beam of the UV-space coordinate.  If the sky can be described as a Gaussian random field, in the most pessimistic case this is roughly the aperture filling factor of the antenna pair.  In our case, where the antennas are approximately dipolar, the filling factor will be the square of the wavelength over the baseline length.  As long as the baselines are several wavelengths or longer, the correlated power will be small, and the correlator efficiency will be close to the ideal 1-bit value of $\frac{2}{\pi}$.}.
 
 
 \subsection{Solar power system}
