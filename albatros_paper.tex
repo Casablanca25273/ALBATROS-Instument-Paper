@@ -296,16 +296,17 @@ autonomous operation.
 
 \begin{figure}
   \begin{center} \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
-    \caption{Two-element \albatros\ pathfinder block diagram.
-      Signals from two dual-polarzation LWA antennas are amplified by
-      front-end active baluns (\attention{citation for FEE}).
-      Antennas are connected via 100m coax cables to the back-end 
-      readout electronics, which are housed in a Faraday cage denoted
-      by the dashed box.  Each of the four antenna outputs is passed
-      to a second-stage electronics chain consisting of filters and further amplfication.  The signals are
-      digitized at 250~Msamp/s by a SNAP board, which includes an on-board FPGA that computes auto and cross spectra
-      from and between the four inputs.  A Raspberry Pi controls the SNAP board and
-      saves the data.}
+    \caption{Two-element \albatros\ pathfinder block diagram.  Signals
+      from two dual-polarzation LWA antennas are amplified by
+      front-end active baluns~\citep{2012PASP..124.1090H}.  Antennas
+      are connected via 100m coax cables to the back-end readout
+      electronics, which are housed in a Faraday cage denoted by the
+      dashed box.  Each of the four antenna outputs is passed to a
+      second-stage electronics chain consisting of filters and further
+      amplfication.  The signals are digitized at 250~Msamp/s by a
+      SNAP board, which includes an on-board FPGA that computes auto
+      and cross spectra from and between the four inputs.  A Raspberry
+      Pi controls the SNAP board and saves the data.}
     \label{Fig:albatros2_schem}
   \end{center}
 \end{figure}
@@ -340,7 +341,7 @@ and receives an additional 12dB of gain from a MiniCircuits GALI-6+ MMIC. This l
 drives the output signal onto a 100m 50$\ohm$ coaxial cable. Thus, neglecting mismatch loss 
 between the dipoles (electrically small in the frequency range of interest) and the 100{\ohm} 
 input impedance, as well as the hybrid insertion loss ($<$1dB), the front-end electronics 
-provide a gain of $\sim$37dB \cite{2012PASP..124.1090H}. 
+provide a gain of $\sim$37~dB~\citep{2012PASP..124.1090H}. 
 
 Each FEE circuit is powered by 16V, fed on the coax through a bias tee.
 
