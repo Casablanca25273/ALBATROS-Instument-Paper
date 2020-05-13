@@ -164,23 +164,47 @@ describe the overall instrument design and preliminary measurements
 from engineering runs that were performed on Marion Island during
 2018--2019.
 
-\section{ALBATROS overview}
-
 \begin{figure}
-  \begin{center}
-    \includegraphics[width=0.7\linewidth]{Figures/marion_map/marion_map_annotated.jpg}
-    \caption{Map of Marion Island.  The \albatros\ pathfinder antennas
-      are currently installed at the \prizm\ site and at the hydro
-      shack.  The black markers denote the eight coastal huts, which
-      will be used for future \albatros\ antenna installations.  The
-      white markers denote other available infrastructure points that
-      will not be used for antennas.  \attention{Add new
-        synthesized beam figure (Jon)}}
-    \label{Fig:marion}
-  \end{center}
+    \centering
+    \begin{subfigure}[t]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figures/marion_map/marion_map_annotated.jpg} 
+        \caption{} \label{Fig:marion_map}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.39\textwidth}
+      \centering
+        \includegraphics[width=\linewidth]{Figures/marion_beam_huts_2020.jpg}
+        \caption{} \label{Fig:marion_beam}
+    \end{subfigure}
+    \caption{{\bf (a)} Map of Marion Island.  The
+      \albatros\ pathfinder antennas are currently installed at the
+      \prizm\ site and at the hydro shack (gray markers).  The black
+      markers denote the eight coastal huts, which will be used for
+      future \albatros\ antenna installations.  The white markers
+      denote other available infrastructure points that will not be
+      used for antennas.  {\bf (b)} Synthesized beam at 5~MHz from the
+      full \albatros\ array, using the existing and planned
+      installation locations shown on the map.  Using an octave of
+      bandwidth spanning 3.5--7~MHz, we obtain a synthesized beam with
+      a full width of $\sim7'$.}\label{Fig:marion_map_beam}
 \end{figure}
 
+\section{ALBATROS overview}
 
+% \begin{figure}
+%   \begin{center}
+%     \includegraphics[width=0.7\linewidth]{Figures/marion_map/marion_map_annotated.jpg}
+%     \caption{Map of Marion Island.  The \albatros\ pathfinder antennas
+%       are currently installed at the \prizm\ site and at the hydro
+%       shack.  The black markers denote the eight coastal huts, which
+%       will be used for future \albatros\ antenna installations.  The
+%       white markers denote other available infrastructure points that
+%       will not be used for antennas.  \attention{Add new
+%         synthesized beam figure (Jon)}}
+%     \label{Fig:marion}
+%   \end{center}
+% \end{figure}
 
 % Write text here about the overall final configuration.  Describe the
 % site, show synthesized beam, discuss high level system requirements
@@ -206,7 +230,7 @@ the South African National Antarctic Programme.  The island lies
 roughly \SI{2000}{\kilo\metre} from the nearest continental landmasses
 and has an exceptionally quiet RFI
 environment~\citep{2019JAI.....850004P}.  As illustrated in
-\autoref{Fig:marion}, \attention{this points to the map, not the beam pattern} Marion has an area of 335~km$^2$ and can
+\autoref{Fig:marion_map}, Marion has an area of 335~km$^2$ and can
 therefore support antenna installations with $>10$-km baseline
 lengths.  The main Marion base is located on the northeast side of the
 island, and there are eight rest huts along the coast (Cape Davis,
@@ -215,38 +239,36 @@ Watertunnel) and one in the interior (Katedraal) that can serve as
 existing infrastructure points for antenna installations.  The planned
 \albatros\ installation sites include the coastal huts, but exclude
 the main base and Katedraal for RFI and accessibility reasons,
-respectively.  \autoref{Fig:marion} also shows the locations of the
-\albatros\ pathfinder antennas that are currently installed at the
+respectively.  \autoref{Fig:marion_map} also shows the locations of
+the \albatros\ pathfinder antennas that are currently installed at the
 \prizm\ site and at the hydro shack.
 
 Using the eight coastal huts, the \prizm\ site, and the hydro shack as
 the nominal \albatros\ installation locations, the computed
-synthesized beam is as shown in \autoref{Fig:beam}.  The beam width
-at 5~MHz is roughly \SI{8}{\arcminute}, which represents over an order
-of magnitude improvement in resolution over other existing
+synthesized beam is as shown in \autoref{Fig:marion_beam}.  The beam
+width at 5~MHz is roughly \SI{7}{\arcminute}, which represents over an
+order of magnitude improvement in resolution over other existing
 measurements.  One of the challenges in constructing an interferometer
 array on Marion Island is that the rugged terrain precludes the
 possibility of directly cabling and correlating antennas across large
 distances.  The final \albatros\ antenna stations will therefore
 operate {\it autonomously}, recording baseband data over extended
 periods of time for subsequent offline correlation.  We have conducted
-two enginering runs: 1) a two-element, directly correlated pathfinder
+two engineering runs: 1) a two-element, directly correlated pathfinder
 to qualitatively understand the sky signal, and 2) a single station to
 test the readout and power handling technology that are required for
 autonomous operation.
 
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.7\linewidth]{Figures/marion_beam_huts_2020.pdf}
-    %/Users/sievers/hirax/outriggers/marion_beam_huts_2020.pdf
-    \caption{Synthesized beam at 5 MHz from the full \albatros\ array.
-      We use an octave of bandwidth (3.5 to 7 MHz), and find the
-      ensuing synthesized beam has a FWHM of about 7 arcminutes.}
-    \label{Fig:beam}
-  \end{center}
-\end{figure}
-
+% \begin{figure}
+%   \begin{center}
+%     \includegraphics[width=0.7\linewidth]{Figures/marion_beam_huts_2020.pdf}
+%     %/Users/sievers/hirax/outriggers/marion_beam_huts_2020.pdf
+%     \caption{Synthesized beam at 5 MHz from the full \albatros\ array.
+%       We use an octave of bandwidth (3.5 to 7 MHz), and find the
+%       ensuing synthesized beam has a FWHM of about 7 arcminutes.}
+%     \label{Fig:beam}
+%   \end{center}
+% \end{figure}
 
 \section{Two-element pathfinder}
 
@@ -264,7 +286,6 @@ autonomous operation.
   \end{center}
 \end{figure}
 
-% Two-element block diagram goes here
 \begin{figure}
   \begin{center} \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
     \caption{Two-element \albatros\ pathfinder block diagram.
@@ -298,8 +319,6 @@ separation of \SI{110}{m}, and the polarizations are aligned with the
 cardinal directions.  Welded wire mesh screens, roughly 3~m on a side,
 are installed on the ground below the antennas.
 % do we want/need to say anything about the omnidirectional primary beam?
-
-\attention{ALL TEXT BELOW HERE NEEDS WORK}
 
 \subsection{Front-end active balun}
 \attention{Tankiso, Eamon, Jeff?} \\
