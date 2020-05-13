@@ -29,11 +29,14 @@
 \newcommand{\attention}[1]{\textcolor{red}{\bf {#1}}}
 
 \newcommand{\aap}{Astronomy and Astrophysics}
+\newcommand{\aaps}{Astronomy and Astrophysics Supplements}
 \newcommand{\aj}{Astronomical Journal}
+\newcommand{\apj}{Astrophysical Journal}
+\newcommand{\jgr}{Journal of Geophysical Research}
+\newcommand{\pasa}{Publications of the Astronomical Society of Australia}
 \newcommand{\pasp}{Proceedings of the Astronomical Society of the Pacific}
 \newcommand{\prd}{Physical Review D}
-\newcommand{\apj}{Astrophysical Journal}
-\newcommand{\aaps}{Astronomy and Astrophysics Supplements}
+\newcommand{\prl}{Physical Review Letters}
 
 \begin{document}
 
@@ -79,7 +82,7 @@ two element pathfinder was deployed in Marion Island in April
 
 \keywords{cosmology: observations; dark ages; instrumentation: interferometers}
 
-\attention{Open task for any/all: fix references, make a proper bibtex file}
+\attention{Open task for any/all: fix references}
 
 \section{Introduction}
 
@@ -87,27 +90,31 @@ Measurements of redshifted \SI{21}{\cm} emission of neutral hydrogen
 across a wide range of radio frequencies have the potential to
 elucidate the universe's history from the cosmic ``dark ages'' up to
 the formation of large-scale structures (see,
-e.g.,~\citep{ska_physics,2013PhRvD..87d3002L,2014ApJ...782...66P}.
+e.g.,~\citep{2020PASA...37....2W,2013PhRvD..87d3002L,2014ApJ...782...66P}.
 The dark ages, which occurred after recombination and correspond to a
 period when the universe was filled with neutral hydrogen, are
 unexplored to date and represent one of the final observational
-frontiers in cosmology.  This epoch contains a potential wealth of
-cosmological information~\citep{loeb_zaldarriaga, 2019arXiv190710853C,
-  2019arXiv190804296K}, but the required redshifted frequencies of
-$\lesssim 30$~MHz are exceptionally difficult to observe.  The primary
-experimental challenges include Galactic foreground emission,
-ionospheric interference, and terrestrial radio-frequency interference
-(RFI).
+frontiers in cosmology.  The number of independent modes that are
+contained in the matter power spectrum in this epoch is orders of
+magnitude greater than the corresponding number for cosmic microwave
+background (CMB) measurements~\citep{2004PhRvL..92u1301L}.  Redshifted
+21-cm measurements of the dark ages therefore hold the potential to
+significantly improve cosmological parameter constraints over those
+currently derived from the CMB; however, the required observational
+frequencies of $\lesssim 30$~MHz are exceptionally difficult to
+access.  The primary experimental challenges include Galactic
+foreground emission, ionospheric interference, and terrestrial
+radio-frequency interference (RFI).
 
-Very few experiments have measured the radio sky at $\lesssim 30$~MHz;
-here, we highlight only four specific examples.  At the very lowest
-frequencies, the state of the art among ground-based measurements
-dates from the 1950s, when Reber and Ellis caught brief glimpses of
-the $2.1$~MHz sky at $\sim 5$\degree\ resolution, using an array of
-192~dipoles~\citep{reber, article, 1988A&A...195..372W}.  A few
-space-based missions have also performed measurements at similarly low
-frequency ranges; for example, the Radio Astronomy Explorer-2 operated
-at \SIrange{0.025}{13}{\MHz} with $\sim 10$\degree\ resolution at
+Very few experiments have surveyed the radio sky at $\lesssim 30$~MHz,
+and here, we highlight only four specific examples.  At the very
+lowest frequencies, the state of the art among ground-based
+measurements dates from the 1950s, when Reber and Ellis caught brief
+glimpses of the $2.1$~MHz sky at $\sim 5$\degree\ resolution, using an
+array of 192~dipoles~\citep{1956JGR....61....1R}.  A few space-based
+missions have also performed measurements at similarly low frequency
+ranges; for example, the Radio Astronomy Explorer-2 operated at
+\SIrange{0.025}{13}{\MHz} with $\sim 10$\degree\ resolution at
 \SI{4.7}{\MHz}~\citep{1975A&A....40..365A}.  Measurements with
 resolution finer than few-degree scales exist mainly at higher
 frequencies.  For example, the Dominion Radio Astrophysical
@@ -119,14 +126,25 @@ sky with \SI{15}{\arcminute} resolution between 36.528~MHz and
 list is not comprehensive, it does illustrate the dearth of
 information about the $\lesssim 30$~MHz sky and the lack of high
 resolution measurements at the lowest frequencies.  The first step
-toward laying the groundwork for possible future cosmological
-measurements is obtaining an improved map of Galactic foregrounds at
-$\lesssim 30$~MHz.  Maps at these frequencies can additionally shed
-new light on Galactic astrophysics, including cosmic ray structure
-along the line of sight (\attention{more words here about synchrotron
-  self-absorption}), \attention{words here about radio recombination
-  lines}.  \attention{More words here about possible ionospheric
-  studies.}
+toward laying the groundwork for possible measurements of the dark
+ages is obtaining an improved map of Galactic foregrounds at $\lesssim
+30$~MHz.  In addition to serving as a stepping stone for future
+cosmological constraints from the dark ages, maps at these frequencies
+can also shed new light on Galactic astrophysics.  Above $\sim30$~MHz,
+synchrotron emission from the Galaxy follows a power law with a
+frequency dependence of $\nu^{-5/2}$.  At lower frequencies,
+synchrotron self-absorption becomes non-negligible, and the spectrum
+transitions to $\nu^{5/3}$ dependence.  Since self-absorption causes
+the optical depth along the line of sight to depend on frequency,
+observations at $\lesssim 30$~MHz have the potential to probe the
+three-dimensional cosmic ray structure of the
+Galaxy~\citep{2002ApJ...575..217P}.
+
+\attention{Words here about radio recombination lines.}
+\attention{More words here about possible ionospheric studies.}
+
+% Words here about space-based concepts, and more words about doing
+% what we can from the ground first
 
 Preliminary observations from Marion
 Island~\citep{2019JAI.....850004P} suggest that despite the
