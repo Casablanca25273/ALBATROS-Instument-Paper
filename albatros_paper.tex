@@ -32,6 +32,7 @@
 \newcommand{\aaps}{Astronomy and Astrophysics Supplements}
 \newcommand{\aj}{Astronomical Journal}
 \newcommand{\apj}{Astrophysical Journal}
+\newcommand{\grl}{Geophysical Research Letters}
 \newcommand{\jgr}{Journal of Geophysical Research}
 \newcommand{\mnras}{Monthly Notices of the Royal Astronomical Society}
 \newcommand{\nar}{New Astronomy Reviews}
@@ -140,9 +141,9 @@ ages is obtaining an improved map of Galactic foregrounds at $\lesssim
 cosmological constraints from the dark ages, maps at these frequencies
 can also shed new light on Galactic astrophysics.  Above $\sim30$~MHz,
 synchrotron emission from the Galaxy follows a power law with a
-frequency dependence of $\nu^{-5/2}$.  At lower frequencies,
+frequency dependence of $\nu^{-0.7}$.  At lower frequencies,
 synchrotron self-absorption becomes non-negligible, and the spectrum
-transitions to $\nu^{5/3}$ dependence.  Since self-absorption causes
+transitions to $\nu^{+5/2}$ dependence.  Since self-absorption causes
 the optical depth along the line of sight to depend on frequency,
 observations at $\lesssim 30$~MHz have the potential to probe the
 three-dimensional cosmic ray structure of the
@@ -153,24 +154,42 @@ medium (ISM).  These absorption lines arise from Rydberg atoms and are
 highly sensitive to the surrounding environment.  The RRL spectrum and
 absorption profiles can therefore constrain the detailed properties of
 the ISM regions in which the Rydberg atoms are
-formed~\citep{2009NewAR..53..259G, 2007MNRAS.374..852S}.
+formed~\citep{2009NewAR..53..259G, 2007MNRAS.374..852S}.  Finally,
+observations at $\lesssim30$~MHz may provide new views of Earth's
+ionosphere, which absorbs and refracts at radio frequencies and
+becomes completely opaque below the plasma cutoff frequency.  The
+cutoff frequency and the levels of absorption and refraction are
+time-varying and spatially dependent.  Experiments that image the
+radio sky at multiple frequencies bracketing the plasma cutoff can
+therefore simultaneously image the ionosphere and provide spectral
+riometry data for space weather studies~\citep{2014GeoRL..41.5370K}.
 
-\attention{Words here about possible ionospheric studies.}
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.6\linewidth]{Figures/marion_domec_hobart.png}
+    \caption{Minimum plasma frequency predicted by the International
+      Reference Ionosphere model during the last solar minimum.  At
+      some locations on Earth, the plasma frequency may drop as low as
+      $\sim1.5$~MHz.}
+    \label{Fig:iri}
+  \end{center}
+\end{figure}
 
-\attention{Words here about space-based concepts and complementarity
-  with ground-based measurements.}
-
-Preliminary observations from Marion
-Island~\citep{2019JAI.....850004P} suggest that despite the
-present-day RFI environment, low-frequency observations may still be
-accessible from carefully selected locations and with new technology
-developments.  In this paper, we present the Array of Long Baseline
-Antennas for Taking Radio Observations from the Sub-Antarctic
-(\albatros), a new experimental effort that aims to map the
-low-frequency sky using an array of autonomous antenna stations.  We
-describe the overall instrument design and preliminary measurements
-from engineering runs that were performed on Marion Island during
-2018--2019.
+There are proposed efforts to perform new low-frequency measurements
+from space, where there is no contamination from the ionosphere, and
+the lunar farside can potentially block RFI from the
+Earth~\citep{2019arXiv190710853C, 2019arXiv190804296K}.  Although the
+combination of ionosphere and RFI significantly impedes low-frequency
+radio observations from most locations on Earth, preliminary
+observations from Marion Island~\citep{2019JAI.....850004P} suggest
+that such observations may still be accessible from carefully selected
+locations and with new technology developments.  In this paper, we
+present the Array of Long Baseline Antennas for Taking Radio
+Observations from the Sub-Antarctic (\albatros), a new experimental
+effort that aims to map the low-frequency sky using an array of
+autonomous antenna stations.  We describe the overall instrument
+design and preliminary measurements from engineering runs that were
+performed on Marion Island during 2018--2019.
 
 \begin{figure}
     \centering
@@ -200,20 +219,6 @@ from engineering runs that were performed on Marion Island during
 
 \section{ALBATROS overview}
 
-% \begin{figure}
-%   \begin{center}
-%     \includegraphics[width=0.7\linewidth]{Figures/marion_map/marion_map_annotated.jpg}
-%     \caption{Map of Marion Island.  The \albatros\ pathfinder antennas
-%       are currently installed at the \prizm\ site and at the hydro
-%       shack.  The black markers denote the eight coastal huts, which
-%       will be used for future \albatros\ antenna installations.  The
-%       white markers denote other available infrastructure points that
-%       will not be used for antennas.  \attention{Add new
-%         synthesized beam figure (Jon)}}
-%     \label{Fig:marion}
-%   \end{center}
-% \end{figure}
-
 % Write text here about the overall final configuration.  Describe the
 % site, show synthesized beam, discuss high level system requirements
 % (power, data storage, etc).  Include deployment schedule and introduce
@@ -225,12 +230,22 @@ ionospheric conditions.  As a benchmark, an interferometer operating
 at 30~MHz requires order-of-magnitude baseline lengths of $\sim 1$~km
 to achieve a resolution of $\sim 1$\degree.  This length scales
 inversely with frequency, and therefore $\sim 10$-km lengths are
-required at few-MHz frequencies in order to improve upon the
-resolutions achieved to date.  The experiment installation site must
-be remote to keep RFI to a minimum, and polar or near-polar latitiudes
-generally have lower ionospheric plasma frequency cutoffs.
-\attention{Add more ionosphere text here, plus IRI simulation
-  fig/numbers (Jon)}
+required at few-MHz frequencies to improve upon the resolutions
+achieved to date.  The experiment installation site must be remote to
+keep RFI to a minimum, and polar or near-polar latitiudes generally
+have lower ionospheric plasma frequency cutoffs relative to other
+locations on Earth.  \autoref{Fig:iri} illustrates predictions from
+the International Reference Ionosphere
+model~\citep{2018AdRS...16....1B} for the minimum plasma frequency
+during the last solar minimum, which started in approximately 2007.
+Three locations are shown: Marion Island, the focus of this work;
+Dome~C in Antarctica, which is another isolated location used for
+astronomical observations; and Hobart, Tasmania, where Reber performed
+his $\sim2$~MHz observations.  The model predictions illustrate that
+the ionospheric plasma cutoff frequency at Marion Island may drop as
+low as $\sim1.5$~MHz during solar minima.  Since we are currently
+experiencing another solar minimum~\citep{2018NatCo...9.5209B}, the
+timing is opportune for new low-frequency observations.
 
 Marion Island is a research base that is located in the southern
 Indian Ocean at \ang{46;54;45}S, \ang{37;44;37}E and is operated by
@@ -266,17 +281,6 @@ two engineering runs: 1) a two-element, directly correlated pathfinder
 to qualitatively understand the sky signal, and 2) a single station to
 test the readout and power handling technology that are required for
 autonomous operation.
-
-% \begin{figure}
-%   \begin{center}
-%     \includegraphics[width=0.7\linewidth]{Figures/marion_beam_huts_2020.pdf}
-%     %/Users/sievers/hirax/outriggers/marion_beam_huts_2020.pdf
-%     \caption{Synthesized beam at 5 MHz from the full \albatros\ array.
-%       We use an octave of bandwidth (3.5 to 7 MHz), and find the
-%       ensuing synthesized beam has a FWHM of about 7 arcminutes.}
-%     \label{Fig:beam}
-%   \end{center}
-% \end{figure}
 
 \section{Two-element pathfinder}
 
