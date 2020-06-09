@@ -292,8 +292,7 @@ autonomous operation.
       dual-polarization antennas are separated by roughly 110~m on an
       east--west baseline. Coaxial cables connect the antennas to a
       shipping container that houses the readout electronics and
-      serves as the ``command module.'' \attention{Add FEE
-        and backend sub-pics here? (HCC)}}
+      serves as the ``command module.''}
     \label{Fig:albatros2}
   \end{center}
 \end{figure}
@@ -302,21 +301,21 @@ autonomous operation.
   \begin{center} \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
     \caption{Two-element \albatros\ pathfinder block diagram.  Signals
       from two dual-polarzation LWA antennas are amplified by
-      front-end active baluns~\citep{2012PASP..124.1090H}.  Antennas
-      are connected via 100m coax cables to the back-end readout
-      electronics, which are housed in a Faraday cage denoted by the
-      dashed box.  Each of the four antenna outputs is passed to a
-      second-stage electronics chain consisting of filters and further
-      amplfication.  The signals are digitized at 250~Msamp/s by a
-      SNAP board, which includes an on-board FPGA that computes auto
-      and cross spectra from and between the four inputs.  A Raspberry
-      Pi controls the SNAP board and saves the data.}
+      front-end active baluns~\citep{2012PASP..124.1090H}.  The
+      antennas are connected via 100-m coaxial cables to the back-end
+      readout electronics, which are housed in a Faraday cage denoted
+      by the dashed box.  Each of the four antenna outputs is passed
+      to a second-stage electronics chain consisting of filters and
+      further amplfication.  The signals are digitized at 250~Msamp/s
+      by a SNAP board, which includes an on-board FPGA that computes
+      auto- and cross-spectra from and between the four inputs.  A
+      Raspberry Pi controls the SNAP board and saves the data.}
     \label{Fig:albatros2_schem}
   \end{center}
 \end{figure}
 
 The first exploratory \albatros\ measurements were conducted with a
-two-element pathfinder that employed direct correlation (without
+two-element pathfinder that used direct correlation (without
 autonomous operation).  \autoref{Fig:albatros2} illustrates this
 pathfinder, which was installed at the \prizm\ site (\ang{46;53;13}S,
 \ang{37;49;10.7}E) in April 2018.  The system block diagram is shown
@@ -324,6 +323,7 @@ in \autoref{Fig:albatros2_schem}, and each of the subsystems is
 described in detail below.
 
 \subsection{Antenna}	
+
 We employ two dual-polarization Long Wavelength Array (LWA) dipole
 antennas~\citep{Memo28}.  The LWA antennas have a long development
 history, are well characterized, and are simple to install and
@@ -333,86 +333,89 @@ cardinal directions.  Welded wire mesh screens, roughly 3~m on a side,
 are installed on the ground below the antennas.
 % do we want/need to say anything about the omnidirectional primary beam?
 
-\subsection{Front-end active balun}
-\attention{Tankiso, Eamon, Jeff?} \\
-\label{section:FEE}
+\subsection{Front-end active balun}\label{section:FEE}
 
-The LWA active-balun front-end electronics (FEE) circuit uses a MiniCircuits GALI-74+ MMIC 
-to amplify each dipole leg against ground, presenting each leg with a 50$\ohm$ impedance 
-and providing a nominal gain of 25dB. The two GALI-74+ outputs are differenced using a 
-passive {180\degree} hybrid coupler. The coupler output is filtered by a $\sim$150MHz lowpass, 
-and receives an additional 12dB of gain from a MiniCircuits GALI-6+ MMIC. This last amplifier 
-drives the output signal onto a 100m 50$\ohm$ coaxial cable. Thus, neglecting mismatch loss 
-between the dipoles (electrically small in the frequency range of interest) and the 100{\ohm} 
-input impedance, as well as the hybrid insertion loss ($<$1dB), the front-end electronics 
-provide a gain of $\sim$37~dB~\citep{2012PASP..124.1090H}. 
-
-Each FEE circuit is powered by 16V, fed on the coax through a bias tee.
+The LWA active-balun front-end electronics (FEE) circuit uses a
+MiniCircuits GALI-74+ MMIC to amplify each dipole leg against ground,
+presenting each leg with a 50$\ohm$ impedance and providing a nominal
+gain of 25~dB. The two GALI-74+ outputs are differenced using a
+passive {180\degree} hybrid coupler. The coupler output is filtered by
+a $\sim$150~MHz lowpass and receives an additional 12~dB of gain from
+a MiniCircuits GALI-6+ MMIC. This last amplifier drives the output
+signal onto a 100-m 50$\ohm$ coaxial cable. Thus, neglecting mismatch
+loss between the dipoles (electrically small in the frequency range of
+interest) and the 100{\ohm} input impedance, as well as the hybrid
+insertion loss ($<$1dB), the front-end electronics provide a gain of
+$\sim$37~dB~\citep{2012PASP..124.1090H}.  Each FEE circuit is powered
+by 16~V, which is fed on the coaxial cable through a bias tee.
 
 % EE citing the noise figure of the GALI-74+ is particulary misleading because of the large mismatch loss, which directly scales up the noise figure in the HF band. 
 
+%% It seems to me that this is too much detail to go into in describing an already published design.
+% All the front end components were incorporated for in a double sided
+% printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the
+% block diagram is shown in \autoref{Fig:Balun Schematic}. The
+% Monolithic Microwave Integrated Circuits (MMICs) is the used design
+% for the PCB. One side of the PCB is populated with components and
+% the other side is a solid copper ground plane aperiodically stitched
+% to the grounded copper on the side populated with components. The
+% receiver system is made up of the active balun, filter and the gain
+% stage that connects to the \SI{100}{\metre} coaxial cable which is
+% connected to the back end \cite{2012PASP..124.1090H}.
 
-% It seems to me that this is too much detail to go into in describing an already published design.
-\iffalse
-
-All the front end components were incorporated for in a double sided
-printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the
-block diagram is shown in \autoref{Fig:Balun Schematic}. The
-Monolithic Microwave Integrated Circuits (MMICs) is the used design
-for the PCB. One side of the PCB is populated with components and the
-other side is a solid copper ground plane aperiodically stitched to
-the grounded copper on the side populated with components. The
-receiver system is made up of the active balun, filter and the gain
-stage that connects to the \SI{100}{\metre} coaxial cable which is
-connected to the back end \cite{2012PASP..124.1090H}.
-
-The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is
-introduced to the dipole by the active balun. The signal is then fed
-through an amplifier which amplifies it by \SI{+24}{\decibel} of
-gain. The balanced signal is then converted to unbalanced through a
-180 \degree hybrid coupler. The band pass filter (BPF) receives the
-single ended signal in order for it to reject all the frequencies
-which are not within the range of interest. The signal gets fed to a
-second amplifier which again amplies it by \SI{+24}{\decibel} of gain
-and the output impedance of the FEE is matched to a \SI{50}{\ohm}
-coaxial cable. The bias tee is responsible for providing power to the
-FEE and extracts the RF signal by the use of the coaxial cable. This
-unit has an overall gain of $\approx$ \SI{35}{\decibel} and an overall
-noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
-\SI{2.9}{\decibel} \cite{Memo35}.
-
-\fi
+% The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is
+% introduced to the dipole by the active balun. The signal is then fed
+% through an amplifier which amplifies it by \SI{+24}{\decibel} of
+% gain. The balanced signal is then converted to unbalanced through a
+% 180 \degree hybrid coupler. The band pass filter (BPF) receives the
+% single ended signal in order for it to reject all the frequencies
+% which are not within the range of interest. The signal gets fed to a
+% second amplifier which again amplies it by \SI{+24}{\decibel} of gain
+% and the output impedance of the FEE is matched to a \SI{50}{\ohm}
+% coaxial cable. The bias tee is responsible for providing power to the
+% FEE and extracts the RF signal by the use of the coaxial cable. This
+% unit has an overall gain of $\approx$ \SI{35}{\decibel} and an overall
+% noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
+% \SI{2.9}{\decibel} \cite{Memo35}.
 
 \subsection{Back-end electronics}
-\attention{Nivek, HCC?} \\
 
-The back-end readout electronics are housed in a Faraday cage
-located 100m away from the antennas to mitigate possible
-self-generated RFI.  Each of the four antenna
-signals is passed to a second-stage electronics chain consisting of 
-% EE bias tee is already described; it isn't really part of the signal chain since it doesn't do much of anything
-%a bias tee (Minicircuits ZFBT-4R2GW-FT+), 
-an
-amplifier (Minicircuits
-ZX60-V63+), and a pair of high- and low-pass filters (Minicircuits
-ZFHP-1R2+ and SLP-90+) that together  bandlimit the signal to
-1.2--\SI{81}{MHz}.  The amplifier has a nominal gain of 20dB, and the HPF and LPF contribute nominal insertion losses of 0.2dB and 0.14dB respectively.
+The back-end readout electronics are housed in a Faraday cage located
+100~m away from the antennas to mitigate possible self-generated RFI.
+Each of the four antenna signals is passed to a second-stage
+electronics chain consisting of an amplifier (Minicircuits ZX60-V63+),
+and a pair of high- and low-pass filters (Minicircuits ZFHP-1R2+ and
+SLP-90+) that together band-limit the signal to 1.2--\SI{81}{MHz}.
+The amplifier has a nominal gain of 20~dB, and the high- and low-pass
+filters contribute nominal insertion losses of 0.2~dB and 0.14~dB,
+respectively.
 
-A Xilinx Kintex\footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html} based Smart Network ADC Processor (SNAP) board (\attention{citation for SNAP board?}), 
-clocked by a Valon 5007 frequency synthesizer module,
-digitizes the RF signals at 250~Msamp/s. It calculates a full
-cross-correlation of the four inputs, producing four auto- and six
-cross-spectra as outputs, over 2048 channels spanning the frequency range 
-\SI{0}{MHz} - \SI{125}{MHz}. 
-(\attention{details about SNAP board frequency transform?})
-The SNAP board sends its output data via ethernet to a Raspberry Pi (\attention{version? citation?}), which saves baseband data to a set of hard drives, while storing the less voluminous correlation data on its SD card.
+A Smart Network ADC Processor~\citep[SNAP;][]{2016JAI.....541001H}
+board digitizes the RF signals at 250~Msamp/s and uses a Xilinx
+Kintex~7\footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}
+FPGA to calculate full cross-correlations of the four inputs,
+producing four auto- and six cross-spectra as outputs, over 2048
+channels spanning the frequency range 0--125~MHz.  \attention{details
+  about channelization here} A Valon 5007 frequency synthesizer module
+provides the clock signal for the SNAP board.  A Raspberry Pi~3B+
+(RPi) single board computer controls the SNAP board and receives the
+spectra via GPIO connections, and the spectra are saved to an on-board
+SD card.  An Adafruit Ultimate GPS
+module\footnote{\url{https://www.adafruit.com/product/746}}, connected
+to an active external GPS antenna, provides absolute timing for the
+RPi.
 
 \subsection{Power}
 
-A bank of four parallel \SI{12}{V}, \SI{200}{\ampere\hour} batteries serves to power the two-element pathfinder system. A Honda EU30is generator is run periodically to charge the battery bank, which can run the system for approximately four days on a full charge.  DC/DC converters power the SNAP board, the FEE, the amplifiers and the clock.
-% Cuts (redundant or too much detail)
-% and the fuel is kept in one of the shipping containers at the \prizm\ site
-% The power from the battery bank is connected to the Faraday cage where the power regulation is performed.
+A bank of four 12-V, 200-Ah AGM batteries, connected in parallel,
+powers the two-element pathfinder system.  The batteries are manually
+charged with a Honda EU30is generator that is housed on site.  The
+total power draw of the two-element pathfinder is $\sim45$~W, and when
+fully charged, the battery bank can power the system for about a week.
+The raw battery voltage is passed to several DC/DC converters that
+supply regulated voltages to the SNAP board, FEE, amplifiers and the
+clock.
+
 \subsection{Software and data acquisition}
 \attention{Nivek?} \\
 Text goes here.
@@ -436,8 +439,6 @@ Text goes here.
   \begin{center}
     \includegraphics[width=\linewidth]{Figures/albatros_single_schematic/albatros_single_schematic.pdf}
     \caption{Single-antenna autonomous station block diagram. 
-      Data and RF connections are outlined in black, and power
-      connections in red.  
       A dual-polarization LWA
       antenna, equipped with an active balun (described above in \ref{section:FEE}), connects via 50m
       coaxial cables to the back-end readout electronics, 
