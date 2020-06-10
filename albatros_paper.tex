@@ -322,7 +322,7 @@ pathfinder, which was installed at the \prizm\ site (\ang{46;53;13}S,
 in \autoref{Fig:albatros2_schem}, and each of the subsystems is
 described in detail below.
 
-\subsection{Antenna}	
+\subsection{Antenna}\label{s:antenna}
 
 We employ two dual-polarization Long Wavelength Array (LWA) dipole
 antennas~\citep{Memo28}.  The LWA antennas have a long development
@@ -333,7 +333,7 @@ cardinal directions.  Welded wire mesh screens, roughly 3~m on a side,
 are installed on the ground below the antennas.
 % do we want/need to say anything about the omnidirectional primary beam?
 
-\subsection{Front-end active balun}\label{section:FEE}
+\subsection{Front-end active balun}\label{s:fee}
 
 The LWA active-balun front-end electronics (FEE) circuit uses a
 MiniCircuits GALI-74+ MMIC to amplify each dipole leg against ground,
@@ -417,8 +417,10 @@ supply regulated voltages to the SNAP board, FEE, amplifiers and the
 clock.
 
 \subsection{Software and data acquisition}
-\attention{Nivek?} \\
-Text goes here.
+
+\attention{text goes here}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 \section{Single autonomous station pathfinder}
 
@@ -446,30 +448,41 @@ Text goes here.
 \begin{figure}
   \begin{center}
     \includegraphics[width=\linewidth]{Figures/albatros_single_schematic/albatros_single_schematic.pdf}
-    \caption{Single-antenna autonomous station block diagram. 
-      A dual-polarization LWA
-      antenna, equipped with an active balun (described above in \ref{section:FEE}), connects via 50m
-      coaxial cables to the back-end readout electronics, 
-      housed in a Faraday cage denoted by the dashed box. 
-      The antenna signals are passed
-      to a second-stage electronics chain consisting of filters and further amplfication.  The signals are
-      digitized at 250~Msamp/s by a SNAP board, which includes an on-board FPGA that computes spectra from both antennas.  
-      A Raspberry Pi controls the SNAP board, receives the spectrum of interest from the SNAP, and saves it as baseband data.}
-    \label{Fig:Signal Chain}
+    \caption{Single-antenna autonomous station block diagram.  A
+      dual-polarization LWA antenna, equipped with a front-end active
+      balun, connects via 50-m coaxial cables to the back-end readout
+      electronics, housed in a Faraday cage denoted by the dashed box.
+      Each of the two antenna signals is passed to a second-stage
+      electronics chain consisting of filters and further
+      amplfication.  The signals are digitized at 250~Msamp/s by a
+      SNAP board, which includes an on-board FPGA that computes
+      channelized baseband and spectra from both inputs.  A Raspberry
+      Pi controls the SNAP board and receives the baseband data and
+      spectra.  The baseband data are saved to external hard drives.
+      The system is powered by solar panels that charge a 24-V battery
+      bank.}
+    \label{Fig:albatros1_schem}
   \end{center}
 \end{figure}
-\attention{Nivek?} \\
 
+The full ALBATROS configuration will comprise an array of 10
+autonomous antenna stations, each recording baseband over a tunable
+10--20~MHz window within the full 0--125~MHz operating range.  The
+baseband data will be collected periodically and subsequently
+correlated offline.  The ALBATROS stations, located at the eight
+coastal hut sites plus the hydro shack and \prizm\ site, will be
+separated by baselines of $\sim20$~km as shown in
+\autoref{Fig:marion_map_beam}. One fully autonomous ALBATROS station,
+shown in \autoref{Fig:autonomous}, was deployed in April 2019 at the
+hydro shack location (\ang{46;52.205;}S, \ang{37;50.612;}E) on Marion
+Island as a first step in testing the technology needed to establish
+the full array.  The system block diagram is shown in
+\autoref{Fig:albatros1_schem}.  The antenna and front-end active balun
+in the single autonomous station are identical to those used in the
+two-element pathfinder (\S\ref{s:antenna} and \S\ref{s:fee}), and the
+back-end electronics and power system are described in detail below.
 
-The full ALBATROS configuration will comprise an array of 10 autonomous antenna stations, recording the lowest 10-20MHz baseband to disk, to be collected periodically and subsequently correlated offline. The ALBATROS stations (located at the eight coastal hut sites plus the hydro shack and \prizm\ site) will
-be separated by baselines of \SI{\approx {20}}{km} as shown in
-\autoref{Fig:Marion}. One fully autonomous ALBATROS
-station, shown in \autoref{Fig:autonomous}, was deployed in April 2019 at the hydro shack location (\ang{46;52.205;}S, \ang{37;50.612;}E) on Marion Island, as a first step in testing the technology needed to establish this array.
-
-
-% HCC: we probably don't need these figures below, or we can
-% incorporate them as subfigs into other places
-
+% HCC: we probably don't need this figure
 % \begin{figure}[h]
 % 	\begin{center}
 % 		\includegraphics[width=0.5\linewidth]{Figures/balun.jpg}
@@ -477,34 +490,40 @@ station, shown in \autoref{Fig:autonomous}, was deployed in April 2019 at the hy
 % 		\label{Fig:Balun}
 % 	\end{center}
 % \end{figure}
-% 
-% \begin{figure}[h]
-% 	\begin{center}
-% 		\includegraphics[width=0.7\linewidth]{Figures/Balun_Block.png}
-% 		\caption{One Polarisation Block Diagram of the FEE \cite{2012PASP..124.1090H}}
-% 		\label{Fig:Balun Schematic}
-% 	\end{center}
-% \end{figure}
 
-\subsection{Readout electronics}
-\attention{Nivek, Jon?} \\
+\subsection{Back-end electronics}
 
-The single antenna signal chain is shown in \autoref{Fig:Signal Chain}. 
-% start of copied text
-The back-end readout electronics are housed in a Faraday cage
-located 50m away from the antennas. The analog signal chain consists 
-a pair of high- and low-pass filters (Minicircuits
-ZFHP-1R2+ and SLP-90+) that, as in the two-element configuration, together bandlimit the signal to
-1.2--\SI{81}{MHz}. The filters are followed by a MiniCircuits ZFL-500+ amplifier.  The HPF and LPF contribute nominal insertion losses of 0.2dB and 0.14dB respectively, and the amplifier has a nominal gain of 25dB.
+The back-end readout electronics are housed in a Faraday cage located
+50~m away from the antennas. The analog signal chain consists of a
+pair of high- and low-pass filters (Minicircuits ZFHP-1R2+ and
+SLP-150+) that together band-limit the signal to 1.2--140~MHz, and the
+filters are followed by a MiniCircuits ZFL-500+ amplifier.  In
+contrast to the two-element pathfinder, the low-pass cutoff is
+increased from 81~MHz to 140~MHz to capture downlink signals at
+137--138~MHz from the ORBCOMM satellite constellation.
+\attention{words here about how we'll use orbcomm for backup timing
+  information}
 
-As with the dual-antenna configuration described above, a SNAP board digitizes the RF  at 250~Msamp/s. In this configuration, the SNAP board ADC is locked to a 10MHz reference produced by a Trimble Thunderbole E GPS disciplined clock module. The Raspberry Pi receives the spectrally decomposed baseband data \attention{which frequencies are we storing?} and stores it onto a set of hard drives. 
-(\attention{reference the same frequency transform as in the 2-element case})
-%end of copied text
-
-\attention{Text here about one-bit stuff, pushing baseband through the RPi3,
-clock requirements, data rates, etc.}
+As with the two-element pathfinder, a SNAP board digitizes each of the
+two RF signals at 250~Msamp/s. In the autonomous station
+configuration, the SNAP board ADCs are locked to a 10-MHz reference
+produced by a Trimble Thunderbolt~E GPS-disciplined clock module.  The
+SNAP board FPGA computes two data products: 1) channelized baseband
+data for each polarization over tunable frequency windows within the
+0--125~MHz operating range, with the options of 1-, 2-, or 4-bit
+compression, and 2) auto- and cross-spectra from the two polarizations
+over the full 0--125~MHz span, accumulated over few-second intervals.
+An RPi~3B+ controls the SNAP board and and receives the auto- and
+cross-spectra via GPIO connections, and the spectra are saved to an
+on-board SD card.  The baseband data are passed from the SNAP board to
+the RPi via ethernet and written to external hard drives.  The
+introduction of gigabit ethernet with the RPi~3B+ model has enabled
+the high data throughput associated with writing baseband.  As a
+benchmark, 1-bit baseband recording of two polarizations over 10~MHz
+of bandwidth yields an approximate data rate of 5~MB/s, or 0.4~TB/day.
 
 \subsection{Correlation}
+
 While the basics of 1-bit correlation are well known in the limit where the signal level is much lower than the noise, ALBATROS may well be in the high-signal regime.  We present the basics of 1-bit correlation here, and show that even in the high-signal limit, 1-bit correlation remains viable.
 The fundamental output of a 1-bit correlator for real data is $x_{ij} \equiv \left < \tilde{E}_i \tilde{E}_j \right >$.  $ \tilde{E}_i$ is the quantized version of the underlying electric field $E_i$ where $ \tilde{E}_i=1$ for $E_i>0$ and $ \tilde{E}_i=-1$ for $E_i<0$.  Note that complex data can be handled as the combination of real components.  This output is non-linear in the underlying true signal and noise levels, since the output saturates at unity for perfectly correlated electric fields.  To get at the true sky signals, we will need to undo this nonlinearity (the so-called Van Vleck corrections).  For a 2-level correlator, the expected output can be related to the true signals as follows (Van Vleck \& Middleton, e.g. D'Addario):
 \begin{eqnarray}
