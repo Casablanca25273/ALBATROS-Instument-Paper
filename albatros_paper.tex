@@ -423,18 +423,26 @@ Text goes here.
 \section{Single autonomous station pathfinder}
 
 \begin{figure}
-  \begin{center}
-    \includegraphics[width=0.7\linewidth]{Figures/autonomous.jpg}
-    \caption{Single autonomous station pathfinder installed at the
-      hydro shack site.  The system is powered by a bank of solar
-      panels that are visible in the background.  \attention{
-        Add command module and electronics glamor shots.}}
-    \label{Fig:autonomous}
-  \end{center}
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figures/autonomous.jpg} 
+        \caption{} \label{Fig:autonomous_antenna}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+      \centering
+        \includegraphics[width=\linewidth]{Figures/container.jpg}
+        \caption{} \label{Fig:autonomous_electronics}
+    \end{subfigure}
+    \caption{{\bf (a)} Single autonomous station pathfinder installed
+      at the hydro shack site.  The system is powered by a bank of
+      solar panels that are visible in the background. {\bf (b)} A
+      weather-proof container, which sits near the solar panels,
+      houses the batteries, solar charge controller, and readout
+      electronics.}\label{Fig:autonomous}
 \end{figure}
 
-
-% single element block diagram goes here
 \begin{figure}
   \begin{center}
     \includegraphics[width=\linewidth]{Figures/albatros_single_schematic/albatros_single_schematic.pdf}
