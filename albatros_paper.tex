@@ -460,14 +460,14 @@ clock.
   \end{center}
 \end{figure}
 
-The full ALBATROS configuration will comprise an array of 10
+The full \albatros\ configuration will comprise an array of 10
 autonomous antenna stations, each recording baseband over a tunable
 10--20~MHz window within the full 0--125~MHz operating range.  The
 baseband data will be collected periodically and subsequently
-correlated offline.  The ALBATROS stations, located at the eight
+correlated offline.  The \albatros\ stations, located at the eight
 coastal hut sites plus the hydro shack and \prizm\ site, will be
 separated by baselines of $\sim20$~km as shown in
-\autoref{Fig:marion_map_beam}. One fully autonomous ALBATROS station,
+\autoref{Fig:marion_map_beam}. One fully autonomous \albatros\ station,
 shown in \autoref{Fig:autonomous}, was deployed in April 2019 at the
 hydro shack location (\ang{46;52.205;}S, \ang{37;50.612;}E) on Marion
 Island as a first step in testing the technology needed to establish
@@ -486,7 +486,7 @@ back-end electronics and power system are described in detail below.
 % 	\end{center}
 % \end{figure}
 
-\subsection{Back-end electronics}
+\subsection{Back-end electronics}\label{s:autonomous_backend}
 
 The back-end readout electronics are housed in a Faraday cage located
 50~m away from the antennas. The analog signal chain consists of a
@@ -495,15 +495,17 @@ SLP-150+) that together band-limit the signal to 1.2--140~MHz, and the
 filters are followed by a MiniCircuits ZFL-500+ amplifier.  In
 contrast to the two-element pathfinder, the low-pass cutoff is
 increased from 81~MHz to 140~MHz to capture downlink signals at
-137--138~MHz from the ORBCOMM satellite constellation.  Preliminary
-lab tests suggest that on time scales of 30 seconds, relative timing
-between systems can be measured to an accuracy of better than a few
-tenths of a nanosecond using a single satellite.  This corresponds to
-a phase error at 10 MHz of ~1 degree or less.  With publicly available
-orbits and multiple satellites typically within the field of view, we
-expect to be able to use ORBCOMM baseband data saved at the same time as the
-astronomical data to carry out offline synchronization of the
-different ALBATROS stations.
+137--138~MHz from the ORBCOMM satellite constellation.  For the final
+\albatros\ array, the ORBCOMM signals provide a convenient means for
+synchronization across the antenna stations, serving as a backup to
+the GPS timing discussed below.  Preliminary lab tests suggest that on
+time scales of $\sim30$~s, relative timing between different antenna
+stations can be measured to an accuracy of better than a few tenths of
+a nanosecond using a single satellite.  The corresponding phase error
+at 10~MHz is $\lesssim1^\circ$.  With publicly available orbits and
+multiple satellites typically within the field of view, we expect that
+ORBCOMM baseband data saved at the same time as the astronomical data
+can provide offline synchronization of the \albatros\ stations.
 
 As with the two-element pathfinder, a SNAP board digitizes each of the
 two RF signals at 250~Msamp/s. In the autonomous station
@@ -537,7 +539,7 @@ regime.  The fundamental output of a 1-bit correlator for real data is
   x_{ij} \equiv \left < \tilde{E}_i \tilde{E}_j \right >.
 \end{equation}
 Here $\tilde{E}_i$ is the quantized version of the underlying electric
-field $E_i$:
+field $E_i$ for antenna index $i$:
 \begin{equation}
   \tilde{E}_i=
   \begin{cases}
@@ -546,17 +548,27 @@ field $E_i$:
   \end{cases}
 \end{equation}
 Complex data can be handled as the combination of real components.
-This output is non-linear in the underlying true signal and noise
-levels, since the output saturates at unity for perfectly correlated
-electric fields.  To get at the true sky signals, we will need to undo
-this nonlinearity (the so-called Van Vleck corrections).  For a
-2-level correlator, the expected output can be related to the true
-signals as follows (Van Vleck \& Middleton, e.g. D'Addario):
+The output is nonlinear in the underlying true signal and noise
+levels; in the limit of perfectly correlated electric fields, $x_{ij}$
+saturates at unity.  Recovering the true sky signals requires
+inverting this nonlinear relation using the Van Vleck corrections.
+For a 2-level correlator, the relationship between $x_{ij}$ and the
+sky signals is~\citep{1989ASPC....6...59D, 1446497}
 \begin{eqnarray}
 \label{eqn:1bit_output}
-\left < \sin(\frac{\pi}{2}x_{ij})\right > = \frac{V_{ij}}{\sqrt{V_{ij}+N_i}\sqrt{V_{ij}+N_j}}
+\left < \sin\left(\frac{\pi}{2}x_{ij}\right)\right > = \frac{V_{ij}}{\sqrt{V_{ij}+N_i}\sqrt{V_{ij}+N_j}},
 \end{eqnarray}
-where $V_{ij}$ is the true visibility, and $V_{ij}+N_{i,j}$ is the total noise power measured by antennas $i$ and $j$.  Inverting this relation to get the true signal requires knowing the noise powers, which is not possible from the 1-bit data themselves.  However, the SNAP board calculates these power levels on timescales of a few seconds, much faster than the power levels change, and so by combining the single-station power measurements with the cross-station cross correlation, we will be able to derive the true sky visibilities.  
+where $V_{ij}$ is the true sky visibility, and $V_{ij}+N_{i}$ and
+$V_{ij}+N_{j}$ are the total, signal-plus-noise, power levels measured
+by antennas $i$ and $j$, respectively.  Inverting this relation to
+obtain $V_{ij}$ requires knowing the total power levels, which cannot
+be determined from 1-bit data alone.  However, as described in
+\S\ref{s:autonomous_backend}, the SNAP board calculates and records
+auto-spectrum data products, which provide power level information on
+few-second time scales.  Changes in the power levels occur on
+significantly longer time scales, so the true sky visibilities can be
+derived by combining cross-correlation data between different antenna
+stations and the auto-spectrum data from each individual station.
 
 \begin{figure}
   \begin{center}
@@ -578,7 +590,7 @@ will comprise the full array will be located at points farther removed
 from the main base and will therefore require fully autonomous energy
 sources.  For the autonomous station pathfinder, we developed a solar
 charging system to power the station, and we are investigating small
-wind turbines for future ALBATROS stations.
+wind turbines for future \albatros\ stations.
 
 The autonomous station is powered by two series-connected, 12~V, deep
 cycle, lead acid batteries, charged by an array of nine SunPower
@@ -671,6 +683,9 @@ data cuts.
 
 % We present the basics of 1-bit correlation here, and show that even in
 % the high-signal limit, 1-bit correlation remains viable.
+
+% discuss design changes for final stations: larger banks of hard
+% drives, possible wind power, etc.
 	
 \section*{Acknowledgments}
 
