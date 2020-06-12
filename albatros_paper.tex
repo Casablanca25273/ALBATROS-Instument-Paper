@@ -217,11 +217,6 @@ performed on Marion Island during 2018--2019.
 
 \section{ALBATROS overview}
 
-% Write text here about the overall final configuration.  Describe the
-% site, show synthesized beam, discuss high level system requirements
-% (power, data storage, etc).  Include deployment schedule and introduce
-% 2-element pathfinder in the following section.
-
 The primary requirements that drive the design for a low-frequency
 imaging experiment are 1) desired resolution, 2) low RFI, and 3) quiet
 ionospheric conditions.  As a benchmark, an interferometer operating
@@ -524,8 +519,33 @@ of bandwidth yields an approximate data rate of 5~MB/s, or 0.4~TB/day.
 
 \subsection{Correlation}
 
-While the basics of 1-bit correlation are well known in the limit where the signal level is much lower than the noise, ALBATROS may well be in the high-signal regime.  We present the basics of 1-bit correlation here, and show that even in the high-signal limit, 1-bit correlation remains viable.
-The fundamental output of a 1-bit correlator for real data is $x_{ij} \equiv \left < \tilde{E}_i \tilde{E}_j \right >$.  $ \tilde{E}_i$ is the quantized version of the underlying electric field $E_i$ where $ \tilde{E}_i=1$ for $E_i>0$ and $ \tilde{E}_i=-1$ for $E_i<0$.  Note that complex data can be handled as the combination of real components.  This output is non-linear in the underlying true signal and noise levels, since the output saturates at unity for perfectly correlated electric fields.  To get at the true sky signals, we will need to undo this nonlinearity (the so-called Van Vleck corrections).  For a 2-level correlator, the expected output can be related to the true signals as follows (Van Vleck \& Middleton, e.g. D'Addario):
+The autonomous station can be configured to record 1-, 2-, or 4-bit
+baseband.  Signal fidelity improves with higher numbers of bits, but
+the penalty is increased data volume.  Here we discuss the prospects
+of employing 1-bit correlation for the final \albatros\ array to keep
+the baseband data volume to a minimum.  While the basics of 1-bit
+correlation are well known in the limit where the signal level is much
+lower than the noise, \albatros\ may well be in the high-signal
+regime.  The fundamental output of a 1-bit correlator for real data is
+\begin{equation}
+  x_{ij} \equiv \left < \tilde{E}_i \tilde{E}_j \right >.
+\end{equation}
+Here $\tilde{E}_i$ is the quantized version of the underlying electric
+field $E_i$:
+\begin{equation}
+  \tilde{E}_i=
+  \begin{cases}
+    1 & \text{if}\ E_i > 0 \\
+    -1 & \text{if}\ E_i < 0.
+  \end{cases}
+\end{equation}
+Complex data can be handled as the combination of real components.
+This output is non-linear in the underlying true signal and noise
+levels, since the output saturates at unity for perfectly correlated
+electric fields.  To get at the true sky signals, we will need to undo
+this nonlinearity (the so-called Van Vleck corrections).  For a
+2-level correlator, the expected output can be related to the true
+signals as follows (Van Vleck \& Middleton, e.g. D'Addario):
 \begin{eqnarray}
 \label{eqn:1bit_output}
 \left < \sin(\frac{\pi}{2}x_{ij})\right > = \frac{V_{ij}}{\sqrt{V_{ij}+N_i}\sqrt{V_{ij}+N_j}}
@@ -534,7 +554,7 @@ where $V_{ij}$ is the true visibility, and $V_{ij}+N_{i,j}$ is the total noise p
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.7\linewidth]{Figures/corr_efficiency.png}
+    \includegraphics[width=0.7\linewidth]{Figures/corr_efficiency/corr_efficiency.png}
     \caption{Correlator efficiency $\epsilon_{corr}$ for a 1-bit correlator as a function of signal-to-noise ratio (SNR).  To get the expected SNR from a 1-bit correlator, multiply the SNR derived from the radiometer equation by $\epsilon_{corr}$.  For low SNR, the efficiency is $2/\pi \sim 0.64$, and it drops monotonically as the SNR increases.  The drop is relatively gentle, only changing by a factor of $\sim 2$ for SNR=2.  For baseline separations of many wavelengths, the correlated component of the electric field is likely to be a small fraction of the total power, so ALBATROS is unlikely to lose more than a factor of $\sim 2$ by using 1-bit correlation.}
     \label{fig:1bit_efficiency}
     \end{center}
@@ -642,6 +662,9 @@ data cuts.
 \section{Conclusions}
 
 \attention{text goes here}
+
+% We present the basics of 1-bit correlation here, and show that even in
+% the high-signal limit, 1-bit correlation remains viable.
 	
 \section*{Acknowledgments}
 
