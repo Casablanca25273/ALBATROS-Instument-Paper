@@ -91,23 +91,21 @@ were taken from Marion Island during 2018--2019.
 
 \keywords{cosmology: observations; dark ages; instrumentation: interferometers}
 
-\attention{Open task for any/all: fix references}
-
 \section{Introduction}
 
 Measurements of redshifted \SI{21}{\cm} emission of neutral hydrogen
 across a wide range of radio frequencies have the potential to
 elucidate the universe's history from the cosmic ``dark ages'' up to
 the formation of large-scale
-structures~\citep{2020PASA...37....2W,2013PhRvD..87d3002L,2014ApJ...782...66P}.
-The dark ages, which occurred after recombination and correspond to a
-period when the universe was filled with neutral hydrogen, are
-unexplored to date and represent one of the final observational
-frontiers in cosmology.  The number of independent modes that are
-contained in the matter power spectrum in this epoch is orders of
-magnitude greater than the corresponding number for cosmic microwave
-background (CMB) measurements~\citep{2004PhRvL..92u1301L}.  Redshifted
-21-cm measurements of the dark ages therefore hold the potential to
+structures~\citep[e.g.,][]{2012RPPh...75h6901P}.  The dark ages, which
+occurred after recombination and correspond to a period when the
+universe was filled with neutral hydrogen, are unexplored to date and
+represent one of the final observational frontiers in cosmology.  The
+number of independent modes that are contained in the matter power
+spectrum in this epoch is orders of magnitude greater than the
+corresponding number for cosmic microwave background (CMB)
+measurements~\citep{2004PhRvL..92u1301L}.  Redshifted 21-cm
+measurements of the dark ages therefore hold the potential to
 significantly improve cosmological parameter constraints over those
 currently derived from the CMB; however, the required observational
 frequencies of $\lesssim 30$~MHz are exceptionally difficult to
@@ -392,18 +390,24 @@ respectively.
 
 A Smart Network ADC Processor~\citep[SNAP;][]{2016JAI.....541001H}
 board digitizes the RF signals at 250~Msamp/s and uses a Xilinx
-Kintex~7\footnote{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}
+Kintex~7\footnote{\url{http://www.xilinx.com/products/silicon-devices/fpga/kintex-7.html}}
 FPGA to calculate full cross-correlations of the four inputs,
 producing four auto- and six cross-spectra as outputs, over 2048
-channels spanning the frequency range 0--125~MHz.  \attention{details
-  about channelization here} A Valon 5007 frequency synthesizer module
-provides the clock signal for the SNAP board.  A Raspberry Pi~3B+
-(RPi) single board computer controls the SNAP board and receives the
-spectra via GPIO connections, and the spectra are saved to an on-board
-SD card.  An Adafruit Ultimate GPS
+channels spanning the frequency range 0--125~MHz.  The channelization
+is performed with a
+CASPER\footnote{\url{https://casper.berkeley.edu/}}-based polyphase
+filter bank, and the spectra are accumulated over $\sim7$-s intervals.
+A Valon 5007 frequency synthesizer module provides the clock signal
+for the SNAP board.  A Raspberry Pi (RPi)~3B+ single board computer
+controls the SNAP board and receives the spectra via GPIO connections.
+The data rate of the averaged spectra is roughly 400~MB/day (with
+compression), and this low volume allows the spectra to be saved to
+the RPi on-board SD card.  An Adafruit Ultimate GPS
 module\footnote{\url{https://www.adafruit.com/product/746}}, connected
 to an active external GPS antenna, provides absolute timing for the
 RPi.
+
+% data rate ~ 17MB/hour, with compressed scio files
 
 \subsection{Power}
 
@@ -415,10 +419,6 @@ fully charged, the battery bank can power the system for about a week.
 The raw battery voltage is passed to several DC/DC converters that
 supply regulated voltages to the SNAP board, FEE, amplifiers and the
 clock.
-
-\subsection{Software and data acquisition}
-
-\attention{text goes here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
@@ -544,94 +544,110 @@ One might worry that at high signal levels, the saturation of the 1-bit cross co
 
 
 \subsection{Solar power system}
-\attention{Nivek, Tankiso, Eamon?} \\
-Although the first-deployed two-element pathfinder is located at a reasonable walking distance from the main base and uses a generator to periodically recharge batteries, the bulk of the antenna stations that will comprise the full array will be located at points farther removed from the main base, and will require a fully autonomous energy source. So in deploying the autonomous station pathfinder, we developed a solar charging system to power the station.
 
-The autonomous station is powered by two series-connected 12V deep-cycle lead-acid batteries, charged by an array of nine  SunPower SPE-E-Flex-110 solar panels. These panels each have a standard test capacity of 110W. Although only $\sim$50W is required to run the station (and the station may typically be powered on only over night) the $\sim$1kW charging capacity is sized to allow the charge level to recover quickly on a short sunny day in winter if it runs down due to several consecutive overcast days. 
+Although the first-deployed two-element pathfinder is located at a
+reasonable walking distance from the main base and uses a generator to
+periodically recharge batteries, the bulk of the antenna stations that
+will comprise the full array will be located at points farther removed
+from the main base and will therefore require fully autonomous energy
+sources.  For the autonomous station pathfinder, we developed a solar
+charging system to power the station, and we are investigating small
+wind turbines for future ALBATROS stations.
 
-The nine solar panels are distributed between three custom-designed structures built from aluminum extrusion, with rigid metalized plastic panels backing the semi-flexible solar cells. The structures are oriented due north, and are designed to incline the solar panels at a relatively steep angle so as to maximize peformance under winter conditions, when sunlight hours will be at their minimum. The solar panel mounts have been designed to withstand frequent gale-force winds on Marion. While the mounting structures themselves appear to be strong enough, the greatest challenge in deployment has been to find an adequate anchoring technique in the volcanic ground.
+The autonomous station is powered by two series-connected, 12~V, deep
+cycle, lead acid batteries, charged by an array of nine SunPower
+SPE-E-Flex-110 solar panels. These panels each have a standard test
+capacity of 110~W. Although only $\sim$50~W is required to run the
+station, the $\sim$1~kW charging capacity is intentionally oversized
+to account for the frequent overcast conditions on Marion.  The
+generous power margin allows the charge level to recover quickly on a
+short sunny day in winter in the event of charge loss over several
+consecutive overcast days.  The nine solar panels are distributed
+between three custom designed structures built from aluminum
+extrusion, with rigid metalized plastic panels backing the
+semi-flexible solar cells. The structures are oriented due north and
+are designed to incline the solar panels at a relatively steep angle
+to maximize peformance under winter conditions, when sunlight hours
+are at their minimum. The solar panel mounts have been designed to
+withstand frequent gale-force winds on Marion. While the mounting
+structures themselves appear to be strong enough, the greatest
+challenge in deployment has been to find adequate anchoring in the
+volcanic ground.  Each group of three panels is wired in series, and
+the three series strings are connected in parallel to a Victron
+BlueSolar MPPT 50$\vert$35 charge controller, which optimizes power
+transfer from the solar array when charging is required, and also
+monitors charge level, reducing output current when the battery bank
+is fully charged.
 
-Each group of three panels is wired in series, and the three series strings are connected in parallel to a Victron BlueSolar MPPT 50$\vert$35 charge controller, which optimizes power transfer from the solar array when charging is required, and also monitors charge level, reducing charge current when the battery bank is fully charged.
+The power logging and control system runs on an Arduino, which logs
+information received from the Victron charge controller to an SD card,
+and switches power on and off to the readout electronics box. Logged
+power data will be used to refine power system requirements for future
+autonomous station deployments. The on/off control is necessary to
+prevent battery system damage from overly deep discharge. The system
+can also be configured to conserve battery power by running on a
+schedule between particular hours, typically overnight, when
+ionospheric conditions are more favorable.  The power logging and
+control system, along with the Victron charge controller and an EMI
+filter, are housed together in an aluminum box. The EMI filter reduces
+conducted emissions on the photovoltaic side of the solar charge
+controller, which could radiate from the solar array and connecting
+wires. (Data collected during the night are not at risk of solar
+charge controller EMI contamination.)
 
-A power logging and control system runs on an Arduino, which logs information received from the Victron charge controller to an SD card, and switches power on and off to the receiver chassis. Logged power data will be used to refine powers system requirements for future autonomous station deployments. The on/off control is necessary to prevent battery system  damage from overly deep discharge. The system can also be configured to conserve battery power by running on a schedule between particular hours, typically overnight, since visibility may be better and ionosopheric noise levels lower.
-
-The power logging and control system, along with the Victron charge controller and an EMI filter, are housed together in an aluminum box. The EMI filter reduces conducted emissions on the photovoltaic side of the solar charge controller, which could radiate from the solar array and connecting wires. (It may be noted however, that signals collected at night, which are expected to be more valuable, are not at risk of solar charge controller EMI contamination.)
-
-\iffalse
-The ALBATROS system is powered using \SI{24}{\volt} power which is stored and provided by two series-connected \SI{12}{\volt} deep-cycle lead-acid storage batteries. This power comes from the solar panel array consisting of nine flexible solar panels, each with a standard test condition capacity of \SI{110}{\watt}. The solar panel type is SunPower SPE-E-Flex-110. The panels are grouped in three parallel connected strings of three panels. Each group of three is mounted on its own structure. The panels include diodes to bypass shaded or defective cells, and also to prevent backwards current flow in the event an entire string of three panels is not illuminated while the others are producing power. \\
-
-The Victron BlueSolar MPPT 50$\vert$35 charge controller outputs a data packet every second, to an Arduino based data logger, which controls a switch that determines when the rest of the system runs. It also converts the solar panel voltage to \SI{24}{\volt} to control the battery charging. The observed parameters are then stored to the raspberry pi.
-\fi
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figures/Raw-ALBATROS-autospectra.PNG}
+        \caption{} \label{Fig:waterfall_auto}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+      \centering
+        \includegraphics[width=\linewidth]{Figures/First-fringes-of-ALBATROS-EGG.PNG}
+        \caption{} \label{Fig:waterfall_phase}
+    \end{subfigure}
+    \caption{{\bf (a)} text goes here {\bf (b)} text goes
+      here}\label{Fig:waterfalls}
+\end{figure}
 
 \section{Preliminary observations}
 
-\attention{NEED UPDATED AND NEW PLOTS, NEED VOLUNTEERS FOR THIS:
-  \begin{itemize}
+\attention{\begin{itemize}
     \item{Improved waterfall plots from 2-element pathfinder}
     \item{Plot showing that the solar power works (sort of)}
     \item{Some sort of...data...plot for the autonomous station.  Can
       we say anything about baseband performance?}
   \end{itemize}
 }
- 
-\autoref{Fig:auto} and \autoref{Fig:fringes} shows the initial results from the two interferometric array. These results are an encouraging factor to proceed with the development of the autonomous stations.\autoref{Fig:auto} shows the raw ALBATROS-EGG autospectra which where the waterfall plot was taken from one polarization (pol0) over an interval of 3 days. The Galaxy rising/setting is clearly visible in the structure. There are also ripples in frequency because of uncalibrated data, and the ripples arise from reflections in the cables. There is a qualitative difference between daytime and nighttime data and this shows that the contamination from shortwave radio drops off significantly at night, when the ionosphere becomes quieter.
 
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=0.8\linewidth]{Figures/Raw-ALBATROS-autospectra.PNG}
-		\caption{Raw ALBATROS-EGG Autospectra}
-		\label{Fig:auto}
-	\end{center}
-\end{figure}
+\autoref{Fig:waterfall_auto} and \autoref{Fig:waterfall_phase} shows
+the initial results from the two interferometric array.
+\autoref{Fig:waterfall_auto} shows the raw ALBATROS-EGG autospectra
+which where the waterfall plot was taken from one polarization (pol0)
+over an interval of 3 days. The Galaxy rising/setting is clearly
+visible in the structure. There are also ripples in frequency because
+of uncalibrated data, and the ripples arise from reflections in the
+cables. There is a qualitative difference between daytime and
+nighttime data and this shows that the contamination from shortwave
+radio drops off significantly at night, when the ionosphere becomes
+quieter.
 
-\autoref{Fig:fringes} shows the first fringes that were detected by the the ALBATROS-EGG. It is dinstictly visible from \autoref{Fig:fringes} that fringes show recurrent structure down to a frequency of as low as 10 MHz without data processing or data cuts.
+\autoref{Fig:waterfall_phase} shows the first fringes that were
+detected by the the ALBATROS-EGG. The fringes show recurrent structure
+down to a frequency of as low as 10 MHz without data processing or
+data cuts.
 
-\begin{figure}[ht!]
-	\begin{center}
-		\includegraphics[width=0.7\linewidth]{Figures/First-fringes-of-ALBATROS-EGG.PNG}
-		\caption{First Fringes from ALBATROS-EGG}
-		\label{Fig:fringes}
-	\end{center}
-\end{figure}
+\section{Conclusions}
 
-% \section{Future Work}
+\attention{text goes here}
 	
 \section*{Acknowledgments}
 
 We are extremely grateful for the anemic carrots on Marion.  Yum.
 
-\bibliographystyle{apj}                                                                                                                                                                                                   
+\bibliographystyle{apj}
 \bibliography{albatros_paper}{}
 
-
-	
-%\begin{thebibliography}{9}
-%
-%\bibitem[Alexander et al.(1975)]{1975A&A....40..365A} Alexander, J.~K., Kaiser, M.~L., Novaco, J.~C., et al.\ 1975, {\it aap\/}, {\bf 40}, 365
-%
-%\bibitem[Chen {et al.}(2019)]{2019arXiv190710853C} Chen, X., Burns, J., Koopmans, L., {\it et al.} [2019], arXiv e-prints, arXiv:1907.10853
-
-%\bibitem[Eastwood et al.(2018)]{2018AJ....156...32E} Eastwood, M.~W., Anderson, M.~M., Monroe, R.~M., et al.\ 2018, {\it aj\/}, {\bf 156}, 32
-
-%\bibitem[Ellingson and Kramer (2004)]{Memo28} Ellingson, S.~W., {Kramer}, W.~T. \ 2004, {\it Long Wavelength Array Memo (28)}
-
-%\bibitem[George {et al.}(2018)] {article} George, M., Orchiston, W., Wielebinsk, R., {\it et al.} [2018], Journal of Astronomical History and Heritage, {\bf 21}, 37
-
-%\bibitem[Hicks et al.(2012)]{2012PASP..124.1090H} Hicks, B.~C., Paravastu-Dalal, N., Stewart, K.~P., et al.\ 2012, {\it pasp\/}, {\bf 124}, 1090
-
-%\bibitem[Koopmans {et al.}(2019)]{2019arXiv190804296K} Koopmans, L., Barkana, R., Bentum, M., {\it et al.} [2019], arXiv e-prints, arXiv:1908.04296
-
-%\bibitem[Liu {et al.}(2013)]{2013PhRvD..87d3002L} Liu, A., Pritchard, J.~R., Tegmark, M., {\it et al.} [2013], {\bf 87}, 043002
-
-%\bibitem[Philip {et al.}(2019)]{2019JAI.....850004P} Philip, L., Abdurashidova, Z., Chiang, H.~C., {\it et al.} [2019], Journal of Astronomical Instrumentation, {\bf 8}, 19500
-
-%\bibitem[Pober {et al.}(2014)]{2014ApJ...782...66P} Pober, J.~C., Liu, A., Dillon, J.~S., {\it et al.} [2014], {\bf 782}, 66
-
-%\bibitem[Ray et al.(2006)]{Memo35} Ray, P.~S., Ellingson, S.~W., Fisher R., {\it et al.} [2006] {\it Long Wavelength Array Memo (35)}
-
-%\bibitem[Roger et al.(1999)]{1999A&AS..137....7R} Roger, R.~S., Costain, C.~H., Landecker, T.~L., et al.\ 1999, {\it aaps\/}, {\bf 137}, 7
-
-%\bibitem[Weiler {et al.}(1988)]{1988A&A...195..372W} Weiler, K.~W., Johnston, K.~J., Simon, R.~S., {\it et al.} [1988], {\it aap\/}, {\bf 195}, 372
-
-%\end{thebibliography}
 \end{document}
