@@ -500,9 +500,15 @@ SLP-150+) that together band-limit the signal to 1.2--140~MHz, and the
 filters are followed by a MiniCircuits ZFL-500+ amplifier.  In
 contrast to the two-element pathfinder, the low-pass cutoff is
 increased from 81~MHz to 140~MHz to capture downlink signals at
-137--138~MHz from the ORBCOMM satellite constellation.
-\attention{words here about how we'll use orbcomm for backup timing
-  information}
+137--138~MHz from the ORBCOMM satellite constellation.  Preliminary
+lab tests suggest that on time scales of 30 seconds, relative timing
+between systems can be measured to an accuracy of better than a few
+tenths of a nanosecond using a single satellite.  This corresponds to
+a phase error at 10 MHz of ~1 degree or less.  With publicly available
+orbits and multiple satellites typically within the field of view, we
+expect to be able to use ORBCOMM baseband data saved at the same time as the
+astronomical data to carry out offline synchronization of the
+different ALBATROS stations.
 
 As with the two-element pathfinder, a SNAP board digitizes each of the
 two RF signals at 250~Msamp/s. In the autonomous station
