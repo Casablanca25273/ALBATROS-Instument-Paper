@@ -533,8 +533,9 @@ the penalty is increased data volume.  Here we discuss the prospects
 of employing 1-bit correlation for the final \albatros\ array to keep
 the baseband data volume to a minimum.  While the basics of 1-bit
 correlation are well known in the limit where the signal level is much
-lower than the noise, \albatros\ may well be in the high-signal
-regime.  The fundamental output of a 1-bit correlator for real data is
+lower than the noise, \albatros\ may be in a regime where the signal
+level is non-negligible.  The fundamental output of a 1-bit correlator
+for real data is
 \begin{equation}
   x_{ij} \equiv \left < \tilde{E}_i \tilde{E}_j \right >.
 \end{equation}
@@ -551,9 +552,10 @@ Complex data can be handled as the combination of real components.
 The output is nonlinear in the underlying true signal and noise
 levels; in the limit of perfectly correlated electric fields, $x_{ij}$
 saturates at unity.  Recovering the true sky signals requires
-inverting this nonlinear relation using the Van Vleck corrections.
-For a 2-level correlator, the relationship between $x_{ij}$ and the
-sky signals is~\citep{1989ASPC....6...59D, 1446497}
+inverting this nonlinear relation using the Van Vleck
+corrections~\citep{1446497}.  For a 2-level correlator, the
+relationship between $x_{ij}$ and the sky signals
+is~\citep{1989ASPC....6...59D}
 \begin{eqnarray}
 \label{eqn:1bit_output}
 \left < \sin\left(\frac{\pi}{2}x_{ij}\right)\right > = \frac{V_{ij}}{\sqrt{V_{ij}+N_i}\sqrt{V_{ij}+N_j}},
@@ -573,13 +575,72 @@ stations and the auto-spectrum data from each individual station.
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.7\linewidth]{Figures/corr_efficiency/corr_efficiency.png}
-    \caption{Correlator efficiency $\epsilon_{corr}$ for a 1-bit correlator as a function of signal-to-noise ratio (SNR).  To get the expected SNR from a 1-bit correlator, multiply the SNR derived from the radiometer equation by $\epsilon_{corr}$.  For low SNR, the efficiency is $2/\pi \sim 0.64$, and it drops monotonically as the SNR increases.  The drop is relatively gentle, only changing by a factor of $\sim 2$ for SNR=2.  For baseline separations of many wavelengths, the correlated component of the electric field is likely to be a small fraction of the total power, so ALBATROS is unlikely to lose more than a factor of $\sim 2$ by using 1-bit correlation.}
+    \caption{Correlator efficiency $\epsilon$ for a 1-bit correlator
+      as a function of signal-to-noise ratio (SNR).  The efficiency is
+      roughly 0.64 at low SNR and drops monotonically as the SNR
+      increases.  The decrease in $\epsilon$ is relatively gentle,
+      changing by only a factor of 2 for SNR $\sim2$.}
     \label{fig:1bit_efficiency}
     \end{center}
 \end{figure}
 
-One might worry that at high signal levels, the saturation of the 1-bit cross correlation would lead to the noise exploding.  In practice the rolloff in sensitivity is relatively mild, especially in the case of long baselines.  It can be expressed in terms of the correlator efficiency $\epsilon_{corr}$, which is defined to be the ratio of the measured signal-to-noise ratio to the ideal (infinite precision) SNR.  As seen in Figure \ref{fig:1bit_efficiency}, $\epsilon_{corr}$ only drops by a factor of $\sim$2 as the signal power goes from 0 to a few times the noise power.  We stress that the signal level in question is the part that correlates between the two antennas.  In the case of long baselines (where long means the fringe spacing is small compared to the primary beam/antenna response pattern) that are not dominated by a single bright source, the signal power will always be smaller than the noise power, and so $\epsilon_{corr}$ is unlikely to drop below $\sim$0.5\footnote{A quick estimate can be made by analogy to the behavior of dishes in the UV plane in the flat sky approximation.  While all power in the UV plane (plus any system noise) goes into an individual antenna's electric field, the correlated part only has contribution from the area in the UV plane within the width of the UV-space primary beam of the UV-space coordinate.  If the sky can be described as a Gaussian random field, in the most pessimistic case this is roughly the aperture filling factor of the antenna pair.  In our case, where the antennas are approximately dipolar, the filling factor will be the square of the wavelength over the baseline length.  As long as the baselines are several wavelengths or longer, the correlated power will be small, and the correlator efficiency will be close to the ideal 1-bit value of $\frac{2}{\pi}$.}.
+% To get the expected SNR from a 1-bit correlator, multiply the SNR
+% derived from the radiometer equation by $\epsilon_{corr}$.
 
+To assess the loss of sensitivity as the signal level increases, we
+use \autoref{eqn:1bit_output} to derive the correlator efficiency
+$\epsilon$, which is the ratio of measured signal-to-noise ratio (SNR)
+to the ideal, infinite-precision SNR.  \autoref{fig:1bit_efficiency}
+illustrates that the decrease in $\epsilon$ as a function of SNR is
+relatively shallow.  When the SNR is near zero, $\epsilon \approx
+2/\pi = 0.64$, and if the signal level increases to two times the
+noise level, $\epsilon$ decreases by only a factor of $\sim2$.  The
+final \albatros\ array will have baselines that are long relative to
+the observing wavelength, and the correlated component of the electric
+field (which sets the relevant signal level) is likely a small
+fraction of the total received power.  This qualitative argument can
+by made by considering antennas in the $uv$ plane in the flat-sky
+approximation.  Any individual antenna receives all power present in
+the $uv$ plane (plus system noise), but the correlated contribution
+comes only from the portion of the $uv$ plane that is encompassed by
+the primary beam at the antenna's $uv$-space coordinate.  Assuming
+that the sky can be described as a Gaussian random field, the maximum
+correlated signal between two antennas is determined by the aperture
+filling factor of that pair.  For the case of dipole antennas, the
+filling factor is the square of the wavelength divided by the baseline
+length.  Therefore, in the long-baseline limit, the correlated signal
+is small in comparison to the total power received, and the correlator
+efficiency is unlikely to decrease significantly from the ideal
+$2/\pi$ value.
+
+% One might worry that at high signal levels, the saturation of the
+% 1-bit cross correlation would lead to the noise exploding.  In
+% practice the rolloff in sensitivity is relatively mild, especially in
+% the case of long baselines.  It can be expressed in terms of the
+% correlator efficiency $\epsilon_{corr}$, which is defined to be the
+% ratio of the measured signal-to-noise ratio to the ideal (infinite
+% precision) SNR.  As seen in Figure \ref{fig:1bit_efficiency},
+% $\epsilon_{corr}$ only drops by a factor of $\sim$2 as the signal
+% power goes from 0 to a few times the noise power.  We stress that the
+% signal level in question is the part that correlates between the two
+% antennas.  In the case of long baselines (where long means the fringe
+% spacing is small compared to the primary beam/antenna response
+% pattern) that are not dominated by a single bright source, the signal
+% power will always be smaller than the noise power, and so
+% $\epsilon_{corr}$ is unlikely to drop below $\sim$0.5\footnote{A quick
+%   estimate can be made by analogy to the behavior of dishes in the UV
+%   plane in the flat sky approximation.  While all power in the UV
+%   plane (plus any system noise) goes into an individual antenna's
+%   electric field, the correlated part only has contribution from the
+%   area in the UV plane within the width of the UV-space primary beam
+%   of the UV-space coordinate.  If the sky can be described as a
+%   Gaussian random field, in the most pessimistic case this is roughly
+%   the aperture filling factor of the antenna pair.  In our case, where
+%   the antennas are approximately dipolar, the filling factor will be
+%   the square of the wavelength over the baseline length.  As long as
+%   the baselines are several wavelengths or longer, the correlated
+%   power will be small, and the correlator efficiency will be close to
+%   the ideal 1-bit value of $\frac{2}{\pi}$.}.
 
 \subsection{Solar power system}
 

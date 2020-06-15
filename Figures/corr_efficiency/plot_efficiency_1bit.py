@@ -1,5 +1,12 @@
 import numpy as np
 from matplotlib import pyplot as plt
+import matplotlib
+
+font = {'family' : 'normal',
+        'weight' : 'normal',
+        'size'   : 14}
+
+matplotlib.rc('font', **font)
 
 N=1
 #S=np.linspace(0.1,1000,10000)
@@ -18,9 +25,15 @@ ref=S/(S+N)
 corr_eff=(S+N)/sigma_s
 
 plt.clf()
+plt.figure(figsize=(10,5))
 plt.plot(S,corr_eff, 'k-')
-plt.xlabel('SNR')
-plt.ylabel('$\epsilon_{corr}$')
+plt.hlines([0.64, 0.32], 0, 10, '#888888', linestyles='dashed')
+plt.text(8, 0.68, '$\epsilon = 0.64$', color='#888888')
+plt.text(8, 0.34, '$\epsilon = 0.32$', color='#888888')
+plt.xlim(0, 10)
+plt.ylim(0, 1)
+plt.xlabel('Signal-to-noise ratio')
+plt.ylabel('Correlator efficiency ($\epsilon$)')
 #plt.loglog(S,corr_eff)
 
 
