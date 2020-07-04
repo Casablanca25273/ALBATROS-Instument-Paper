@@ -275,7 +275,7 @@ to qualitatively understand the sky signal, and 2) a single station to
 test the readout and power handling technology that are required for
 autonomous operation.
 
-\section{Two-element pathfinder}
+\section{Two-element pathfinder}\label{s:2elem}
 
 \begin{figure}
   \begin{center}
@@ -606,10 +606,10 @@ final \albatros\ array will have baselines that are long relative to
 the observing wavelength, and the correlated component of the electric
 field (which sets the relevant signal level) is likely a small
 fraction of the total received power.  This qualitative argument can
-by made by considering antennas in the $uv$ plane in the flat-sky
+by made by considering antennas in the $uv$~plane in the flat-sky
 approximation.  Any individual antenna receives all power present in
-the $uv$ plane (plus system noise), but the correlated contribution
-comes only from the portion of the $uv$ plane that is encompassed by
+the $uv$~plane (plus system noise), but the correlated contribution
+comes only from the portion of the $uv$~plane that is encompassed by
 the primary beam at the antenna's $uv$-space coordinate.  Assuming
 that the sky can be described as a Gaussian random field, the maximum
 correlated signal between two antennas is determined by the aperture
@@ -648,6 +648,20 @@ $2/\pi$ value.
 %   the baselines are several wavelengths or longer, the correlated
 %   power will be small, and the correlator efficiency will be close to
 %   the ideal 1-bit value of $\frac{2}{\pi}$.}.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{Figures/albatros2_waterfalls.jpg}
+    \caption{Spectra from a co-aligned polarization pair from the
+      two-element \albatros\ pathfinder, shown as a function of
+      frequency and time.  The auto- and cross-spectra are shown in
+      the top and bottom rows, respectively.  The spectrum magnitudes
+      are in uncalibrated ADC units on a logarithmic scale.
+      Repeatable structure from the Galaxy is visible over the
+      three-day time scale in all plots.}
+    \label{Fig:albatros2_waterfalls}
+  \end{center}
+\end{figure}
 
 \subsection{Solar power system}
 
@@ -702,48 +716,59 @@ wires. (Data collected during the night are not at risk of solar
 charge controller EMI contamination.)
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{Figures/Raw-ALBATROS-autospectra.PNG}
-        \caption{} \label{Fig:waterfall_auto}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.48\textwidth}
-      \centering
-        \includegraphics[width=\linewidth]{Figures/First-fringes-of-ALBATROS-EGG.PNG}
-        \caption{} \label{Fig:waterfall_phase}
-    \end{subfigure}
-    \caption{{\bf (a)} text goes here {\bf (b)} text goes
-      here}\label{Fig:waterfalls}
+  \begin{center}
+    \includegraphics[width=0.6\linewidth]{Figures/albatros2_lst_phase.jpg}
+    \caption{Phases from the cross-correlation between two co-aligned
+      polarizations in the two-element \albatros\ pathfinder.  About
+      372 hours of data are shown here, binned in local sidereal
+      time.}
+    \label{Fig:albatros2_phase}
+  \end{center}
 \end{figure}
 
 \section{Preliminary observations}
 
-\attention{\begin{itemize}
-    \item{Improved waterfall plots from 2-element pathfinder}
-    \item{Plot showing that the solar power works (sort of)}
-    \item{Some sort of...data...plot for the autonomous station.  Can
-      we say anything about baseband performance?}
-  \end{itemize}
-}
+The primary goal of the two-element pathfinder described in
+\S\ref{s:2elem} was to qualitatively assess the level of RFI and
+ionospheric contamination at low frequenices.
+\autoref{Fig:albatros2_waterfalls} illustrates auto- and cross-spectra
+from one of the co-aligned polarization pairs from the two antennas.
+The data are shown over a three-day period (June 18--21, 2018), and no
+calibration or cuts have been applied.  The rising and setting of the
+Galaxy is visible in all of the spectrum magnitudes, and repeatable
+fringes are visible in the phases of the cross-spectra.  The RFI lines
+at $\lesssim20$~MHz arise primarily from shortwave radio transmission
+reflecting off the ionosphere.  During the night, when the ionospheric
+plasma cutoff frequency drops, the maximum frequency of the RFI
+contamination falls to $\sim10$~MHz.
 
-\autoref{Fig:waterfall_auto} and \autoref{Fig:waterfall_phase} shows
-the initial results from the two interferometric array.
-\autoref{Fig:waterfall_auto} shows the raw ALBATROS-EGG autospectra
-which where the waterfall plot was taken from one polarization (pol0)
-over an interval of 3 days. The Galaxy rising/setting is clearly
-visible in the structure. There are also ripples in frequency because
-of uncalibrated data, and the ripples arise from reflections in the
-cables. There is a qualitative difference between daytime and
-nighttime data and this shows that the contamination from shortwave
-radio drops off significantly at night, when the ionosphere becomes
-quieter.
+As a qualitative illustration of the sky signal repeatability,
+\autoref{Fig:albatros2_phase} shows the phases of the cross-spectra
+binned in local sidereal time.  About 372 hours of data are averaged
+into this plot, and no RFI excision has been performed.  A more
+detailed analysis of signal repeatability will be presented in a
+future paper, but the high signal-to-noise fringe pattern, which is
+even visible a little below $\sim10$~MHz, demonstrates the proof of
+concept for building the expanded \albatros\ array.
+ 
+\attention{Do we want a plot showing solar power data of any sort?}
 
-\autoref{Fig:waterfall_phase} shows the first fringes that were
-detected by the the ALBATROS-EGG. The fringes show recurrent structure
-down to a frequency of as low as 10 MHz without data processing or
-data cuts.
+% \autoref{Fig:waterfall_auto} and \autoref{Fig:waterfall_phase} shows
+% the initial results from the two interferometric array.
+% \autoref{Fig:waterfall_auto} shows the raw ALBATROS-EGG autospectra
+% which where the waterfall plot was taken from one polarization (pol0)
+% over an interval of 3 days. The Galaxy rising/setting is clearly
+% visible in the structure. There are also ripples in frequency because
+% of uncalibrated data, and the ripples arise from reflections in the
+% cables. There is a qualitative difference between daytime and
+% nighttime data and this shows that the contamination from shortwave
+% radio drops off significantly at night, when the ionosphere becomes
+% quieter.
+% 
+% \autoref{Fig:waterfall_phase} shows the first fringes that were
+% detected by the the ALBATROS-EGG. The fringes show recurrent structure
+% down to a frequency of as low as 10 MHz without data processing or
+% data cuts.
 
 \section{Conclusions}
 
