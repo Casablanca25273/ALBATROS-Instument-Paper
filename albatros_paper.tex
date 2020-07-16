@@ -114,44 +114,52 @@ foreground emission, ionospheric interference, and terrestrial
 radio-frequency interference (RFI).
 
 Very few experiments have surveyed the radio sky at $\lesssim 30$~MHz,
-and here, we highlight only four specific examples.  At the very
-lowest frequencies, the state of the art among ground-based
-measurements dates from the 1950s, when Reber and Ellis caught brief
-glimpses of the $2.1$~MHz sky at $\sim 5$\degree\ resolution, using an
-array of 192~dipoles~\citep{1956JGR....61....1R}.  A few space-based
-missions have also performed measurements at similarly low frequency
-ranges; for example, the Radio Astronomy Explorer-2 operated at
+and here, we highlight only a subset.  At the very lowest frequencies,
+the state of the art among ground-based measurements dates from the
+1950s, when Reber and Ellis caught brief glimpses of the $2.1$~MHz sky
+at $\sim 5$\degree\ resolution, using an array of
+192~dipoles~\citep{1956JGR....61....1R}.  A few space-based missions
+have also performed measurements at similarly low frequency ranges;
+for example, the Radio Astronomy Explorer-2 operated at
 \SIrange{0.025}{13}{\MHz} with $\sim 10$\degree\ resolution at
-\SI{4.7}{\MHz}~\citep{1975A&A....40..365A}.  Measurements with
-resolution finer than few-degree scales exist mainly at higher
-frequencies.  For example, the Dominion Radio Astrophysical
-Observatory surveyed the northern sky at \SI{22}{\MHz} with
-\SIrange{1.1}{1.7}{\degree} resolution~\citep{1999A&AS..137....7R},
-and most recently, the Owens Valley Long Wavelength Array mapped the
-sky with \SI{15}{\arcminute} resolution between 36.528~MHz and
+\SI{4.7}{\MHz}~\citep{1975A&A....40..365A}.  More recent ground-based
+experiments include the Dominion Radio Astrophysical Observatory
+surveys of the northern sky at 10~MHz and 22~MHz, with
+$\sim2$\degree\ and 1.1--1.7\degree\ resolution,
+respectively~\citep{1976MNRAS.177..601C, 1999A&AS..137....7R}.
+Low-frequency imaging experiments that are currently operational or
+under construction include the Ukranian T-shaped Radio
+telescope~\citep{2016JAI.....541010Z}, with 0.5\degree\ resolution at
+the center of its 8--32~MHz operating range, and the New extension in
+Nan\c{c}ay upgrading LOFAR~\citep{7136773}, which operates at
+10--85~MHz with 1.5\degree\ resolution in standalone mode, and
+improved resolution at $>30$~MHz when combined with LOFAR.  Existing
+measurements with finer resolution are mainly at higher frequencies;
+for example, the Owens Valley Long Wavelength Array mapped the sky
+with \SI{15}{\arcminute} resolution between 36.528~MHz and
 73.152~MHz~\citep{2018AJ....156...32E}.  Although this experimental
 list is not comprehensive, it does illustrate the dearth of
 information about the $\lesssim 30$~MHz sky and the lack of high
-resolution measurements at the lowest frequencies.  The first step
-toward laying the groundwork for possible measurements of the dark
-ages is obtaining an improved map of Galactic foregrounds at $\lesssim
-30$~MHz.  In addition to serving as a stepping stone for future
-cosmological constraints from the dark ages, maps at these frequencies
-can also shed new light on Galactic astrophysics.  Above $\sim30$~MHz,
-synchrotron emission from the Galaxy follows a power law with a
-frequency dependence of $\sim \nu^{-0.7}$.  At lower frequencies,
-synchrotron self-absorption becomes non-negligible, and the spectrum
-transitions to $\nu^{+5/2}$ dependence.  Since self-absorption causes
-the optical depth along the line of sight to depend on frequency,
-observations at $\lesssim 30$~MHz have the potential to probe the
-three-dimensional cosmic ray structure of the
-Galaxy~\citep{2002ApJ...575..217P}.  Low-frequency observations can
-also be used to image radio recombination lines (RRLs), which provide
-a means for studying cool, low-density regions of the interstellar
-medium (ISM).  These absorption lines arise from Rydberg atoms and are
-highly sensitive to the surrounding environment.  The RRL spectrum and
-absorption profiles can therefore constrain the detailed properties of
-the ISM regions in which the Rydberg atoms are
+resolution measurements at the lowest frequencies, particularly in the
+southern hemisphere.  The first step toward laying the groundwork for
+possible measurements of the dark ages is obtaining an improved map of
+Galactic foregrounds at $\lesssim 30$~MHz.  In addition to serving as
+a stepping stone for future cosmological constraints from the dark
+ages, maps at these frequencies can also shed new light on Galactic
+astrophysics.  Above $\sim30$~MHz, synchrotron emission from the
+Galaxy follows a power law with a frequency dependence of $\sim
+\nu^{-0.7}$.  At lower frequencies, synchrotron self-absorption
+becomes non-negligible, and the spectrum transitions to $\nu^{+5/2}$
+dependence.  Since self-absorption causes the optical depth along the
+line of sight to depend on frequency, observations at $\lesssim
+30$~MHz have the potential to probe the three-dimensional cosmic ray
+structure of the Galaxy~\citep{2002ApJ...575..217P}.  Low-frequency
+observations can also be used to image radio recombination lines
+(RRLs), which provide a means for studying cool, low-density regions
+of the interstellar medium (ISM).  These absorption lines arise from
+Rydberg atoms and are highly sensitive to the surrounding environment.
+The RRL spectrum and absorption profiles can therefore constrain the
+detailed properties of the ISM regions in which the Rydberg atoms are
 formed~\citep{2009NewAR..53..259G, 2007MNRAS.374..852S}.  Finally,
 observations at $\lesssim30$~MHz may provide new views of Earth's
 ionosphere, which absorbs and refracts at radio frequencies and
@@ -758,6 +766,24 @@ future paper, but the high signal-to-noise fringe pattern, which is
 even visible slightly below $\sim10$~MHz, demonstrates the proof of
 concept for building the expanded \albatros\ array.
  
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_auto_compare.jpg}
+    \caption{Placeholder figure for comparison of auto-spectra from
+      baseband (4-bit), and directly computed/averaged by the SNAP.}
+    \label{Fig:baseband_direct_auto}
+  \end{center}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_phase_compare.jpg}
+    \caption{Placeholder figure for comparison of cross-spectrum phase from
+      baseband (4-bit), and directly computed/averaged by the SNAP.}
+    \label{Fig:baseband_direct_phase}
+  \end{center}
+\end{figure}
+
 \attention{Do we want a plot showing solar power data of any sort?}
 
 \section{Conclusions}
