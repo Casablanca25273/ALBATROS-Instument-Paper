@@ -658,7 +658,7 @@ $2/\pi$ value.
 %   power will be small, and the correlator efficiency will be close to
 %   the ideal 1-bit value of $\frac{2}{\pi}$.}.
 
-\begin{figure}
+\begin{figure}[t]
   \begin{center}
     \includegraphics[width=0.9\linewidth]{Figures/albatros2_waterfalls.jpg}
     \caption{Spectra from a co-aligned polarization pair from the
@@ -670,6 +670,17 @@ $2/\pi$ value.
       autospectra.  Repeatable structure from the Galaxy is visible
       over the three-day time scale in all plots.}
     \label{Fig:albatros2_waterfalls}
+  \end{center}
+\end{figure}
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.6\linewidth]{Figures/albatros2_lst_phase.jpg}
+    \caption{Phases from the cross-correlation between two co-aligned
+      polarizations in the two-element \albatros\ pathfinder.  About
+      372 hours of data are shown here, binned in local sidereal
+      time.}
+    \label{Fig:albatros2_phase}
   \end{center}
 \end{figure}
 
@@ -725,14 +736,21 @@ controller, which could radiate from the solar array and connecting
 wires. (Data collected during the night are not at risk of solar
 charge controller EMI contamination.)
 
-\begin{figure}
+\begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.6\linewidth]{Figures/albatros2_lst_phase.jpg}
-    \caption{Phases from the cross-correlation between two co-aligned
-      polarizations in the two-element \albatros\ pathfinder.  About
-      372 hours of data are shown here, binned in local sidereal
-      time.}
-    \label{Fig:albatros2_phase}
+    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_auto_compare.jpg}
+    \caption{Placeholder figure for comparison of auto-spectra from
+      baseband (4-bit), and directly computed/averaged by the SNAP.}
+    \label{Fig:baseband_direct_auto}
+  \end{center}
+\end{figure}
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_phase_compare.jpg}
+    \caption{Placeholder figure for comparison of cross-spectrum phase from
+      baseband (4-bit), and directly computed/averaged by the SNAP.}
+    \label{Fig:baseband_direct_phase}
   \end{center}
 \end{figure}
 
@@ -765,26 +783,51 @@ detailed analysis of signal repeatability will be presented in a
 future paper, but the high signal-to-noise fringe pattern, which is
 even visible slightly below $\sim10$~MHz, demonstrates the proof of
 concept for building the expanded \albatros\ array.
- 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_auto_compare.jpg}
-    \caption{Placeholder figure for comparison of auto-spectra from
-      baseband (4-bit), and directly computed/averaged by the SNAP.}
-    \label{Fig:baseband_direct_auto}
-  \end{center}
-\end{figure}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_phase_compare.jpg}
-    \caption{Placeholder figure for comparison of cross-spectrum phase from
-      baseband (4-bit), and directly computed/averaged by the SNAP.}
-    \label{Fig:baseband_direct_phase}
-  \end{center}
-\end{figure}
+% note to self: look up time of day that corresponds to LST period
+% where fringes appear to extend below 10 MHz, see if that's night
+% time
 
-\attention{Do we want a plot showing solar power data of any sort?}
+We have been unable to retrieve data from the single autonomous
+station pathfinder on Marion because of COVID-19 and limited bandwidth
+to the island, although we have confirmed that the solar power system
+has successfully met the power demands of the antenna station.  To
+demonstrate baseband writing capability in the absence of Marion data,
+we instead present a short observation that was taken by a separate
+\albatros\ pathfinder station that operated from the McGill Arctic
+Research Station (MARS; \ang{79;26;}N, \ang{90;46;}W) during
+July~2019.  The RF signal chain of the MARS installation had the same
+architecture as that shown in \autoref{Fig:albatros1_schem}, but the
+power was supplied by manually charged batteries, rather than a solar
+power system.  The MARS RFI environment is somewhat noisier than that
+of Marion Island, and because the data were taken during the height of
+Arctic summer, the ionospheric plasma cutoff frequency is higher than
+the typical cutoff reflected in the Marion data.
+
+\autoref{Fig:baseband_direct_auto} shows autospectra for one
+polarization of the \albatros\ pathfinder installed at MARS, comparing
+the accumulated spectra that are directly computed by the SNAP board
+against spectra that are calculated from baseband data with 4-bit
+quantization.  (Autospectrum information is not preserved with 1-bit
+quantization.)  Baseband data were recorded over two frequency
+windows, 5.3--12.6~MHz and 12.6--20.0~MHz, at separate times, and the
+corresponding accumulated spectra from the SNAP board are shown for
+the same frequency and time ranges.  The waterfall plots have the same
+61-kHz frequency resolution, set by the resolution of the spectra
+computed by the SNAP board.  The overplotted mean spectra are shown
+with finer resolution (\attention{numbers go here}) from the baseband
+data to illustrate the additional information that is not retained in
+the accumulated spectra.  For these mean spectrum plots, the baseband
+data are processed by
+inverting\footnote{\url{https://github.com/jrs65/pfb-inverse}} the
+polyphase filter bank to recover time-domain data, and the forward
+polyphase filter bank is then applied to concatenated timestreams of
+an appropriate total length to set the desired frequency resolution.
+The spectra computed from baseband qualitatively agree with those
+directly accumulated by the SNAP board, up to small differences caused
+by the 4-bit quantization.
+
+\attention{more words to come here about phase plots}
 
 \section{Conclusions}
 
