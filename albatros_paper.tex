@@ -233,7 +233,7 @@ to achieve a resolution of $\sim 1$\degree.  This length scales
 inversely with frequency, and therefore $\sim 10$-km lengths are
 required at few-MHz frequencies to improve substantially upon the resolutions
 achieved to date.  The experiment installation site must be remote to
-keep RFI to a minimum, and polar or near-polar latitiudes generally
+keep RFI to a minimum, and polar or near-polar latitudes generally
 have lower ionospheric plasma frequency cutoffs relative to other
 locations on Earth.  \autoref{Fig:iri} illustrates predictions from
 the International Reference Ionosphere
@@ -307,7 +307,7 @@ autonomous operation.
       readout electronics, which are housed in a Faraday cage denoted
       by the dashed box.  Each of the four antenna outputs is passed
       to a second-stage electronics chain consisting of filters and
-      further amplfication.  The signals are digitized at 250~Msamp/s
+      further amplification.  The signals are digitized at 250~Msamp/s
       by a SNAP board, which includes an on-board FPGA that computes
       auto- and cross-spectra from and between the four inputs.  A
       Raspberry Pi controls the SNAP board and saves the data.}
@@ -463,7 +463,7 @@ clock.
       electronics, housed in a Faraday cage denoted by the dashed box.
       Each of the two antenna signals is passed to a second-stage
       electronics chain consisting of filters and further
-      amplfication.  The signals are digitized at 250~Msamp/s by a
+      amplification.  The signals are digitized at 250~Msamp/s by a
       SNAP board, which includes an on-board FPGA that computes
       channelized baseband and spectra from both inputs.  A Raspberry
       Pi controls the SNAP board and receives the baseband data and
@@ -682,7 +682,7 @@ between three custom designed structures built from aluminum
 extrusion, with rigid metalized plastic panels backing the
 semi-flexible solar cells. The structures are oriented due north and
 are designed to incline the solar panels at a relatively steep angle
-to maximize peformance under winter conditions, when sunlight hours
+to maximize performance under winter conditions, when sunlight hours
 are at their minimum. The solar panel mounts have been designed to
 withstand frequent gale-force winds on Marion. While the mounting
 structures themselves appear to be strong enough, the greatest
@@ -712,7 +712,7 @@ charge controller EMI contamination.)
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{Figures/albatros2_waterfalls.jpg}
+    \includegraphics[width=\linewidth]{Figures/albatros2_waterfalls.jpg}
     \caption{Spectra from a co-aligned polarization pair from the
       two-element \albatros\ pathfinder, shown as a function of
       frequency and time.  The auto- and cross-spectra are shown in
@@ -771,37 +771,39 @@ concept for building the expanded \albatros\ array.
 % time
 
 We have been unable to retrieve data from the single autonomous
-station pathfinder on Marion because of COVID-19 and limited bandwidth
-to the island, although we have confirmed that the solar power system
-has successfully met the power demands of the antenna station.  To
-demonstrate baseband writing capability in the absence of Marion data,
-we instead present a short observation that was taken by a separate
-\albatros\ pathfinder station that operated from the McGill Arctic
-Research Station (MARS; \ang{79;26;}N, \ang{90;46;}W) on Axel Heiberg
-Island, Nunavut, during July~2019.  The RF signal chain of the MARS
-installation had the same architecture as that shown in
-\autoref{Fig:albatros1_schem}, but the power was supplied by manually
-charged batteries, rather than a solar power system.  The MARS RFI
-environment is somewhat noisier than that of Marion Island, and
-because the data were taken during the height of Arctic summer, the
-ionospheric plasma cutoff frequency is higher than the typical cutoff
-reflected in the Marion data.  Despite the differences in the power
-configuration and RFI environment, the MARS installation is suitable
-for illustrating baseband data writing.
+station pathfinder on Marion because of COVID-19 restrictions and
+limited bandwidth to the island, although we have confirmed that the
+solar power system has successfully met the power demands of the
+antenna station.  To demonstrate baseband writing capability in the
+absence of Marion data, we instead present a short observation that
+was taken by a separate, single-element \albatros\ pathfinder station
+that operated from the McGill Arctic Research Station (MARS;
+\ang{79;26;}N, \ang{90;46;}W) on Axel Heiberg Island, Nunavut, during
+July~2019.  The RF signal chain of the MARS installation had the same
+architecture as that shown in \autoref{Fig:albatros1_schem}, but the
+power was supplied by manually charged batteries, rather than a solar
+power system.  The MARS RFI environment is somewhat noisier than that
+of Marion Island, and because the data were taken during the height of
+Arctic summer, the ionospheric plasma cutoff frequency is higher than
+the typical cutoff reflected in the Marion data.  Despite the
+differences in the power configuration and RFI environment, the MARS
+installation is suitable for illustrating baseband data writing.
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.8\linewidth]{Figures/baseband_direct_auto_compare.jpg}
-    \caption{\attention{Placeholder figure} Autospectra for one
-      polarization from an \albatros\ pathfinder at MARS (see text for
-      details).  The top row shows spectra that are accumulated
-      directly by the SNAP board, and the middle row shows spectra
-      computed from baseband data with 4-bit quantization.  The two
-      frequency windows, 5.3--12.6~MHz and 12.6--20.0~MHz, are
-      recorded at two separate times, and all waterfall plots are
-      shown with 61-kHz resolution.  The bottom row compares the mean
-      autospectra, with finer, 14.6-kHz resolution of
-      the baseband spectra.}
+    \includegraphics[width=\linewidth]{Figures/baseband_direct_auto_compare.png}
+    \caption{Autospectra for one polarization from an
+      \albatros\ pathfinder at MARS (see text for details).  The top
+      row shows spectra that are accumulated directly by the SNAP
+      board, and the middle row shows spectra computed from baseband
+      data with 4-bit quantization.  The two frequency windows,
+      5.3--12.6~MHz and 12.6--20.0~MHz, are recorded at two separate
+      times, and all plots are shown with 61-kHz resolution.  The
+      waterfall plots are shown with a logarithmic color scale to
+      highlight the qualitative agreement in spectral features between
+      the directly-accumulated and baseband spectra.  The bottom row
+      compares the mean autospectra, which agree well when the
+      baseband data are not saturated by bright RFI emission.}
     \label{Fig:baseband_direct_auto}
   \end{center}
 \end{figure}
@@ -831,22 +833,32 @@ windows, 5.3--12.6~MHz and 12.6--20.0~MHz, at separate times, and the
 corresponding accumulated spectra from the SNAP board are shown for
 the same frequency and time ranges.  All of the waterfall plots have
 the same 61-kHz frequency resolution, set by the resolution of the
-spectra computed by the SNAP board.  In the overplotted mean spectra,
-the baseband data are shown with finer, 14.6-kHz resolution to
-illustrate the additional information that is not available in the
-accumulated spectra.  For these mean spectrum plots, the baseband data
-are processed by
-inverting\footnote{\url{https://github.com/jrs65/pfb-inverse}} the
-polyphase filter bank to recover time-domain data, and the
-forward-direction polyphase filter bank is then applied to
-concatenated timestreams of an appropriate total length to set the
-desired frequency resolution.  \autoref{Fig:baseband_direct_phase}
-shows waterfall plots of phases computed from the cross-correlation
-between the two orthogonal polarizations of the \albatros\ pathfinder
-at MARS, comparing the directly accumulated and baseband data.  For
-both the autospectra and phases, the baseband data qualitatively agree
-with the data directly accumulated by the SNAP board, up to small
-differences caused by the 4-bit quantization.
+spectra computed by the SNAP board, and are normalized so that the
+maximum is unity.  The waterfall plots are shown with a logarithmic
+scale to highlight the qualitative agreement between the
+directly-accumulated and baseband spectra for bright and faint
+spectral features.  The bottom panels show the time-averaged spectra
+on a linear scale to illustrate differences in bright RFI features
+that saturate the the baseband data.  The fraction of baseband data
+with values at the 4-bit extrema are overplotted with spectra, and
+there is agreement between the directly-accumulated and baseband
+spectra except when saturation is present.
+
+% In the overplotted mean spectra, the baseband data are shown with
+% finer, 14.6-kHz resolution to illustrate the additional information
+% that is not available in the accumulated spectra.  For these mean
+% spectrum plots, the baseband data are processed by
+% inverting\footnote{\url{https://github.com/jrs65/pfb-inverse}} the
+% polyphase filter bank to recover time-domain data, and the
+% forward-direction polyphase filter bank is then applied to
+% concatenated timestreams of an appropriate total length to set the
+% desired frequency resolution.  \autoref{Fig:baseband_direct_phase}
+% shows waterfall plots of phases computed from the cross-correlation
+% between the two orthogonal polarizations of the \albatros\ pathfinder
+% at MARS, comparing the directly accumulated and baseband data.  For
+% both the autospectra and phases, the baseband data qualitatively agree
+% with the data directly accumulated by the SNAP board, up to small
+% differences caused by the 4-bit quantization.
 
 \section{Summary and future outlook}
 
@@ -876,11 +888,14 @@ will employ a USB multiplexer to select and power only one hard drive
 at a time.  The autonomous station pathfinder presented here uses
 solar panels to charge the batteries, and we are investigating the use
 of small wind turbines as a possible alternative for future stations.
+We are also developing analysis tools to compute time-domain data from
+the recorded channelized baseband by inverting the polyphase filter
+bank while minimizing artifacts from quantization and saturation.
 
 In addition to Marion Island, we are also planning on installing a
 second \albatros\ array at MARS in the high Arctic.  As described in
-\S\ref{s:obs}, a pathfinder antenna was installed in July 2019 and
-observed for about three weeks to assess the RFI environment and
+\S\ref{s:obs}, a single pathfinder antenna was installed in July 2019
+and observed for about three weeks to assess the RFI environment and
 ionospheric conditions.  When fully operational, the Marion and MARS
 \albatros\ installations will provide new views of the low-frequency
 sky across both hemispheres.
