@@ -1219,7 +1219,8 @@ $\blacksquare$\par\addvspace{12pt plus3pt minus3pt}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Trim Marks %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\def\wsdraftnote{\qquad\today\quad\currenttime\quad\jobname}%
+%\def\wsdraftnote{\qquad\today\quad\currenttime\quad\jobname}%
+\def\wsdraftnote{}%
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ss %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\cropmarks{\nointerlineskip%
