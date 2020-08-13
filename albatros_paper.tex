@@ -22,7 +22,6 @@
 \usepackage{url}
 \usepackage{natbib}
 
-
 % Define stuff here
 \def\albatros{ALBATROS}
 \def\prizm{PRI$^{\rm Z}$M}
@@ -45,22 +44,33 @@
 
 \catchline{}{}{}{}{} % Publisher's Area please ignore
 
-\markboth{Author's Name}{ALBATROS instrument}
+\markboth{H.~C.~Chiang et al.}{ALBATROS instrument}
 
 \title{The Array of Long-Baseline Antennas for Taking Radio
   Observations from the Sub-Antarctic}
 
-\author{First Author$^{2}$, Second Author$^{3}$, Third Author$^{3}$ and Fourth Author$^{4}$}
+\author{H.~C.~Chiang$^{1,2,\dagger}$, T.~Dyson$^{1}$, E.~Egan$^{1}$,
+  S.~Eyono$^{2}$, N.~Ghazi$^{2}$, J.~Hickish$^{3}$,
+  J.~M.~J\'auregui--Garcia$^{4}$, V.~Manukha$^{5}$, T.~Moso$^{2}$,
+  J.~Peterson$^{4}$, L.~Philip$^{6}$, J.~L.~Sievers$^{1,6}$,
+  S.~Tartakovsky$^{1}$}
 
 \address{
-$^{2}$Department, University Name, City, State ZIP/Zone, Country, fauthor@university.com\\
-$^{3}$Group, Company, Address, City, State ZIP/Zone, Country\\
-$^{4}$Group, Company, Address, City, State ZIP/Zone, Country, fauthor@company.com
+$^{1}$Department of Physics, McGill University, Montr\'eal, Quebec H3A 2T8, Canada\\
+$^{2}$School of Mathematics, Statistics, and Computer Science,
+  University of KwaZulu--Natal, Durban 4000, South Africa\\
+$^{3}$Department of Astronomy, University of California, Berkeley,
+  California 94720, USA\\
+$^{4}$Department of Physics, Carnegie Mellon University,
+  Pittsburgh, Pennsylvania 15213, USA\\
+$^{5}$South African National Space Agency, Hermanus 7200, South Africa\\
+$^{6}$School of Chemistry and Physics,
+  University of KwaZulu--Natal, Durban 4000, South Africa
 }
 
 \maketitle
 
-\corres{$^{2}$Corresponding author.}
+\corres{$^{\dagger}$Corresponding author: hsin.chiang@mcgill.ca}
 
 \begin{history}
 \received{(to be inserted by publisher)};
@@ -112,6 +122,17 @@ frequencies of $\lesssim 30$~MHz are exceptionally difficult to
 access.  The primary experimental challenges include Galactic
 foreground emission, ionospheric interference, and terrestrial
 radio-frequency interference (RFI).
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.63\linewidth]{Figures/marion_domec_hobart.png}
+    \caption{Minimum plasma frequency predicted by the International
+      Reference Ionosphere model during the last solar minimum.  At
+      some locations on Earth, the plasma frequency may drop as low as
+      $\sim1.5$~MHz.}
+    \label{Fig:iri}
+  \end{center}
+\end{figure}
 
 Very few experiments have surveyed the radio sky at $\lesssim 30$~MHz,
 and here, we highlight only a subset.  At the very lowest frequencies,
@@ -169,17 +190,6 @@ time-varying and spatially dependent.  Experiments that image the
 radio sky at multiple frequencies bracketing the plasma cutoff can
 therefore simultaneously image the ionosphere and provide spectral
 riometry data for space weather studies~\citep{2014GeoRL..41.5370K}.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.6\linewidth]{Figures/marion_domec_hobart.png}
-    \caption{Minimum plasma frequency predicted by the International
-      Reference Ionosphere model during the last solar minimum.  At
-      some locations on Earth, the plasma frequency may drop as low as
-      $\sim1.5$~MHz.}
-    \label{Fig:iri}
-  \end{center}
-\end{figure}
 
 There are proposed efforts to perform new low-frequency measurements
 from space, where there is no contamination from the ionosphere, and
@@ -542,6 +552,18 @@ of bandwidth yields an approximate data rate of 5~MB/s, or 0.4~TB/day.
 
 \subsection{Correlation}
 
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.75\linewidth]{Figures/corr_efficiency/corr_efficiency.png}
+    \caption{Correlator efficiency $\epsilon$ for a 1-bit correlator
+      as a function of signal-to-noise ratio (SNR).  The efficiency is
+      roughly 0.64 at low SNR and drops monotonically as the SNR
+      increases.  The decrease in $\epsilon$ is relatively gentle,
+      changing by only a factor of 2 for SNR $\sim2$.}
+    \label{fig:1bit_efficiency}
+    \end{center}
+\end{figure}
+
 The autonomous station can be configured to record 1-, 2-, or 4-bit
 baseband.  Signal fidelity improves with higher numbers of bits, but
 the penalty is increased data volume.  Here we discuss the prospects
@@ -586,18 +608,6 @@ few-second time scales.  Changes in the power levels occur on
 significantly longer time scales, so the true sky visibilities can be
 derived by combining cross-correlation data between different antenna
 stations and the auto-spectrum data from each individual station.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.7\linewidth]{Figures/corr_efficiency/corr_efficiency.png}
-    \caption{Correlator efficiency $\epsilon$ for a 1-bit correlator
-      as a function of signal-to-noise ratio (SNR).  The efficiency is
-      roughly 0.64 at low SNR and drops monotonically as the SNR
-      increases.  The decrease in $\epsilon$ is relatively gentle,
-      changing by only a factor of 2 for SNR $\sim2$.}
-    \label{fig:1bit_efficiency}
-    \end{center}
-\end{figure}
 
 % To get the expected SNR from a 1-bit correlator, multiply the SNR
 % derived from the radiometer equation by $\epsilon_{corr}$.
@@ -727,7 +737,7 @@ charge controller EMI contamination.)
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=0.6\linewidth]{Figures/albatros2_lst_phase.jpg}
+    \includegraphics[width=0.8\linewidth]{Figures/albatros2_lst_phase.jpg}
     \caption{Phases from the cross-correlation between two co-aligned
       polarizations in the two-element \albatros\ pathfinder.  About
       372 hours of data are shown here, binned in local sidereal
