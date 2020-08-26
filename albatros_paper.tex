@@ -52,7 +52,7 @@
 \author{H.~C.~Chiang$^{1,2,\dagger}$, T.~Dyson$^{1}$, E.~Egan$^{1}$,
   S.~Eyono$^{2}$, N.~Ghazi$^{2}$, J.~Hickish$^{3}$,
   J.~M.~J\'auregui--Garcia$^{4}$, V.~Manukha$^{5}$, T.~Moso$^{2}$,
-  J.~Peterson$^{4}$, L.~Philip$^{6}$, J.~L.~Sievers$^{1,6}$,
+  J.~Peterson$^{6}$, L.~Philip$^{7}$, J.~L.~Sievers$^{1,7}$,
   S.~Tartakovsky$^{1}$}
 
 \address{
@@ -61,10 +61,11 @@ $^{2}$School of Mathematics, Statistics, and Computer Science,
   University of KwaZulu--Natal, Durban 4000, South Africa\\
 $^{3}$Department of Astronomy, University of California, Berkeley,
   California 94720, USA\\
-$^{4}$Department of Physics, Carnegie Mellon University,
-  Pittsburgh, Pennsylvania 15213, USA\\
+$^{4}$Canadian Institute for Theoretical Astrophysics, Toronto, Ontario M5R 2M8, Canada \\
 $^{5}$South African National Space Agency, Hermanus 7200, South Africa\\
-$^{6}$School of Chemistry and Physics,
+$^{6}$Department of Physics, Carnegie Mellon University,
+  Pittsburgh, Pennsylvania 15213, USA\\
+$^{7}$School of Chemistry and Physics,
   University of KwaZulu--Natal, Durban 4000, South Africa
 }
 
@@ -353,12 +354,12 @@ frequency range.
 \subsection{Front-end active balun}\label{s:fee}
 
 The LWA active-balun front-end electronics (FEE) circuit uses a
-MiniCircuits GALI-74+ MMIC to amplify each dipole leg against ground,
+Mini-Circuits GALI-74+ MMIC to amplify each dipole leg against ground,
 presenting each leg with a 50$\ohm$ impedance and providing a nominal
 gain of 25~dB. The two GALI-74+ outputs are differenced using a
 passive {180\degree} hybrid coupler. The coupler output is filtered by
 a $\sim$150~MHz lowpass and receives an additional 12~dB of gain from
-a MiniCircuits GALI-6+ MMIC. This last amplifier drives the output
+a Mini-Circuits GALI-6+ MMIC. This last amplifier drives the output
 signal onto a 100-m 50$\ohm$ coaxial cable. Thus, neglecting mismatch
 loss between the dipoles (electrically small in the frequency range of
 interest) and the 100{\ohm} input impedance, as well as the hybrid
@@ -400,8 +401,8 @@ by 16~V, which is fed on the coaxial cable through a bias tee.
 The back-end readout electronics are housed in a Faraday cage located
 100~m away from the antennas to mitigate possible self-generated RFI.
 Each of the four antenna signals is passed to a second-stage
-electronics chain consisting of an amplifier (Minicircuits ZX60-V63+),
-and a pair of high- and low-pass filters (Minicircuits ZFHP-1R2+ and
+electronics chain consisting of an amplifier (Mini-Circuits ZX60-V63+),
+and a pair of high- and low-pass filters (Mini-Circuits ZFHP-1R2+ and
 SLP-90+) that together band-limit the signal to 1.2--\SI{81}{MHz}.
 The amplifier has a nominal gain of 20~dB, and the high- and low-pass
 filters contribute nominal insertion losses of 0.2~dB and 0.14~dB,
@@ -515,9 +516,9 @@ described in detail below.
 
 The back-end readout electronics are housed in a Faraday cage located
 50~m away from the antennas. The analog signal chain consists of a
-pair of high- and low-pass filters (Minicircuits ZFHP-1R2+ and
+pair of high- and low-pass filters (Mini-Circuits ZFHP-1R2+ and
 SLP-150+) that together band-limit the signal to 1.2--140~MHz, and the
-filters are followed by a MiniCircuits ZFL-500+ amplifier.  In
+filters are followed by a Mini-Circuits ZFL-500+ amplifier.  In
 contrast to the two-element pathfinder, the low-pass cutoff is
 increased from 81~MHz to 140~MHz to capture downlink signals at
 137--138~MHz from the ORBCOMM satellite constellation.  For the final
