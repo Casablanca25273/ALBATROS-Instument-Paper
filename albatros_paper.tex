@@ -809,9 +809,10 @@ installation is suitable for illustrating baseband data writing.
       data with 4-bit quantization.  The two frequency windows,
       5.3--12.6~MHz and 12.6--20.0~MHz, are recorded at two separate
       times, and all plots are shown with 61-kHz resolution.  The
-      waterfall plots are shown with a logarithmic color scale to
-      highlight the qualitative agreement in spectral features between
-      the directly-accumulated and baseband spectra.  The bottom row
+      waterfall plots are normalized so that the maximum is unity and
+      are shown with a logarithmic color scale to highlight the
+      qualitative agreement in spectral features between the
+      directly-accumulated and baseband spectra.  The bottom row
       compares the mean autospectra, which agree well when the
       baseband data are not saturated by bright RFI emission.}
     \label{Fig:baseband_direct_auto}
@@ -833,26 +834,31 @@ installation is suitable for illustrating baseband data writing.
   \end{center}
 \end{figure}
 
-\autoref{Fig:baseband_direct_auto} shows autospectra for one
-polarization of the \albatros\ pathfinder installed at MARS, comparing
-the accumulated spectra that are directly computed by the SNAP board
-against spectra that are calculated from baseband data with 4-bit
-quantization.  (Autospectrum information is not preserved with 1-bit
-quantization.)  Baseband data were recorded over two frequency
-windows, 5.3--12.6~MHz and 12.6--20.0~MHz, at separate times, and the
-corresponding accumulated spectra from the SNAP board are shown for
-the same frequency and time ranges.  All of the waterfall plots have
-the same 61-kHz frequency resolution, set by the resolution of the
-spectra computed by the SNAP board, and are normalized so that the
-maximum is unity.  The waterfall plots are shown with a logarithmic
+We present short segments of baseband data that were recorded over two
+adjacent frequency windows, 5.3--12.6~MHz and 12.6--20.0~MHz, at
+separate times.  The baseband data were recorded with 4-bit
+quantization to preserve autospectrum information, which is not
+available with 1-bit quantization.  \autoref{Fig:baseband_direct_auto}
+shows autospectra for one polarization of the \albatros\ pathfinder
+installed at MARS, comparing the accumulated spectra that are directly
+computed by the SNAP board against spectra that are calculated from
+baseband data.  All of the waterfall plots have the same 61-kHz
+frequency resolution, set by the resolution of the spectra computed by
+the SNAP board.  The waterfall plots are shown with a logarithmic
 scale to highlight the qualitative agreement between the
 directly-accumulated and baseband spectra for bright and faint
 spectral features.  The bottom panels show the time-averaged spectra
 on a linear scale to illustrate differences in bright RFI features
-that saturate the the baseband data.  The fraction of baseband data
-with values at the 4-bit extrema are overplotted with spectra, and
-there is agreement between the directly-accumulated and baseband
-spectra except when saturation is present.
+that saturate the baseband data.  The fraction of baseband data with
+values at the 4-bit extrema are overplotted with spectra, and there is
+agreement between the directly-accumulated and baseband spectra except
+when significant saturation is present.
+\autoref{Fig:baseband_direct_phase} shows waterfall plots of phases
+computed from the cross-correlation between the two orthogonal
+polarizations of the \albatros\ pathfinder at MARS, comparing the
+directly accumulated and baseband data.  Both sets of recorded data
+qualitatively agree, up to small differences caused by the 4-bit
+quantization.
 
 % In the overplotted mean spectra, the baseband data are shown with
 % finer, 14.6-kHz resolution to illustrate the additional information
@@ -862,13 +868,7 @@ spectra except when saturation is present.
 % polyphase filter bank to recover time-domain data, and the
 % forward-direction polyphase filter bank is then applied to
 % concatenated timestreams of an appropriate total length to set the
-% desired frequency resolution.  \autoref{Fig:baseband_direct_phase}
-% shows waterfall plots of phases computed from the cross-correlation
-% between the two orthogonal polarizations of the \albatros\ pathfinder
-% at MARS, comparing the directly accumulated and baseband data.  For
-% both the autospectra and phases, the baseband data qualitatively agree
-% with the data directly accumulated by the SNAP board, up to small
-% differences caused by the 4-bit quantization.
+% desired frequency resolution.
 
 \section{Summary and future outlook}
 
