@@ -349,8 +349,6 @@ interferometer systems.  For the final \albatros\ array, we are
 exploring alternative antenna designs that will cover the full
 frequency range.
 
-% do we want/need to say anything about the omnidirectional primary beam?
-
 \subsection{Front-end active balun}\label{s:fee}
 
 The LWA active-balun front-end electronics (FEE) circuit uses a
@@ -366,35 +364,6 @@ interest) and the 100{\ohm} input impedance, as well as the hybrid
 insertion loss ($<$1dB), the front-end electronics provide a gain of
 $\sim$37~dB~\citep{2012PASP..124.1090H}.  Each FEE circuit is powered
 by 16~V, which is fed on the coaxial cable through a bias tee.
-
-% EE citing the noise figure of the GALI-74+ is particulary misleading because of the large mismatch loss, which directly scales up the noise figure in the HF band. 
-
-%% It seems to me that this is too much detail to go into in describing an already published design.
-% All the front end components were incorporated for in a double sided
-% printed circuit board (PCB) as shown in \autoref{Fig:Balun} and the
-% block diagram is shown in \autoref{Fig:Balun Schematic}. The
-% Monolithic Microwave Integrated Circuits (MMICs) is the used design
-% for the PCB. One side of the PCB is populated with components and
-% the other side is a solid copper ground plane aperiodically stitched
-% to the grounded copper on the side populated with components. The
-% receiver system is made up of the active balun, filter and the gain
-% stage that connects to the \SI{100}{\metre} coaxial cable which is
-% connected to the back end \cite{2012PASP..124.1090H}.
-
-% The input impedance (Z\textsubscript{o}) of \SI{50}{\ohm} is
-% introduced to the dipole by the active balun. The signal is then fed
-% through an amplifier which amplifies it by \SI{+24}{\decibel} of
-% gain. The balanced signal is then converted to unbalanced through a
-% 180 \degree hybrid coupler. The band pass filter (BPF) receives the
-% single ended signal in order for it to reject all the frequencies
-% which are not within the range of interest. The signal gets fed to a
-% second amplifier which again amplies it by \SI{+24}{\decibel} of gain
-% and the output impedance of the FEE is matched to a \SI{50}{\ohm}
-% coaxial cable. The bias tee is responsible for providing power to the
-% FEE and extracts the RF signal by the use of the coaxial cable. This
-% unit has an overall gain of $\approx$ \SI{35}{\decibel} and an overall
-% noise figure of $\approx$ \SI{2.7}{\decibel} to $\approx$
-% \SI{2.9}{\decibel} \cite{Memo35}.
 
 \subsection{Back-end electronics}
 
@@ -427,8 +396,6 @@ module\footnote{\url{https://www.adafruit.com/product/746}}, connected
 to an active external GPS antenna, provides absolute timing for the
 RPi.
 
-% data rate ~ 17MB/hour, with compressed scio files
-
 \subsection{Power}
 
 A bank of four 12-V, 200-Ah AGM batteries, connected in parallel,
@@ -439,8 +406,6 @@ fully charged, the battery bank can power the system for about a week.
 The raw battery voltage is passed to several DC/DC converters that
 supply regulated voltages to the SNAP board, FEE, amplifiers and the
 clock.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 \section{Single autonomous station pathfinder}\label{s:autonomous}
 
@@ -503,15 +468,6 @@ front-end active balun in the single autonomous station are identical
 to those used in the two-element pathfinder (\S\ref{s:antenna} and
 \S\ref{s:fee}), and the back-end electronics and power system are
 described in detail below.
-
-% HCC: we probably don't need this figure
-% \begin{figure}[h]
-% 	\begin{center}
-% 		\includegraphics[width=0.5\linewidth]{Figures/balun.jpg}
-% 		\caption{Unenclosed FEE mounted on the ALBATROS-EGG antenna supporting structure.} 
-% 		\label{Fig:Balun}
-% 	\end{center}
-% \end{figure}
 
 \subsection{Back-end electronics}\label{s:autonomous_backend}
 
@@ -611,9 +567,6 @@ significantly longer time scales, so the true sky visibilities can be
 derived by combining cross-correlation data between different antenna
 stations and the auto-spectrum data from each individual station.
 
-% To get the expected SNR from a 1-bit correlator, multiply the SNR
-% derived from the radiometer equation by $\epsilon_{corr}$.
-
 To assess the loss of sensitivity as the signal level increases, we
 use \autoref{eqn:1bit_output} to derive the correlator efficiency
 $\epsilon$, which is the ratio of measured signal-to-noise ratio (SNR)
@@ -640,35 +593,6 @@ length.  Therefore, in the long-baseline limit, the correlated signal
 is small in comparison to the total power received, and the correlator
 efficiency is unlikely to decrease significantly from the ideal
 $2/\pi$ value.
-
-% One might worry that at high signal levels, the saturation of the
-% 1-bit cross correlation would lead to the noise exploding.  In
-% practice the rolloff in sensitivity is relatively mild, especially in
-% the case of long baselines.  It can be expressed in terms of the
-% correlator efficiency $\epsilon_{corr}$, which is defined to be the
-% ratio of the measured signal-to-noise ratio to the ideal (infinite
-% precision) SNR.  As seen in Figure \ref{fig:1bit_efficiency},
-% $\epsilon_{corr}$ only drops by a factor of $\sim$2 as the signal
-% power goes from 0 to a few times the noise power.  We stress that the
-% signal level in question is the part that correlates between the two
-% antennas.  In the case of long baselines (where long means the fringe
-% spacing is small compared to the primary beam/antenna response
-% pattern) that are not dominated by a single bright source, the signal
-% power will always be smaller than the noise power, and so
-% $\epsilon_{corr}$ is unlikely to drop below $\sim$0.5\footnote{A quick
-%   estimate can be made by analogy to the behavior of dishes in the UV
-%   plane in the flat sky approximation.  While all power in the UV
-%   plane (plus any system noise) goes into an individual antenna's
-%   electric field, the correlated part only has contribution from the
-%   area in the UV plane within the width of the UV-space primary beam
-%   of the UV-space coordinate.  If the sky can be described as a
-%   Gaussian random field, in the most pessimistic case this is roughly
-%   the aperture filling factor of the antenna pair.  In our case, where
-%   the antennas are approximately dipolar, the filling factor will be
-%   the square of the wavelength over the baseline length.  As long as
-%   the baselines are several wavelengths or longer, the correlated
-%   power will be small, and the correlator efficiency will be close to
-%   the ideal 1-bit value of $\frac{2}{\pi}$.}.
 
 \subsection{Solar power system}
 
@@ -779,10 +703,6 @@ future paper, but the high signal-to-noise fringe pattern, which is
 even visible slightly below $\sim10$~MHz, demonstrates the proof of
 concept for building the expanded \albatros\ array.
 
-% note to self: look up time of day that corresponds to LST period
-% where fringes appear to extend below 10 MHz, see if that's night
-% time
-
 We have been unable to retrieve data from the single autonomous
 station pathfinder on Marion (\S\ref{s:autonomous}) because of
 COVID-19 restrictions and limited bandwidth to the island, although we
@@ -863,16 +783,6 @@ polarizations of the \albatros\ pathfinder at MARS, comparing the
 directly accumulated and baseband data.  Both sets of recorded data
 qualitatively agree, up to small differences caused by the 4-bit
 quantization.
-
-% In the overplotted mean spectra, the baseband data are shown with
-% finer, 14.6-kHz resolution to illustrate the additional information
-% that is not available in the accumulated spectra.  For these mean
-% spectrum plots, the baseband data are processed by
-% inverting\footnote{\url{https://github.com/jrs65/pfb-inverse}} the
-% polyphase filter bank to recover time-domain data, and the
-% forward-direction polyphase filter bank is then applied to
-% concatenated timestreams of an appropriate total length to set the
-% desired frequency resolution.
 
 \section{Summary and future outlook}
 
