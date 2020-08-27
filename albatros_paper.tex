@@ -280,7 +280,7 @@ the \albatros\ pathfinder antennas that are currently installed at the
 
 Using the eight coastal huts, the \prizm\ site, and the hydro shack as
 the nominal \albatros\ installation locations, the computed
-synthesized beam is as shown in \autoref{Fig:marion_beam}.  The beam
+synthesized beam is shown in \autoref{Fig:marion_beam}.  The beam
 width at 5~MHz is roughly \SI{7}{\arcminute}, which represents over an
 order of magnitude improvement in resolution over other existing
 measurements.  One of the challenges in constructing an interferometer
@@ -442,7 +442,7 @@ clock.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-\section{Single autonomous station pathfinder}
+\section{Single autonomous station pathfinder}\label{s:autonomous}
 
 \begin{figure}
     \centering
@@ -488,13 +488,14 @@ clock.
 The full \albatros\ configuration will comprise an array of 10
 autonomous antenna stations, each recording baseband over tunable
 frequency windows (with 10--20~MHz total bandwidth) within the full
-0--125~MHz operating range.  The baseband data will be collected
-periodically and subsequently correlated offline.  The
-\albatros\ stations, located at the eight coastal hut sites plus the
-hydro shack and \prizm\ site, will be separated by baselines of
-$\sim20$~km as shown in \autoref{Fig:marion_map_beam}. One fully
-autonomous \albatros\ station, shown in \autoref{Fig:autonomous}, was
-deployed in April 2019 at the hydro shack location (\ang{46;52.205;}S,
+0--125~MHz operating range.  Baseband data will be periodically
+physically retrieved from each station and subsequently correlated
+offline.  The \albatros\ stations, located at the eight coastal hut
+sites plus the hydro shack and \prizm\ site, will be separated by
+baselines of $\sim20$~km as shown in
+\autoref{Fig:marion_map_beam}. One fully autonomous
+\albatros\ station, shown in \autoref{Fig:autonomous}, was deployed in
+April 2019 at the hydro shack location (\ang{46;52.205;}S,
 \ang{37;50.612;}E) on Marion Island as a first step in testing the
 technology needed to establish the full array.  The system block
 diagram is shown in \autoref{Fig:albatros1_schem}.  The antenna and
@@ -672,13 +673,14 @@ $2/\pi$ value.
 \subsection{Solar power system}
 
 Although the first-deployed two-element pathfinder is located at a
-reasonable walking distance from the main base and uses a generator to
-periodically recharge batteries, the bulk of the antenna stations that
-will comprise the full array will be located at points farther removed
-from the main base and will therefore require fully autonomous energy
-sources.  For the autonomous station pathfinder, we developed a solar
-charging system to power the station, and we are investigating small
-wind turbines for future \albatros\ stations.
+reasonable walking distance from the main base and uses a manually
+operated generator to periodically recharge batteries, the bulk of the
+antenna stations that will comprise the full array will be located at
+points farther removed from the main base and will therefore require
+fully autonomous energy sources.  For the autonomous station
+pathfinder, we developed a solar charging system to power the station,
+and we are investigating small wind turbines for future
+\albatros\ stations.
 
 The autonomous station is powered by two series-connected, 12~V, deep
 cycle, lead acid batteries, charged by an array of nine SunPower
@@ -782,23 +784,24 @@ concept for building the expanded \albatros\ array.
 % time
 
 We have been unable to retrieve data from the single autonomous
-station pathfinder on Marion because of COVID-19 restrictions and
-limited bandwidth to the island, although we have confirmed that the
-solar power system has successfully met the power demands of the
-antenna station.  To demonstrate baseband writing capability in the
-absence of Marion data, we instead present a short observation that
-was taken by a separate, single-element \albatros\ pathfinder station
-that operated from the McGill Arctic Research Station (MARS;
-\ang{79;26;}N, \ang{90;46;}W) on Axel Heiberg Island, Nunavut, during
-July~2019.  The RF signal chain of the MARS installation had the same
-architecture as that shown in \autoref{Fig:albatros1_schem}, but the
-power was supplied by manually charged batteries, rather than a solar
-power system.  The MARS RFI environment is somewhat noisier than that
-of Marion Island, and because the data were taken during the height of
-Arctic summer, the ionospheric plasma cutoff frequency is higher than
-the typical cutoff reflected in the Marion data.  Despite the
-differences in the power configuration and RFI environment, the MARS
-installation is suitable for illustrating baseband data writing.
+station pathfinder on Marion (\S\ref{s:autonomous}) because of
+COVID-19 restrictions and limited bandwidth to the island, although we
+have confirmed that the solar power system has successfully met the
+power demands of the antenna station.  To demonstrate baseband writing
+capability in the absence of Marion data, we instead present a short
+observation that was taken by a separate, single-element
+\albatros\ pathfinder station that operated from the McGill Arctic
+Research Station (MARS; \ang{79;26;}N, \ang{90;46;}W) on Axel Heiberg
+Island, Nunavut, during July~2019.  The RF signal chain of the MARS
+installation had the same architecture as that shown in
+\autoref{Fig:albatros1_schem}, but the power was supplied by manually
+charged batteries, rather than a solar power system.  The MARS RFI
+environment is somewhat noisier than that of Marion Island, and
+because the data were taken during the height of Arctic summer, the
+ionospheric plasma cutoff frequency is higher than the typical cutoff
+reflected in the Marion data.  Despite the differences in the power
+configuration and RFI environment, the MARS installation is suitable
+for illustrating baseband data writing.
 
 \begin{figure}[t]
   \begin{center}
