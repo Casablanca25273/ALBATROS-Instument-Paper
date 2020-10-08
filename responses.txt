@@ -10,7 +10,8 @@ General repsonse to the 1-bit comments:  The SNAP processes the baseband data us
 
 4) Regarding calibration of this instrument, there is virtually no mention of it. This is supposed to be a precision cosmology instrument and therefore I would have expected some more discussion on calibration. Even if not going down the route of an EDGES-style approach, having e.g. a Dicke switch in there would allow some measure of the scale and offset.
 
-First, we stress this is not meant to be a precision cosmology instrument - that will have to wait 
+First, we stress this is not meant to be a precision cosmology instrument - that will have to wait for future telescope generations.  Dicke switching, at least as part of regular operations, won't add very much because we can calibrate gain variations off of the galactic signal.  Each station saves its total power spectrum which has enormous SNR, and is repeated day-to-day.  
+(say something about measuring total power offset - presumably by comparison to PRIZM, and something about beam calibration?)
 
 
 5) An important aspect of developing an autonomous instrument like this is timing. I can see the authors have thought about this and discussed it in the paper but have there been any experiments of running such systems for months on end and analysing the drifts. It seems like something that could be done fairly easily in the lab for extended periods of time. If there is no data to present on this, then some discussion about such possible plans would help.
@@ -26,12 +27,17 @@ INTRODUCTION
 - Could add 45 MHz efforts of Alvarez and Guzman.
 - The statement "Although this experimental list is not comprehensive, it does illustrate the dearth of information about .." is a bit self-defeating. A smaller list would illustrate an even larger dearth! I think it would be good to make this a complete list, given the fact that it is very short.
 - para 2 is a bit long - split at "The first step toward..."?
+Done
+
 
 SECTION 2 & 3
 - These sections seem fine, but some more information about the LWA antenna below 10 MHz would be useful. The sentence "LWA antenna is not optimized for observations below 10 MHz..." seems an understatement given that <10 MHz is outside the published frequency capability of the antenna. A more informed statement about sensitivity (or lack thereof would be useful). For example, the lack of Galactic Plane and RFI signal below 8 MHz in various plots (eg Figs 8, 11) looks more like there might be complete loss of sensitivity. Please clarify.
 
 SECTION 4
 - The review of 2-level correlator efficiency vs S/N ratio is interesting and a nice reminder to radio astronomers about the very different regime such a telescope could be operating. But the last paragraph of Section 4.2 dismisses the suggestion that the S/N ratio could be non-zero with a weird argument about Gaussian random fields. But the reality is if there is a massive continuum source in the field of view (Crab Nebula, Sun, Galactic Plane which all have structure on size scales <1 deg), then this might indeed be a huge concern. The radio continuum sky is obviously not a Gaussian random field.
+
+We agree that the sky is not a gaussian random field (obviously), but to get well awayfrom the SNR<1 regime requires that a compact source dominate the total power coming into the antenna, not just the power in the visibility.  For most radio telescopes this would absolutely be a concern, but the primary beam of ALBATROS is huge.  We already know from e.g. EDGES that the total power is dominated by the galactic signal, and in PRIZM, we can't even see the Crab or the sun in total power.  (add words to text...)
+
 
 SECTION 5
 - The waterfall plots are all fairly interesting, but of not much practical value without calibration. What is the frequency response of the system? How much fainter is the RFI in the cross-correlations than the autocorrelations? These simple questions can be answered with a simple model of how the system noise changes with frequency or utilising the nice Galactic plane drift scans in combination with a crude model.
