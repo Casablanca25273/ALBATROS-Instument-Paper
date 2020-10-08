@@ -489,6 +489,10 @@ at 10~MHz is $\lesssim1^\circ$.  With publicly available orbits and
 multiple satellites typically within the field of view, we expect that
 ORBCOMM baseband data saved at the same time as the astronomical data
 can provide offline synchronization of the \albatros\ stations.
+Because the ORBCOMM and science data are taken at the same time by the
+same system, improvements to the ORBCOMM calibration can be
+immediately carried over into improving the science data calibration,
+even if said improvements take years to realize.
 
 As with the two-element pathfinder, a SNAP board digitizes each of the
 two RF signals at 250~Msamp/s. In the autonomous station
@@ -499,6 +503,10 @@ data for each polarization over tunable frequency windows within the
 0--125~MHz operating range, with the options of 1-, 2-, or 4-bit
 compression, and 2) auto- and cross-spectra from the two polarizations
 over the full 0--125~MHz span, accumulated over few-second intervals.
+The reduction in bit depth happens only \textit{after} the SNAP board
+has channelized the baseband, and so cross-channel leakage (due to
+\textit{e.g.} RFI and slopes in RF power as seen by the ADCs) is
+unaffected by the low bit depth.  
 An RPi~3B+ controls the SNAP board and and receives the auto- and
 cross-spectra via GPIO connections, and the spectra are saved to an
 on-board SD card.  The baseband data are passed from the SNAP board to
@@ -507,6 +515,7 @@ introduction of gigabit ethernet with the RPi~3B+ model has enabled
 the high data throughput associated with writing baseband.  As a
 benchmark, 1-bit baseband recording of two polarizations over 10~MHz
 of bandwidth yields an approximate data rate of 5~MB/s, or 0.4~TB/day.
+
 
 \subsection{Correlation}
 
