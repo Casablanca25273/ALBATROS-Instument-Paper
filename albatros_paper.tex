@@ -607,7 +607,16 @@ filling factor is the square of the wavelength divided by the baseline
 length.  Therefore, in the long-baseline limit, the correlated signal
 is small in comparison to the total power received, and the correlator
 efficiency is unlikely to decrease significantly from the ideal
-$2/\pi$ value.
+$2/\pi$ value.  This remains true even when the brightest radio
+sources in the sky are in the beam (the sun is irrelevant since
+ionospheric effects restrict \albatros\ to night-time observing).
+Centaurus A \citep{culgoora1} and M1 \citep{Braude1969} only affect
+the total power expected from the Global Sky Model \citep{gsm2008} at
+the $\sim$10\% level.  Additionally, as will be shown later in this
+work, preliminary ALBATROS data show that visibilities are only a few
+percent of the total power amplitude, consistent with our expectation
+that diffuse emission dominates even the brightest sources given the
+$\sim$steradian solid angle of the primary beam.
 
 \subsection{Solar power system}
 
@@ -671,7 +680,7 @@ charge controller EMI contamination.)
       the top and bottom rows, respectively.  The spectrum magnitudes
       are in uncalibrated ADC units on a logarithmic scale, and the
       cross-spectrum is about two orders of magnitude fainter than the
-      autospectra.  Repeatable structure from the Galaxy is visible
+      autospectra (.  Repeatable structure from the Galaxy is visible
       over the three-day time scale in all plots.}
     \label{Fig:albatros2_waterfalls}
   \end{center}
@@ -847,7 +856,9 @@ Natural Sciences and Engineering Research Council of Canada (grant
 number RGPNS-2019-534549), and the Polar Continental Shelf Program for
 providing funding and logistical support for our research program.
 This research was undertaken, in part, thanks to funding from the
-Canada 150 Program.  The financial assistance of the South
+Canada 150 Program.  This research was enabled in part by support
+provided by SciNet(https://www.scinethpc.ca/) and Compute Canada
+(www.computecanada.ca).  The financial assistance of the South
 African SKA Project (SKA SA) towards this research is hereby
 acknowledged (\url{www.ska.ac.za}).  We additionally extend our
 sincere gratitude to the staff at SKA SA for hosting our lab tests.
