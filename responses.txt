@@ -4,39 +4,46 @@
 
 3) Further on the 1-bit quantisation approach, would you not only need a better matched antenna but also an equalised analogue system to remove the extremely high slope from the synchrotron emission at low frequencies. This can be up to 20dB at these frequencies. Furthermore, despite talking about 1-bit quantisation, as far as I know the plots in the paper are all using 4 or more bit? Has this been tested in the field or in the lab. I do not doubt it will work but it will need careful levelling and testing and ideally should be coupled with a noise injection signal for calibration.
 
-General repsonse to the 1-bit comments:  The SNAP processes the baseband data using the full resolution of the ADCs (8-bit) and internally works at 18 bits.  It is only after channelization that the data are downsampled, so happily, concerns about cross-channel leakage (either due to RFI, slopes across the band, antenna performance etc.) aren't affected by the bit depth at which we save the data.  We have now clarified this in the text and thank the referee for catching the omission.
-
-
+General repsonse to the 1-bit comments:  The SNAP processes the baseband data using the full resolution of the ADCs (8-bit) and internally works at 18 bits.  It is only after channelization that the data are downsampled, so happily, concerns about cross-channel leakage (either due to RFI, slopes across the band, antenna performance etc.) aren't affected by the bit depth at which we save the data.  We have now clarified this point in section 4.1 of the text and thank the referee for catching the omission.
 
 4) Regarding calibration of this instrument, there is virtually no mention of it. This is supposed to be a precision cosmology instrument and therefore I would have expected some more discussion on calibration. Even if not going down the route of an EDGES-style approach, having e.g. a Dicke switch in there would allow some measure of the scale and offset.
 
-First, we stress this is not meant to be a precision cosmology instrument - that will have to wait for future telescope generations.  Dicke switching, at least as part of regular operations, won't add very much because we can calibrate gain variations off of the galactic signal.  Each station saves its total power spectrum which has enormous SNR, and is repeated day-to-day.  
+First, we stress ALBATROS is not meant to be a precision cosmology instrument - that will have to wait for future telescope generations.  Dicke switching, at least as part of regular operations, won't add very much because we can calibrate gain variations off of the Galactic signal.  Each station saves total power autospectra, which have enormous SNR and are repeated day-to-day.  
 (say something about measuring total power offset - presumably by comparison to PRIZM, and something about beam calibration?)
 
-
 5) An important aspect of developing an autonomous instrument like this is timing. I can see the authors have thought about this and discussed it in the paper but have there been any experiments of running such systems for months on end and analysing the drifts. It seems like something that could be done fairly easily in the lab for extended periods of time. If there is no data to present on this, then some discussion about such possible plans would help.
-Response:  Unfortunately all we have are the preliminary lab tests.  The setup was literally a few pieces of wire hanging off an LWA front end sitting inside the lab, not even next to a window.  With just a few minutes of that, we were able to synchronize the EW and NS polarizations to about 0.1ns.  Our plan was to then go to the roof and carry out proper tests (exactly the ones the referee suggests), but unfortunately COVID shut down lab access just a couple of days after the lab tests.  Similarly, we should have data on disk on Marion to do this as well, but all science was scrubbed from the voyage this year so we have been unable to retrieve the data.  A talented undergraduate is doing this work for his thesis right now, now that labs are slowly opening back up, but it will not be ready on the timescale of resubmission.  We have added text clarifying that the ORBCOMM data are synced to the science data, and so we can take our time understanding the timing.  Otherwise we cast ourselves on the mercy of the journal and the referee to let us defer to a future paper the analysis we would have loved to have been able to put here.
 
-
+Response:  Unfortunately all we have are the preliminary lab tests.  The setup was literally a few pieces of wire hanging off an LWA front end sitting inside the lab, not even next to a window.  With just a few minutes of that, we were able to synchronize the EW and NS polarizations to about 0.1ns.  Our plan was to then go to the roof and carry out proper tests (exactly the ones the referee suggests), but unfortunately COVID shut down lab access just a couple of days after the lab tests.  Similarly, we should have timing infomation from the data on disk at Marion, but all science efforts were cancelled during the 2020 voyage, so we have been unable to retrieve the data.  A talented undergraduate is doing this work for his thesis, now that labs are slowly opening back up, but the results will not be ready on the timescale of resubmission.  We have added text in section 4.1 clarifying that the ORBCOMM and science data are recorded simultaneously, and we can therefore interatively improve the timing calibration in post-processing.  Otherwise we cast ourselves on the mercy of the journal and the referee to let us defer to a future paper the analysis we would have loved to have been able to put here.
 
 
 Reviewer #2: This paper describes an interesting step towards a modern low-frequency map of the sky, the eventual production of which will be a major challenge in calibration and operations. Nevertheless, the current baby steps are well-motivated, well-described and definitely in the right direction. The text of the paper is mainly technical, but of a clear and appropriate nature for this journal. I have some minor comments:
 
 INTRODUCTION
 - p.2: "recent ground-based experiments" include a 1976 reference. Doesn't seem very recent.
-- Could add 45 MHz efforts of Alvarez and Guzman.
-- The statement "Although this experimental list is not comprehensive, it does illustrate the dearth of information about .." is a bit self-defeating. A smaller list would illustrate an even larger dearth! I think it would be good to make this a complete list, given the fact that it is very short.
-- para 2 is a bit long - split at "The first step toward..."?
-Done
 
+Changed wording from "recent" to "subsequent."
+
+- Could add 45 MHz efforts of Alvarez and Guzman.
+
+Since our discussion focuses on observations below 30 MHz, we feel that these 45 MHz observations are beyond the scope of our introductory text.
+
+- The statement "Although this experimental list is not comprehensive, it does illustrate the dearth of information about .." is a bit self-defeating. A smaller list would illustrate an even larger dearth! I think it would be good to make this a complete list, given the fact that it is very short.
+
+Although we would love to one day write a review article (or read one; to the best of our knowledge, such a review article doesn't presently exist), compiling a comprehensive list that's 100% accurate is non-trivial.  We nevertheless agree that the text should be revised, so we have now included a reference to the Global Sky Model, which uses only the DRAO 10 MHz and 22 MHz maps as model inputs below 30 MHz.
+
+- para 2 is a bit long - split at "The first step toward..."?
+
+Done.
 
 SECTION 2 & 3
 - These sections seem fine, but some more information about the LWA antenna below 10 MHz would be useful. The sentence "LWA antenna is not optimized for observations below 10 MHz..." seems an understatement given that <10 MHz is outside the published frequency capability of the antenna. A more informed statement about sensitivity (or lack thereof would be useful). For example, the lack of Galactic Plane and RFI signal below 8 MHz in various plots (eg Figs 8, 11) looks more like there might be complete loss of sensitivity. Please clarify.
 
+Note to self: will add plots
+
 SECTION 4
 - The review of 2-level correlator efficiency vs S/N ratio is interesting and a nice reminder to radio astronomers about the very different regime such a telescope could be operating. But the last paragraph of Section 4.2 dismisses the suggestion that the S/N ratio could be non-zero with a weird argument about Gaussian random fields. But the reality is if there is a massive continuum source in the field of view (Crab Nebula, Sun, Galactic Plane which all have structure on size scales <1 deg), then this might indeed be a huge concern. The radio continuum sky is obviously not a Gaussian random field.
 
-We agree that the sky is not a gaussian random field (obviously), but to get well awayfrom the SNR<1 regime requires that a compact source dominate the total power coming into the antenna, not just the power in the visibility.  For most radio telescopes this would absolutely be a concern, but the primary beam of ALBATROS is huge.  We already know from e.g. EDGES that the total power is dominated by the galactic signal, and in PRIZM, we can't even see the Crab or the sun in total power.  (add words to text...)
+We agree that the sky is certainly not a Gaussian random field, but to get well away from the SNR<1 regime requires that a compact source dominate the total power coming into the antenna, not just the power in the visibility.  For most radio telescopes this would absolutely be a concern, but the primary beam of ALBATROS is huge.  We already know from e.g. EDGES that the total power is dominated by the Galactic signal, and in PRIZM, we can't even see the Crab or the sun in total power.  (add words to text...)
 
 
 SECTION 5

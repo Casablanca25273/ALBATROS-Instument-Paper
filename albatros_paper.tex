@@ -144,9 +144,9 @@ at $\sim 5$\degree\ resolution, using an array of
 have also performed measurements at similarly low frequency ranges;
 for example, the Radio Astronomy Explorer-2 operated at
 \SIrange{0.025}{13}{\MHz} with $\sim 10$\degree\ resolution at
-\SI{4.7}{\MHz}~\citep{1975A&A....40..365A}.  More recent ground-based
+\SI{4.7}{\MHz}~\citep{1975A&A....40..365A}.  Subsequent ground-based
 experiments include the Dominion Radio Astrophysical Observatory
-surveys of the northern sky at 10~MHz and 22~MHz, with
+(DRAO) surveys of the northern sky at 10~MHz and 22~MHz, with
 $\sim2$\degree\ and 1.1--1.7\degree\ resolution,
 respectively~\citep{1976MNRAS.177..601C, 1999A&AS..137....7R}.
 Low-frequency imaging experiments that are currently operational or
@@ -159,11 +159,16 @@ improved resolution at $>30$~MHz when combined with LOFAR.  Existing
 measurements with finer resolution are mainly at higher frequencies;
 for example, the Owens Valley Long Wavelength Array mapped the sky
 with \SI{15}{\arcminute} resolution between 36.528~MHz and
-73.152~MHz~\citep{2018AJ....156...32E}.  Although this experimental
-list is not comprehensive, it does illustrate the dearth of
-information about the $\lesssim 30$~MHz sky and the lack of high
-resolution measurements at the lowest frequencies, particularly in the
-southern hemisphere.  
+73.152~MHz~\citep{2018AJ....156...32E}.  The dearth of information
+about the $\lesssim 30$~MHz sky, particularly in the southern
+hemisphere, is illustrated by the Global Sky
+Model~\citep{2017MNRAS.464.3486Z}, which incorporates the DRAO 10~MHz
+and 22~MHz data as the only two inputs at these low frequencies with
+sufficiently meaningful sky coverage and resolution.
+% Although this experimental list is not comprehensive, it does
+% illustrate the dearth of information about the $\lesssim 30$~MHz sky
+% and the lack of high resolution measurements at the lowest
+% frequencies, particularly in the southern hemisphere.
 
 The first step toward laying the groundwork for
 possible measurements of the dark ages is obtaining an improved map of
@@ -491,10 +496,9 @@ at 10~MHz is $\lesssim1^\circ$.  With publicly available orbits and
 multiple satellites typically within the field of view, we expect that
 ORBCOMM baseband data saved at the same time as the astronomical data
 can provide offline synchronization of the \albatros\ stations.
-Because the ORBCOMM and science data are taken at the same time by the
-same system, improvements to the ORBCOMM calibration can be
-immediately carried over into improving the science data calibration,
-even if said improvements take years to realize.
+Because the ORBCOMM and science data are recorded at the same time by
+the same system, improvements to the timing calibration can be applied
+in post-processing.
 
 As with the two-element pathfinder, a SNAP board digitizes each of the
 two RF signals at 250~Msamp/s. In the autonomous station
@@ -506,17 +510,17 @@ data for each polarization over tunable frequency windows within the
 compression, and 2) auto- and cross-spectra from the two polarizations
 over the full 0--125~MHz span, accumulated over few-second intervals.
 The reduction in bit depth happens only \textit{after} the SNAP board
-has channelized the baseband, and so cross-channel leakage (due to
-\textit{e.g.} RFI and slopes in RF power as seen by the ADCs) is
-unaffected by the low bit depth.  
-An RPi~3B+ controls the SNAP board and and receives the auto- and
-cross-spectra via GPIO connections, and the spectra are saved to an
-on-board SD card.  The baseband data are passed from the SNAP board to
-the RPi via ethernet and written to external hard drives.  The
-introduction of gigabit ethernet with the RPi~3B+ model has enabled
-the high data throughput associated with writing baseband.  As a
-benchmark, 1-bit baseband recording of two polarizations over 10~MHz
-of bandwidth yields an approximate data rate of 5~MB/s, or 0.4~TB/day.
+has channelized the baseband, and the cross-channel leakage (due to,
+e.g., RFI and slopes in RF power as seen by the ADCs) is therefore
+unaffected by the low bit depth.  An RPi~3B+ controls the SNAP board
+and and receives the auto- and cross-spectra via GPIO connections, and
+the spectra are saved to an on-board SD card.  The baseband data are
+passed from the SNAP board to the RPi via ethernet and written to
+external hard drives.  The introduction of gigabit ethernet with the
+RPi~3B+ model has enabled the high data throughput associated with
+writing baseband.  As a benchmark, 1-bit baseband recording of two
+polarizations over 10~MHz of bandwidth yields an approximate data rate
+of 5~MB/s, or 0.4~TB/day.
 
 
 \subsection{Correlation}
