@@ -51,9 +51,9 @@
 
 \author{H.~C.~Chiang$^{1,2,\dagger}$, T.~Dyson$^{1}$, E.~Egan$^{1}$,
   S.~Eyono$^{2}$, N.~Ghazi$^{2}$, J.~Hickish$^{3}$,
-  J.~M.~J\'auregui--Garcia$^{4}$, V.~Manukha$^{5}$, T.~Moso$^{2}$,
-  J.~Peterson$^{6}$, L.~Philip$^{7}$, J.~L.~Sievers$^{1,7}$,
-  S.~Tartakovsky$^{1}$}
+  J.~M.~J\'auregui--Garcia$^{4}$, V.~Manukha$^{5}$, T.~M\'enard$^{1}$,
+  T.~Moso$^{2}$, J.~Peterson$^{6}$, L.~Philip$^{7}$,
+  J.~L.~Sievers$^{1,7}$, S.~Tartakovsky$^{1}$}
 
 \address{
 $^{1}$Department of Physics, McGill University, Montr\'eal, Quebec H3A 2T8, Canada\\
@@ -301,8 +301,6 @@ to qualitatively understand the sky signal, and 2) a single station to
 test the readout and power handling technology that are required for
 autonomous operation.
 
-\section{Two-element pathfinder}\label{s:2elem}
-
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.7\linewidth]{Figures/albatros_2elem/albatros_2elem.pdf}
@@ -315,6 +313,8 @@ autonomous operation.
     \label{Fig:albatros2}
   \end{center}
 \end{figure}
+
+\section{Two-element pathfinder}\label{s:2elem}
 
 \begin{figure}
   \begin{center} \includegraphics[width=1.0\linewidth]{Figures/albatros_2elem_schematic/albatros_2elem_schematic.pdf}
@@ -589,13 +589,12 @@ to the ideal, infinite-precision SNR.  \autoref{fig:1bit_efficiency}
 illustrates that the decrease in $\epsilon$ as a function of SNR is
 relatively shallow.  When the SNR is near zero, $\epsilon$ approaches
 $2/\pi \approx 0.64$, and if the signal level increases to two times
-the  
-noise level, $\epsilon$ decreases by only a factor of $\sim2$.  The
-final \albatros\ array will have baselines that are long relative to
-the observing wavelength, and the correlated component of the electric
-field (which sets the relevant signal level) is likely a small
-fraction of the total received power.  This qualitative argument can
-by made by considering antennas in the $uv$~plane in the flat-sky
+the noise level, $\epsilon$ decreases by only a factor of $\sim2$.
+The final \albatros\ array will have baselines that are long relative
+to the observing wavelength, and the correlated component of the
+electric field (which sets the relevant signal level) is likely a
+small fraction of the total received power.  This qualitative argument
+can by made by considering antennas in the $uv$~plane in the flat-sky
 approximation.  Any individual antenna receives all power present in
 the $uv$~plane (plus system noise), but the correlated contribution
 comes only from the portion of the $uv$~plane that is encompassed by
@@ -607,16 +606,33 @@ filling factor is the square of the wavelength divided by the baseline
 length.  Therefore, in the long-baseline limit, the correlated signal
 is small in comparison to the total power received, and the correlator
 efficiency is unlikely to decrease significantly from the ideal
-$2/\pi$ value.  This remains true even when the brightest radio
-sources in the sky are in the beam (the sun is irrelevant since
-ionospheric effects restrict \albatros\ to night-time observing).
-Centaurus A \citep{culgoora1} and M1 \citep{Braude1969} only affect
-the total power expected from the Global Sky Model \citep{gsm2008} at
-the $\sim$10\% level.  Additionally, as will be shown later in this
-work, preliminary ALBATROS data show that visibilities are only a few
-percent of the total power amplitude, consistent with our expectation
-that diffuse emission dominates even the brightest sources given the
-$\sim$steradian solid angle of the primary beam.
+$2/\pi$ value.  This efficiency behavior remains true even when the
+brightest radio sources are visible, since the primary beam
+encompasses more than a steradian solid angle (the sun is irrelevant
+since ionospheric effects restrict \albatros\ to night-time
+observing).  Centaurus~A~\citep{culgoora1} and M1~\citep{Braude1969}
+affect the total power expected from the Global Sky
+Model~\citep{gsm2008} at only the $\sim$10\% level.  Additionally, as
+will be shown in \S\ref{s:obs}, preliminary \albatros\ data
+demonstrate that the visibilities are only a few percent of the total
+power amplitude, thus indicating that diffuse emission dominates even
+the brightest sources over the large primary beam.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=\linewidth]{Figures/albatros2_waterfalls.jpg}
+    \caption{Spectra from a co-aligned polarization pair from the
+      two-element \albatros\ pathfinder, shown as a function of
+      frequency and time.  The auto- and cross-spectra are shown in
+      the top and bottom rows, respectively.  The spectrum magnitudes
+      are in uncalibrated ADC units on a logarithmic scale, and the
+      cross-spectrum amplitude is about two orders of magnitude
+      fainter than the autospectra.  The cross-spectrum phase is shown
+      in radians.  Repeatable structure from the Galaxy is visible
+      over the three-day time scale in all plots.}
+    \label{Fig:albatros2_waterfalls}
+  \end{center}
+\end{figure}
 
 \subsection{Solar power system}
 
@@ -673,16 +689,17 @@ charge controller EMI contamination.)
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=\linewidth]{Figures/albatros2_waterfalls.jpg}
-    \caption{Spectra from a co-aligned polarization pair from the
-      two-element \albatros\ pathfinder, shown as a function of
-      frequency and time.  The auto- and cross-spectra are shown in
-      the top and bottom rows, respectively.  The spectrum magnitudes
-      are in uncalibrated ADC units on a logarithmic scale, and the
-      cross-spectrum is about two orders of magnitude fainter than the
-      autospectra (.  Repeatable structure from the Galaxy is visible
-      over the three-day time scale in all plots.}
-    \label{Fig:albatros2_waterfalls}
+    \includegraphics[width=0.7\linewidth]{Figures/albatros2_auto_model.png}
+    \caption{Top panel: simulated $S11$ for the LWA antenna,
+      illustrating the steep signal loss below $\sim30$~MHz.  Bottom
+      panel: median uncalibrated autospectrum for one of the
+      polarizations in the two-element \albatros\ pathfinder, compared
+      against a crude sky signal estimate given by the product of $(1
+      - S11)$ with a nominal $\nu^{-2.6}$ synchrotron spectrum.  This
+      simple model qualitatively demonstrates that the decrease in
+      autospectrum power below $\sim30$~MHz is caused primarily by the
+      antenna response.}
+    \label{Fig:albatros2_auto_model}
   \end{center}
 \end{figure}
 
@@ -709,14 +726,15 @@ calibration or cuts have been applied.  The rising and setting of the
 Galaxy is visible in all of the spectrum magnitudes, and repeatable
 fringes are visible in the phases of the cross-spectra.  The signal
 drop-off below $\lesssim30$~MHz in the autospectra is caused largely
-by the combined response of the LWA antenna and FEE.  Although the LWA
-antenna is not optimized for the lowest \albatros\ observing
-frequencies, as described in \S\ref{s:antenna}, it is sufficient for
-these initial, exploratory measurements.  The RFI lines at
-$\lesssim20$~MHz arise primarily from shortwave radio transmission
-reflecting off the ionosphere.  During the night, when the ionospheric
-plasma cutoff frequency drops, the maximum frequency of the RFI
-contamination falls to $\sim10$~MHz.
+by the combined response of the LWA antenna and FEE, as illustrated in
+\autoref{Fig:albatros2_auto_model}.  Although the LWA antenna is not
+optimized for the lowest \albatros\ observing frequencies, as
+described in \S\ref{s:antenna}, it is sufficient for these initial,
+exploratory measurements.  The RFI lines at $\lesssim20$~MHz arise
+primarily from shortwave radio transmission reflecting off the
+ionosphere.  During the night, when the ionospheric plasma cutoff
+frequency drops, the maximum frequency of the RFI contamination falls
+to $\sim10$~MHz.
 
 As a qualitative illustration of the sky signal repeatability,
 \autoref{Fig:albatros2_phase} shows the phases of the cross-spectra

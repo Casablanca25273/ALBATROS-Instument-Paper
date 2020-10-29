@@ -1,4 +1,8 @@
+Note to editor: we have added T. Menard as a new author because he contributed the S11 simulation in figure 9.
+
 1) Starting with the antenna, the authors mention this is not optimised for lower than 10MHz and another antenna needs to be developed but there is hardly any discussion on this. Just from the plots in figure 8, it is clear the performance of the antenna drops pretty rapidly below 30MHz, thus implying this antenna is pretty poorly matched at the primary frequencies of interest here. I would have liked to see at least some information about this antenna in the paper, perhaps even a plot of S11 which surely the authors have access to. 
+
+We have included a new figure (#9) that illustrates the simulated S11 for the antenna, in addition to an overplot of the median autospectrum with a crude sky signal estimate given by (1-S11) multiplied with a nu^-2.6 spectrum.
 
 2) To develop an antenna to work effectively below 30MHz down to a few MHz, you will need to make it significantly larger, implying there will be major challenges in how you construct and deploy an antenna which may be 5m wide. If this is not the case and you are using an electrically short, albeit fat dipole, then the antenna is horribly mismatched at the lower frequencies. In my view this will have a major impact on 1-bit quantisation. How will that work when there is a 30dB or even 40dB slope across the band?
 
@@ -13,7 +17,7 @@ First, we stress ALBATROS is not meant to be a precision cosmology instrument - 
 
 5) An important aspect of developing an autonomous instrument like this is timing. I can see the authors have thought about this and discussed it in the paper but have there been any experiments of running such systems for months on end and analysing the drifts. It seems like something that could be done fairly easily in the lab for extended periods of time. If there is no data to present on this, then some discussion about such possible plans would help.
 
-Response:  Unfortunately all we have are the preliminary lab tests.  The setup was literally a few pieces of wire hanging off an LWA front end sitting inside the lab, not even next to a window.  With just a few minutes of that, we were able to synchronize the EW and NS polarizations to about 0.1ns.  Our plan was to then go to the roof and carry out proper tests (exactly the ones the referee suggests), but unfortunately COVID shut down lab access just a couple of days after the lab tests.  Similarly, we should have timing infomation from the data on disk at Marion, but all science efforts were cancelled during the 2020 voyage, so we have been unable to retrieve the data.  A talented undergraduate is doing this work for his thesis, now that labs are slowly opening back up, but the results will not be ready on the timescale of resubmission.  We have added text in section 4.1 clarifying that the ORBCOMM and science data are recorded simultaneously, and we can therefore interatively improve the timing calibration in post-processing.  Otherwise we cast ourselves on the mercy of the journal and the referee to let us defer to a future paper the analysis we would have loved to have been able to put here.
+Unfortunately all we have are the preliminary lab tests.  The setup was literally a few pieces of wire hanging off an LWA front end sitting inside the lab, not even next to a window.  With just a few minutes of that, we were able to synchronize the EW and NS polarizations to about 0.1ns.  Our plan was to then go to the roof and carry out proper tests (exactly the ones the referee suggests), but unfortunately COVID shut down lab access just a couple of days after the lab tests.  Similarly, we should have timing infomation from the data on disk at Marion, but all science efforts were cancelled during the 2020 voyage, so we have been unable to retrieve the data.  A talented undergraduate is doing this work for his thesis, now that labs are slowly opening back up, but the results will not be ready on the timescale of resubmission.  We have added text in section 4.1 clarifying that the ORBCOMM and science data are recorded simultaneously, and we can therefore interatively improve the timing calibration in post-processing.  Otherwise we cast ourselves on the mercy of the journal and the referee to let us defer to a future paper the analysis we would have loved to have been able to put here.
 
 
 Reviewer #2: This paper describes an interesting step towards a modern low-frequency map of the sky, the eventual production of which will be a major challenge in calibration and operations. Nevertheless, the current baby steps are well-motivated, well-described and definitely in the right direction. The text of the paper is mainly technical, but of a clear and appropriate nature for this journal. I have some minor comments:
@@ -29,7 +33,7 @@ Since our discussion focuses on observations below 30 MHz, we feel that these 45
 
 - The statement "Although this experimental list is not comprehensive, it does illustrate the dearth of information about .." is a bit self-defeating. A smaller list would illustrate an even larger dearth! I think it would be good to make this a complete list, given the fact that it is very short.
 
-Although we would love to one day write a review article (or read one; to the best of our knowledge, such a review article doesn't presently exist), compiling a comprehensive list that's 100% accurate is non-trivial.  We nevertheless agree that the text should be revised, so we have now included a reference to the Global Sky Model, which uses only the DRAO 10 MHz and 22 MHz maps as model inputs below 30 MHz.
+Although we would love to one day write a review article (or read one; to the best of our knowledge, such a review article doesn't presently exist), compiling a comprehensive list that's 100% accurate is a non-trivial exercise.  We nevertheless agree that the text should be revised, so we have now included a reference to the Global Sky Model, which uses only the DRAO 10 MHz and 22 MHz maps as model inputs below 30 MHz.
 
 - para 2 is a bit long - split at "The first step toward..."?
 
@@ -38,7 +42,7 @@ Done.
 SECTION 2 & 3
 - These sections seem fine, but some more information about the LWA antenna below 10 MHz would be useful. The sentence "LWA antenna is not optimized for observations below 10 MHz..." seems an understatement given that <10 MHz is outside the published frequency capability of the antenna. A more informed statement about sensitivity (or lack thereof would be useful). For example, the lack of Galactic Plane and RFI signal below 8 MHz in various plots (eg Figs 8, 11) looks more like there might be complete loss of sensitivity. Please clarify.
 
-Note to self: will add plots
+We have included a new figure (#9) that illustrates the simulated S11 for the antenna, in addition to an overplot of the median autospectrum with a crude sky signal estimate given by (1-S11) multiplied with a nu^-2.6 spectrum.
 
 SECTION 4
 - The review of 2-level correlator efficiency vs S/N ratio is interesting and a nice reminder to radio astronomers about the very different regime such a telescope could be operating. But the last paragraph of Section 4.2 dismisses the suggestion that the S/N ratio could be non-zero with a weird argument about Gaussian random fields. But the reality is if there is a massive continuum source in the field of view (Crab Nebula, Sun, Galactic Plane which all have structure on size scales <1 deg), then this might indeed be a huge concern. The radio continuum sky is obviously not a Gaussian random field.
@@ -47,9 +51,23 @@ We agree that the sky is certainly not a Gaussian random field, but to get well 
 
 SECTION 5
 - The waterfall plots are all fairly interesting, but of not much practical value without calibration. What is the frequency response of the system? How much fainter is the RFI in the cross-correlations than the autocorrelations? These simple questions can be answered with a simple model of how the system noise changes with frequency or utilising the nice Galactic plane drift scans in combination with a crude model.
+
+
+
+
 - Fig.8 caption: mention if the amplitude units are linear or log (the latter I think?). Also phase (radians I think?), although the latter has too much wrapping to be useful.
+
+We have added this information to the caption.
+
 - I suggest extracting some 1-d plots of amplitude and phase - these would be a great complement to the waterfall plots as they will contain features more difficult to see than on simple images.
+
+With the addition of figure 9, a 1D plot of the median autospectrum is now present.  1D plots of the phase are somewhat more difficult to meaningfully extract since the structure changes dramatically with time, and figure 10 (formerly 9) is meant to highlight the features that are repeatable.
+
 - Perhaps mention (I didn't see) information about the frequency dependent beam size of the antenna, and the location of the phase centre of the interferometer (fixed at zenith?).
+
+
+
 SECTION 6
 - wind turbines have been investigated for potential use in several observatories before. Good idea potentially for the Marion site, but they are RFI sources and their motor parts or turbine blades may act as modulated reflectors or dielectrics.
 
+We agree, and investigating low-RFI solutions for wind turbines is work in progress.  We are aware that low-RFI wind turbines are already being developed for e.g. the ARIANNA experiment (arXiv:1903.01609).
