@@ -615,7 +615,7 @@ encompasses more than a steradian solid angle (the sun is irrelevant
 since ionospheric effects restrict \albatros\ to night-time
 observing).  Centaurus~A~\citep{culgoora1} and M1~\citep{Braude1969}
 affect the total power expected from the Global Sky
-Model~\citep{gsm2008} at only the $\sim$10\% level.  Additionally, as
+Model (GSM)~\citep{gsm2008} at only the $\sim$10\% level.  Additionally, as
 will be shown in \S\ref{s:obs}, preliminary \albatros\ data
 demonstrate that the visibilities are only a few percent of the total
 power amplitude, thus indicating that diffuse emission dominates even
@@ -740,14 +740,26 @@ cross-spectrum magnitude in comparison to the autospectrum.  During
 the night, when the ionospheric plasma cutoff frequency drops, the
 maximum frequency of the RFI contamination falls to $\sim10$~MHz.
 
-As a qualitative illustration of the sky signal repeatability,
+We can estimate the instrumental gain stability by comparing the total
+power between the different days shown in
+\autoref{Fig:albatros2_waterfalls}.  We find that the RMS gain
+fluctuations between 30 and 40~MHz (where the Galactic signal peaks in the
+data) are less than 1\%.  Further, we find that the typical noise on
+$\sim$3-second timescales is 0.04\% of the power.  The low noise suggests that we
+can carry out relative calibration with sub-percent accuracy by using
+the autospectra recorded by each autonomous station (absolute calibration
+could be carried out by comparison to either \prizm\, which is
+co-located and absolutely calibrated, or \textit{e.g.} the GSM).
+As a qualitative illustration of the smaller-scale sky signal repeatability,
 \autoref{Fig:albatros2_phase} shows the phases of the cross-spectra
 binned in local sidereal time.  About 372 hours of data are averaged
 into this plot, and no RFI excision has been performed.  A more
 detailed analysis of signal repeatability will be presented in a
 future paper, but the high signal-to-noise fringe pattern, which is
 even visible slightly below $\sim10$~MHz, demonstrates the proof of
-concept for building the expanded \albatros\ array.
+concept for building the expanded \albatros\ array.  
+
+
 
 We have been unable to retrieve data from the single autonomous
 station pathfinder on Marion (\S\ref{s:autonomous}) because of
