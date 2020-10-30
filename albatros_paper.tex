@@ -615,7 +615,7 @@ encompasses more than a steradian solid angle (the sun is irrelevant
 since ionospheric effects restrict \albatros\ to night-time
 observing).  Centaurus~A~\citep{culgoora1} and M1~\citep{Braude1969}
 affect the total power expected from the Global Sky
-Model (GSM)~\citep{gsm2008} at only the $\sim$10\% level.  Additionally, as
+Model~\citep{gsm2008} at only the $\sim$10\% level.  Additionally, as
 will be shown in \S\ref{s:obs}, preliminary \albatros\ data
 demonstrate that the visibilities are only a few percent of the total
 power amplitude, thus indicating that diffuse emission dominates even
@@ -743,23 +743,21 @@ maximum frequency of the RFI contamination falls to $\sim10$~MHz.
 We can estimate the instrumental gain stability by comparing the total
 power between the different days shown in
 \autoref{Fig:albatros2_waterfalls}.  We find that the RMS gain
-fluctuations between 30 and 40~MHz (where the Galactic signal peaks in the
-data) are less than 1\%.  Further, we find that the typical noise on
-$\sim$3-second timescales is 0.04\% of the power.  The low noise suggests that we
-can carry out relative calibration with sub-percent accuracy by using
-the autospectra recorded by each autonomous station (absolute calibration
-could be carried out by comparison to either \prizm\, which is
-co-located and absolutely calibrated, or \textit{e.g.} the GSM).
-As a qualitative illustration of the smaller-scale sky signal repeatability,
-\autoref{Fig:albatros2_phase} shows the phases of the cross-spectra
-binned in local sidereal time.  About 372 hours of data are averaged
-into this plot, and no RFI excision has been performed.  A more
-detailed analysis of signal repeatability will be presented in a
-future paper, but the high signal-to-noise fringe pattern, which is
+fluctuations between 30 and 40~MHz (where the Galactic signal peaks in
+the data) are less than 1\%.  The typical noise on $\sim$3-second time
+scales is roughly 0.04\% of the power.  The low noise suggests that
+relative calibration, using autospectra recorded by each autonomous
+station, can yield sub-percent accuracy.  (Absolute calibration in the
+future will be derived by comparing autospectra against \prizm, which
+is co-located and absolutely calibrated, or the Global Sky Model.)  As
+a qualitative illustration of the sky signal repeatability on smaller
+scales, \autoref{Fig:albatros2_phase} shows the phases of the
+cross-spectra binned in local sidereal time.  About 372 hours of data
+are averaged into this plot, and no RFI excision has been performed.
+A more detailed analysis of signal repeatability will be presented in
+a future paper, but the high signal-to-noise fringe pattern, which is
 even visible slightly below $\sim10$~MHz, demonstrates the proof of
-concept for building the expanded \albatros\ array.  
-
-
+concept for building the expanded \albatros\ array.
 
 We have been unable to retrieve data from the single autonomous
 station pathfinder on Marion (\S\ref{s:autonomous}) because of
@@ -803,7 +801,7 @@ for illustrating baseband data writing.
 
 \begin{figure}[t]
   \begin{center}
-    \includegraphics[width=\linewidth]{Figures/baseband_direct_phase_compare.png}
+    \includegraphics[width=0.9\linewidth]{Figures/baseband_direct_phase_compare.png}
     \caption{Phases from the cross-correlation between two orthogonal
       polarizations from an \albatros\ pathfinder at MARS (see text
       for details).  The top row shows cross-spectrum phases that are

@@ -6,7 +6,7 @@
 \usepackage{xcolor}
 \usepackage[square,sort&compress]{natbib}
 \usepackage[small,compact]{titlesec}
-\usepackage[margin=0.7in]{geometry}
+\usepackage[margin=0.85in]{geometry}
  
 \setlength{\parskip}{0.07in}
 \setlength{\bibsep}{0.05in}
@@ -94,17 +94,17 @@ Dicke switching, at least as part of regular operations, won't add
 very much because we can calibrate gain variations off the Galactic
 signal.  Each station saves total power autospectra, which have
 enormous SNR and are repeated day-to-day.  We find the instrument is
-very stable, with RMS gain fluctuations \<0.6\% over several days,
-and typical gain calibration errors of \<0.04\% on 3-second timescales
-based on the galactic signal.  Any noise offsets will in general not
-contribute to cross-correlations and so the chief concern is to remove
-them when developing a galactic model.  PRIZM, which has several
-levels of calibration switching, is co-located with ALBATROS, has
-similar beams, and operates in a similar frequency range (\>30 MHz).
-We can derive an approximate absolute calibration by comparing the
-diurnal variation in galactic signal (which is insensitive to any
-offsets) bewteen PRIZM and ALBATROS.  We have updated the text to
-reflect these numbers.
+very stable, with RMS gain fluctuations $<$0.6\% over several days,
+and typical gain calibration errors of $<$0.04\% on 3-second
+timescales based on the Galactic signal.  Any noise offsets will in
+general not contribute to cross-correlations and so the chief concern
+is to remove them when developing a Galactic model.  PRIZM, which has
+several levels of calibration switching, is co-located with ALBATROS,
+has similar beams, and operates in a similar frequency range ($>$30
+MHz).  We can derive an approximate absolute calibration by comparing
+the diurnal variation in Galactic signal (which is insensitive to any
+offsets) between PRIZM and ALBATROS.  We have updated the text in
+section~5 to reflect these numbers.
 
 \noindent \textcolor{blue}{5) An important aspect of developing an
   autonomous instrument like this is timing. I can see the authors
@@ -122,14 +122,14 @@ minutes of that, we were able to synchronize the EW and NS
 polarizations to about 0.1ns.  Our plan was to then go to the roof and
 carry out proper tests (exactly the ones the referee suggests), but
 unfortunately COVID shut down lab access just a couple of days after
-the lab tests.  Similarly, we should have timing infomation from the
+the lab tests.  Similarly, we should have timing information from the
 data on disk at Marion, but all science efforts were cancelled during
 the 2020 voyage, so we have been unable to retrieve the data.  A
 talented undergraduate is doing this work for his thesis, now that
 labs are slowly opening back up, but the results will not be ready on
 the timescale of resubmission.  We have added text in section 4.1
 clarifying that the ORBCOMM and science data are recorded
-simultaneously, and we can therefore interatively improve the timing
+simultaneously, and we can therefore iteratively improve the timing
 calibration in post-processing.  Otherwise we cast ourselves on the
 mercy of the journal and the referee to let us defer to a future paper
 the analysis we would have loved to have been able to put here.
@@ -246,6 +246,8 @@ we include the plot here for reference.
   \end{center}
   \vspace{-5pt}
 \end{figure}
+
+\pagebreak
 
 \noindent \textcolor{blue}{Perhaps mention (I didn't see) information
   about the frequency dependent beam size of the antenna, and the
