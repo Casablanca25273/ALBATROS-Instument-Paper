@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{palatino}
+\usepackage{graphicx}
 \usepackage{url}
 \usepackage{enumitem}
 \usepackage{xcolor}
@@ -218,10 +219,17 @@ We have added this information to the caption.
   than on simple images.}
 
 With the addition of figure 9, a 1D plot of the median autospectrum is
-now present.  1D plots of the phase are somewhat more difficult to
-meaningfully extract since the structure changes dramatically with
-time, and figure 10 (formerly 9) is meant to highlight the features
-that are repeatable.
+now present.  We have extracted a few 1D plots of the unwrapped phase
+along the time axis (scaled by frequency), and we feel that the
+results are not sufficiently interesting to add to the paper, although
+we include the plot here for reference.
+\begin{figure}[h]
+  \vspace{-5pt}
+  \begin{center}
+    \includegraphics*[angle=0,width=0.5\textwidth]{Figures/unwrapped_phase_3freq.png}
+  \end{center}
+  \vspace{-5pt}
+\end{figure}
 
 \noindent \textcolor{blue}{Perhaps mention (I didn't see) information
   about the frequency dependent beam size of the antenna, and the
