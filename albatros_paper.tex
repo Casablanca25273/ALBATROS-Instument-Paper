@@ -349,12 +349,13 @@ history, are well characterized, and are simple to install and
 physically robust.  The antennas form an east--west baseline with a
 separation of \SI{110}{m}, and the polarizations are aligned with the
 cardinal directions.  Welded wire mesh screens, roughly 3~m on a side,
-are installed on the ground below the antennas.  Although the LWA
-antenna is not optimized for observations below 10~MHz, using this
-standard antenna allowed an initial test of the site and of the
-interferometer systems.  For the final \albatros\ array, we are
-exploring alternative antenna designs that will cover the full
-frequency range.
+are installed on the ground below the antennas.  The beam pattern is
+roughly omnidirectional with a solid angle that varies between 2.2 and
+2.7 steradians over 5--100~MHz.  Although the LWA antenna is not
+optimized for observations below 10~MHz, using this standard antenna
+allowed an initial test of the site and of the interferometer systems.
+For the final \albatros\ array, we are exploring alternative antenna
+designs that will cover the full frequency range.
 
 \subsection{Front-end active balun}\label{s:fee}
 
@@ -370,7 +371,9 @@ loss between the dipoles (electrically small in the frequency range of
 interest) and the 100{\ohm} input impedance, as well as the hybrid
 insertion loss ($<$1dB), the front-end electronics provide a gain of
 $\sim$37~dB~\citep{2012PASP..124.1090H}.  Each FEE circuit is powered
-by 16~V, which is fed on the coaxial cable through a bias tee.
+by 16~V, which is fed on the coaxial cable through a bias tee.  The
+lengths of the coaxial cables are the same for both antennas, thus
+placing the phase center at zenith.
 
 \subsection{Back-end electronics}
 
@@ -709,7 +712,7 @@ charge controller EMI contamination.)
     \caption{Phases from the cross-correlation between two co-aligned
       polarizations in the two-element \albatros\ pathfinder.  About
       372 hours of data are shown here, binned in local sidereal
-      time.}
+      time, and the color stretch is in radians.}
     \label{Fig:albatros2_phase}
   \end{center}
 \end{figure}
